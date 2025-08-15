@@ -71,8 +71,6 @@ export default function InstagramConnect() {
       onClick={connectInstagram}
     >
       {loading ? (
-        <FaInstagram className="text-lg" />
-      ) : (
         <div role="status">
           <svg
             aria-hidden="true"
@@ -91,6 +89,8 @@ export default function InstagramConnect() {
             />
           </svg>
         </div>
+      ) : (
+        <FaInstagram className="text-lg" />
       )}{" "}
       Connect Instagram
     </Button>

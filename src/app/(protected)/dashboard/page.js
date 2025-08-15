@@ -30,7 +30,6 @@ export default function Dashboard() {
   useEffect(() => {
     (async () => {
       try {
-        console.log("user", user);
         setConnected(!!user?.instagramUserId);
       } catch (err) {
         console.error(err);
