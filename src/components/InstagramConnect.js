@@ -26,22 +26,12 @@ export default function InstagramConnect() {
     if (code) {
       setLoading(true);
       (async () => {
-        const res = await fetch("/api/instagram/callback", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ code }),
+        const res = await linkInstagramAccountAPI({
+          authCode: code,
+          userId: user.id,
         });
-
-        if (res.ok) {
-          const data = await res.json();
-          console.log("Instagram Connected:", data);
-          await linkInstagramAccountAPI({
-            authCode: code,
-            userId: user.id,
-          });
-
+        if (res.success) {
           await fetchAndSetUser(user.id);
-
           router.replace("/dashboard");
         } else {
           console.error("Failed to connect Instagram");
