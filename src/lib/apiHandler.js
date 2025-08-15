@@ -1,5 +1,9 @@
 import { generateClient } from "@aws-amplify/api";
-import { linkInstagramAccount, manageUser } from "./api";
+import {
+  getMediaFromInstagramAccount,
+  linkInstagramAccount,
+  manageUser,
+} from "./api";
 
 const client = generateClient();
 
@@ -25,6 +29,23 @@ export const linkInstagramAccountAPI = async (data) => {
       authMode: "userPool",
     });
     return response.data.linkInstagramAccount;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+export const getMediaFromInstagramAccountAPI = async (
+  userId,
+  nextPageToken
+) => {
+  try {
+    const response = await client.graphql({
+      query: getMediaFromInstagramAccount,
+      variables: { userId: userId, nextPageToken: nextPageToken },
+      authMode: "userPool",
+    });
+    return response.data.getMediaFromInstagramAccount;
   } catch (error) {
     console.log("Error:", error);
     return error;

@@ -37,3 +37,31 @@ export const linkInstagramAccount = /* GraphQL */ `
     }
   }
 `;
+
+export const getMediaFromInstagramAccount = /* GraphQL */ `
+  query GetMediaFromInstagramAccount($userId: String!, $nextPageToken: String) {
+    getMediaFromInstagramAccount(
+      userId: $userId
+      nextPageToken: $nextPageToken
+    ) {
+      success
+      message
+      items {
+        id
+        caption
+        mediaType
+        mediaProductType
+        mediaUrl
+        thumbnailUrl
+        permalink
+        timestamp
+        commentsCount
+        likeCount
+        shortcode
+        __typename
+      }
+      nextPageToken
+      __typename
+    }
+  }
+`;
