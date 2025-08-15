@@ -17,7 +17,9 @@ export default function InstagramConnect() {
   const connectInstagram = () => {
     const authUrl = `https://api.instagram.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_INSTAGRAM_APP_ID}&redirect_uri=${process.env.NEXT_PUBLIC_INSTAGRAM_REDIRECT_URI}&scope=instagram_business_basic,instagram_business_manage_messages,instagram_business_manage_comments,instagram_business_content_publish,instagram_business_manage_insights
 &response_type=code`;
-    window.location.href = authUrl;
+    if (!!window) {
+      window.location.href = authUrl;
+    }
   };
 
   useEffect(() => {
@@ -34,7 +36,7 @@ export default function InstagramConnect() {
           const data = await res.json();
           console.log("Instagram Connected:", data);
           await linkInstagramAccountAPI({
-            code,
+            authCode: code,
             userId: user.id,
           });
 
