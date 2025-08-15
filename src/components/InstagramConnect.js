@@ -23,23 +23,29 @@ export default function InstagramConnect() {
   };
 
   useEffect(() => {
-    if (code) {
-      setLoading(true);
-      (async () => {
-        const res = await linkInstagramAccountAPI({
-          authCode: code,
-          userId: user.id,
-        });
-        if (res.success) {
-          await fetchAndSetUser(user.id);
-          router.replace("/dashboard");
-        } else {
-          console.error("Failed to connect Instagram");
-        }
-        setLoading(false);
-      })();
+    if (!code) return;
+
+    if (user?.instagramUserId) {
+      router.replace("/dashboard");
+      return;
     }
-  }, [code, router]);
+
+    setLoading(true);
+    (async () => {
+      const res = await linkInstagramAccountAPI({
+        authCode: code,
+        userId: user.id,
+      });
+
+      if (res.success) {
+        await fetchAndSetUser(user.id);
+        router.replace("/dashboard");
+      } else {
+        console.error("Failed to connect Instagram");
+      }
+      setLoading(false);
+    })();
+  }, [code, router, user, fetchAndSetUser]);
 
   if (loading) {
     return (
