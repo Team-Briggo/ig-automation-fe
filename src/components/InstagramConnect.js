@@ -47,7 +47,7 @@ export default function InstagramConnect() {
 
   return (
     <Button
-      className="flex gap-2 justify-center items-center w-full text-white bg-pink-500 hover:bg-pink-600"
+      className="flex gap-2 justify-center items-center w-full text-white bg-black hover:bg-black/80"
       onClick={connectInstagram}
     >
       <FaInstagram className="text-lg" /> Connect Instagram
