@@ -75,7 +75,7 @@ export default function InstagramConnect() {
       ) : (
         <div role="status">
           <svg
-            ariaHidden="true"
+            aria-hidden="true"
             className="inline w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-gray-600"
             viewBox="0 0 100 101"
             fill="none"
