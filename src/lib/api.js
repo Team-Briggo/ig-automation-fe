@@ -18,13 +18,10 @@ export const manageUser = /* GraphQL */ `
           followersCount
           followsCount
           mediaCount
-          __typename
         }
         createdAt
         updatedAt
-        __typename
       }
-      __typename
     }
   }
 `;
@@ -34,7 +31,6 @@ export const linkInstagramAccount = /* GraphQL */ `
     linkInstagramAccount(input: $input) {
       success
       message
-      __typename
     }
   }
 `;

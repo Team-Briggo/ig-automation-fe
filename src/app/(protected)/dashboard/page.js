@@ -9,18 +9,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
 
-async function fetchInstagramStatus() {
-  return {
-    connected: true,
-    stats: {
-      posts: 120,
-      followers: 845,
-      following: 321,
-    },
-    lastSync: new Date().toLocaleString(),
-  };
-}
-
 export default function Dashboard() {
   const router = useRouter();
   const [connected, setConnected] = useState(false);
@@ -31,6 +19,13 @@ export default function Dashboard() {
     (async () => {
       try {
         setConnected(!!user?.instagramUserId);
+        if (user?.instagramUserId) {
+          setStats({
+            posts: user.instagramDetails.mediaCount,
+            followers: user.instagramDetails.followersCount,
+            following: user.instagramDetails.followsCount,
+          });
+        }
       } catch (err) {
         console.error(err);
       }
@@ -91,18 +86,18 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-4">
         <StatCard
           label="Total Posts"
-          value={stats?.stats?.posts}
+          value={stats?.posts}
           description="All the posts you've shared so far."
           onClick={() => router.push("/dashboard/posts")}
         />
         <StatCard
           label="Followers"
-          value={stats?.stats?.followers}
+          value={stats?.followers}
           description="People who follow your profile."
         />
         <StatCard
           label="Following"
-          value={stats?.stats?.following}
+          value={stats?.following}
           description="Accounts you're currently following."
         />
         <StatCard
