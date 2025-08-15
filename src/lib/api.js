@@ -32,7 +32,7 @@ export const manageUser = /* GraphQL */ `
 export const linkInstagramAccount = /* GraphQL */ `
   mutation LinkInstagramAccount($input: LinkInstagramAccountInput!) {
     linkInstagramAccount(input: $input) {
-      status
+      success
       message
       __typename
     }
