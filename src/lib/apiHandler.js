@@ -1,8 +1,12 @@
 import { generateClient } from "@aws-amplify/api";
 import {
+  deleteCommentFromInstagramAccount,
+  getMediaCommentsFromInstagramAccount,
   getMediaFromInstagramAccount,
+  hideCommentFromInstagramAccount,
   linkInstagramAccount,
   manageUser,
+  sendReplyToComment,
 } from "./api";
 
 const client = generateClient();
@@ -46,6 +50,81 @@ export const getMediaFromInstagramAccountAPI = async (
       authMode: "userPool",
     });
     return response.data.getMediaFromInstagramAccount;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+export const getMediaCommentsFromInstagramAccountAPI = async ({
+  userId,
+  mediaId,
+  nextPageToken,
+}) => {
+  try {
+    const response = await client.graphql({
+      query: getMediaCommentsFromInstagramAccount,
+      variables: {
+        userId: userId,
+        mediaId: mediaId,
+        nextPageToken: nextPageToken,
+      },
+      authMode: "userPool",
+    });
+    return response.data.getMediaCommentsFromInstagramAccount;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+export const hideCommentFromInstagramAccountAPI = async (userId, commentId) => {
+  try {
+    const response = await client.graphql({
+      query: hideCommentFromInstagramAccount,
+      variables: { userId: userId, commentId: commentId },
+      authMode: "userPool",
+    });
+    return response.data.hideCommentFromInstagramAccount;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+export const sendReplyToCommentAPI = async (
+  userId,
+  commentId,
+  replyContent
+) => {
+  try {
+    const response = await client.graphql({
+      query: sendReplyToComment,
+      variables: {
+        userId: userId,
+        commentId: commentId,
+        replyContent: replyContent,
+      },
+      authMode: "userPool",
+    });
+    return response.data.sendReplyToComment;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+export const deleteCommentFromInstagramAccountAPI = async (
+  userId,
+  commentId
+) => {
+  try {
+    const response = await client.graphql({
+      query: deleteCommentFromInstagramAccount,
+      variables: { userId: userId, commentId: commentId },
+      authMode: "userPool",
+    });
+    return response.data.deleteCommentFromInstagramAccount;
   } catch (error) {
     console.log("Error:", error);
     return error;

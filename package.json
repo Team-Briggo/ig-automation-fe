@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "aws-amplify": "^6.15.5",
     "framer-motion": "^12.23.12",
     "next": "15.4.6",

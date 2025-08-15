@@ -65,3 +65,104 @@ export const getMediaFromInstagramAccount = /* GraphQL */ `
     }
   }
 `;
+
+export const getMediaCommentsFromInstagramAccount = /* GraphQL */ `
+  query GetMediaCommentsFromInstagramAccount(
+    $userId: String!
+    $mediaId: String!
+    $nextPageToken: String
+  ) {
+    getMediaCommentsFromInstagramAccount(
+      userId: $userId
+      mediaId: $mediaId
+      nextPageToken: $nextPageToken
+    ) {
+      success
+      message
+      items {
+        id
+        text
+        senderId
+        senderUsername
+        isHidden
+        timestamp
+        likeCount
+        replies {
+          id
+          text
+          senderId
+          senderUsername
+          isHidden
+          timestamp
+          likeCount
+          replies {
+            id
+            text
+            senderId
+            senderUsername
+            isHidden
+            timestamp
+            likeCount
+            replies {
+              id
+              text
+              senderId
+              senderUsername
+              isHidden
+              timestamp
+              likeCount
+              __typename
+            }
+            __typename
+          }
+          __typename
+        }
+        __typename
+      }
+      nextPageToken
+      __typename
+    }
+  }
+`;
+
+export const deleteCommentFromInstagramAccount = /* GraphQL */ `
+  mutation DeleteCommentFromInstagramAccount(
+    $userId: String!
+    $commentId: String!
+  ) {
+    deleteCommentFromInstagramAccount(userId: $userId, commentId: $commentId) {
+      success
+      message
+      __typename
+    }
+  }
+`;
+export const hideCommentFromInstagramAccount = /* GraphQL */ `
+  mutation HideCommentFromInstagramAccount(
+    $userId: String!
+    $commentId: String!
+  ) {
+    hideCommentFromInstagramAccount(userId: $userId, commentId: $commentId) {
+      success
+      message
+      __typename
+    }
+  }
+`;
+export const sendReplyToComment = /* GraphQL */ `
+  mutation SendReplyToComment(
+    $userId: String!
+    $commentId: String!
+    $replyContent: String!
+  ) {
+    sendReplyToComment(
+      userId: $userId
+      commentId: $commentId
+      replyContent: $replyContent
+    ) {
+      success
+      message
+      __typename
+    }
+  }
+`;

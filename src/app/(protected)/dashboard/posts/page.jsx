@@ -85,7 +85,7 @@ const PostItem = ({ post, isLast, onPostClick, onLastPostRef }) => {
         </div>
       </div>
       <div className="p-3">
-        <p className="text-sm font-medium truncate text-pepper">
+        <p className="text-sm font-medium line-clamp-2 text-pepper">
           {post.caption || "No caption"}
         </p>
       </div>
@@ -146,11 +146,13 @@ export default function AllPosts() {
   // Memoized post click handler
   const handlePostClick = useCallback((post) => {
     setSelectedPost(post);
+    document?.body?.classList?.add("modal-open");
   }, []);
 
   // Memoized close modal handler
   const handleCloseModal = useCallback(() => {
     setSelectedPost(null);
+    document?.body?.classList?.remove("modal-open");
   }, []);
 
   // Ref callback for the last post element
@@ -330,7 +332,11 @@ export default function AllPosts() {
       )}
 
       {selectedPost && (
-        <PostModal post={selectedPost} onClose={handleCloseModal} />
+        <PostModal
+          post={selectedPost}
+          onClose={handleCloseModal}
+          userId={user?.id}
+        />
       )}
     </div>
   );
