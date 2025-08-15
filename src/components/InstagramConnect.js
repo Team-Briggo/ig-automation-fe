@@ -25,7 +25,7 @@ export default function InstagramConnect() {
   useEffect(() => {
     if (!code) return;
 
-    if (user?.instagramUserId) {
+    if (user?.instagramDetails?.id) {
       router.replace("/dashboard");
       return;
     }

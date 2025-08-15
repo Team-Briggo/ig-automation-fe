@@ -8,9 +8,9 @@ export const manageUser = /* GraphQL */ `
         name
         phoneNo
         email
-        instagramUsername
-        instagramUserId
         instagramDetails {
+          id
+          userId
           profilePictureUrl
           username
           name
@@ -18,6 +18,9 @@ export const manageUser = /* GraphQL */ `
           followersCount
           followsCount
           mediaCount
+          isInstagramSubscribed
+          instagramRefreshTokenUpdatedAt
+          updatedAt
         }
         createdAt
         updatedAt

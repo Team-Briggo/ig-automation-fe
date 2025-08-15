@@ -18,12 +18,13 @@ export default function Dashboard() {
   useEffect(() => {
     (async () => {
       try {
-        setConnected(!!user?.instagramUserId);
-        if (user?.instagramUserId) {
+        setConnected(!!user?.instagramDetails?.id);
+        if (user?.instagramDetails?.id) {
           setStats({
             posts: user.instagramDetails.mediaCount,
             followers: user.instagramDetails.followersCount,
             following: user.instagramDetails.followsCount,
+            lastSync: user.instagramDetails.updatedAt,
           });
         }
       } catch (err) {
