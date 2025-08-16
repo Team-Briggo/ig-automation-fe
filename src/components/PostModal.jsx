@@ -2524,8 +2524,6 @@ const PostModal = ({ post, onClose, userId }) => {
         nextPageToken: null,
       });
 
-      console.log("Initial comments res:", res);
-
       if (res.items && res.items.length > 0) {
         setComments(res.items);
       }
@@ -2555,8 +2553,6 @@ const PostModal = ({ post, onClose, userId }) => {
         mediaId: post.id,
         nextPageToken: nextPageToken,
       });
-
-      console.log("Load more comments res:", res);
 
       if (res.comments && res.comments.length > 0) {
         setComments((prevComments) => [...prevComments, ...res.comments]);
