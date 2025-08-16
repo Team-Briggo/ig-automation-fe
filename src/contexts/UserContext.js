@@ -1,7 +1,7 @@
 "use client";
 
 import { manageUserAPI } from "@/lib/apiHandler";
-import { getCurrentUser, signOut } from "aws-amplify/auth";
+import { fetchAuthSession, getCurrentUser, signOut } from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 

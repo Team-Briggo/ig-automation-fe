@@ -5,6 +5,7 @@ import {
   getMediaFromInstagramAccount,
   hideCommentFromInstagramAccount,
   linkInstagramAccount,
+  manageIgMediaAutomation,
   manageUser,
   sendReplyToComment,
 } from "./api";
@@ -78,11 +79,15 @@ export const getMediaCommentsFromInstagramAccountAPI = async ({
   }
 };
 
-export const hideCommentFromInstagramAccountAPI = async (userId, commentId) => {
+export const hideCommentFromInstagramAccountAPI = async (
+  userId,
+  commentId,
+  hide
+) => {
   try {
     const response = await client.graphql({
       query: hideCommentFromInstagramAccount,
-      variables: { userId: userId, commentId: commentId },
+      variables: { userId: userId, commentId: commentId, hide: hide },
       authMode: "userPool",
     });
     return response.data.hideCommentFromInstagramAccount;
@@ -130,3 +135,21 @@ export const deleteCommentFromInstagramAccountAPI = async (
     return error;
   }
 };
+
+export const manageIgMediaAutomationAPI = async (action, data) => {
+  try {
+    const response = await client.graphql({
+      query: manageIgMediaAutomation,
+      variables: { action: action, input: data },
+      authMode: "userPool",
+    });
+    return response.data.manageIgMediaAutomation;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+// await manageIgMediaAutomationAPI("LIST", userId: user.id) - will get the posts with automation enabled
+// await manageIgMediaAutomationAPI("UPDATE", {id: post.id, isActive: false}) - will update the posts with automation enabled
+// await manageIgMediaAutomationAPI("DELETE", id: post.id) - will delete the posts with automation enabled

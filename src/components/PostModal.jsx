@@ -1616,12 +1616,13 @@ const CommentAnalysisPanel = ({
     }
   };
 
-  const handleHideFromAnalysis = async (commentId) => {
+  const handleHideFromAnalysis = async (commentId, hide) => {
     setActionLoading((prev) => ({ ...prev, [`hide-${commentId}`]: true }));
     try {
       const response = await hideCommentFromInstagramAccountAPI(
         userId,
-        commentId
+        commentId,
+        hide
       );
       if (response.success) {
         onCommentHidden(commentId);
@@ -1783,7 +1784,10 @@ const CommentAnalysisPanel = ({
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
-                            handleHideFromAnalysis(comment.id);
+                            handleHideFromAnalysis(
+                              comment.id,
+                              !comment.isHidden
+                            );
                           }}
                           disabled={
                             actionLoading[`hide-${comment.id}`] ||
@@ -1870,7 +1874,10 @@ const CommentAnalysisPanel = ({
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              handleHideFromAnalysis(comment.id);
+                              handleHideFromAnalysis(
+                                comment.id,
+                                !comment.isHidden
+                              );
                             }}
                             disabled={
                               actionLoading[`hide-${comment.id}`] ||
@@ -1965,12 +1972,13 @@ const CommentItem = ({
     }
   };
 
-  const handleHide = async () => {
+  const handleHide = async (hide) => {
     setIsLoading(true);
     try {
       const response = await hideCommentFromInstagramAccountAPI(
         userId,
-        comment.id
+        comment.id,
+        hide
       );
       if (response.success) {
         onCommentHidden(comment.id);
@@ -2106,12 +2114,16 @@ const CommentItem = ({
                   Reply
                 </button>
                 <button
-                  onClick={handleHide}
+                  onClick={() => handleHide(!comment.isHidden)}
                   disabled={isLoading}
                   className="flex gap-2 items-center px-3 py-2 w-full text-sm text-gray-700 hover:bg-gray-50"
                 >
                   <FaEyeSlash className="w-3 h-3" />
-                  {isLoading ? "Hiding..." : "Hide"}
+                  {isLoading
+                    ? "Hiding..."
+                    : comment.isHidden
+                    ? "Unhide"
+                    : "Hide"}
                 </button>
                 <button
                   onClick={handleDelete}
@@ -2617,7 +2629,9 @@ const PostModal = ({ post, onClose, userId }) => {
   const handleCommentHidden = (commentId) => {
     setComments((prevComments) =>
       prevComments.map((comment) =>
-        comment.id === commentId ? { ...comment, isHidden: true } : comment
+        comment.id === commentId
+          ? { ...comment, isHidden: !comment.isHidden }
+          : comment
       )
     );
   };

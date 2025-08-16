@@ -141,11 +141,15 @@ export const hideCommentFromInstagramAccount = /* GraphQL */ `
   mutation HideCommentFromInstagramAccount(
     $userId: String!
     $commentId: String!
+    $hide: Boolean!
   ) {
-    hideCommentFromInstagramAccount(userId: $userId, commentId: $commentId) {
+    hideCommentFromInstagramAccount(
+      userId: $userId
+      commentId: $commentId
+      hide: $hide
+    ) {
       success
       message
-      __typename
     }
   }
 `;
@@ -162,6 +166,36 @@ export const sendReplyToComment = /* GraphQL */ `
     ) {
       success
       message
+      __typename
+    }
+  }
+`;
+
+export const manageIgMediaAutomation = /* GraphQL */ `
+  mutation ManageIgMediaAutomation(
+    $action: API_ACTIONS!
+    $input: IgMediaAutomationInput!
+  ) {
+    manageIgMediaAutomation(action: $action, input: $input) {
+      success
+      message
+      items {
+        id
+        userId
+        mediaType
+        mediaUrl
+        postedAt
+        isActive
+        automationType
+        automationTrigger
+        keywords
+        replyCommentText
+        replyDMText
+        replyDMMediaUrl
+        createdAt
+        updatedAt
+        __typename
+      }
       __typename
     }
   }
