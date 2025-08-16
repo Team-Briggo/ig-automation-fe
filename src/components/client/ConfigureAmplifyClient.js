@@ -31,8 +31,6 @@ const config = {
   },
 };
 
-console.log("config", config);
-
 Amplify.configure(config, { ssr: true });
 
 export default function ConfigureAmplifyClient() {

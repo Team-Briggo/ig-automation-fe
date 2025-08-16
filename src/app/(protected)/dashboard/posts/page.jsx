@@ -186,7 +186,6 @@ export default function AllPosts() {
         user?.id,
         nextPageToken
       );
-      console.log("Load more res", res);
 
       if (res.items && res.items.length > 0) {
         // Pre-cache the new posts
@@ -210,7 +209,6 @@ export default function AllPosts() {
       // Handle next page token with duplicate check
       if (res.nextPageToken) {
         if (usedTokens.current.has(res.nextPageToken)) {
-          console.log("Duplicate token detected, stopping pagination");
           setNextPageToken(null);
           setHasMore(false);
         } else {
@@ -244,7 +242,6 @@ export default function AllPosts() {
       setIsLoading(true);
       try {
         const res = await getMediaFromInstagramAccountAPI(user?.id, null);
-        console.log("Initial load res", res);
 
         if (res.items && res.items.length > 0) {
           // Pre-cache initial posts

@@ -33,10 +33,8 @@ export default function AutomationWizard() {
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
 
-  console.log("step", step);
-
   return (
-    <div className="bg-white p-6 rounded-xl shadow-lg">
+    <div className="p-6 bg-white rounded-xl shadow-lg">
       {step === 1 && (
         <StepSelectPost
           formData={formData}
