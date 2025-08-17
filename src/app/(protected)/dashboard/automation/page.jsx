@@ -2303,13 +2303,15 @@ export default function AutomationPage() {
                       {post.automationTrigger === "SPECIFIC_KEYWORD" ? (
                         <div className="flex flex-col items-center space-y-1">
                           <span className="w-full text-xs font-medium">
-                            Specific Keyword(s):
+                            {post.automationType === "COMMENT_ONLY"
+                              ? "Reply on Specific Keyword(s):"
+                              : "DM on Specific Keyword(s):"}
                           </span>
                           <div className="flex flex-wrap gap-2 items-center w-full">
                             {post.keywords.map((keyword, index) => (
                               <span
                                 key={index}
-                                className="p-1 px-3 max-w-full text-xs font-medium text-white break-all bg-gradient-to-r from-blue-400 to-purple-500 rounded-md w-fit"
+                                className="p-1 px-3 max-w-full text-xs font-medium text-white break-all bg-gradient-to-r from-blue-400 to-indigo-600 rounded-md w-fit"
                               >
                                 {keyword}
                               </span>
@@ -2318,7 +2320,9 @@ export default function AutomationPage() {
                         </div>
                       ) : (
                         <span className="w-full text-xs font-medium">
-                          Any Comment
+                          {post.automationType === "COMMENT_ONLY"
+                            ? "Reply on Any Comment"
+                            : "DM on Any Comment"}
                         </span>
                       )}
                     </motion.div>
