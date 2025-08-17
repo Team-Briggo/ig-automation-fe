@@ -190,13 +190,33 @@ export const manageIgMediaAutomation = /* GraphQL */ `
         automationTrigger
         keywords
         replyCommentText
+        replyDMType
         replyDMText
         replyDMMediaUrl
+        replyDMCards {
+          mediaUrl
+          title
+          buttons {
+            title
+            link
+          }
+        }
+        mediaDetails {
+          id
+          caption
+          mediaType
+          mediaProductType
+          mediaUrl
+          thumbnailUrl
+          permalink
+          timestamp
+          commentsCount
+          likeCount
+          shortcode
+        }
         createdAt
         updatedAt
-        __typename
       }
-      __typename
     }
   }
 `;

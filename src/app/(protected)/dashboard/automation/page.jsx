@@ -16,10 +16,55 @@ import {
   FiImage,
   FiInstagram,
   FiLoader,
+  FiPause,
   FiPlay,
   FiRefreshCw,
+  FiTrash,
   FiX,
 } from "react-icons/fi";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+};
+
+const getMediaLabel = (mediaType) => {
+  switch (mediaType) {
+    case "VIDEO":
+      return "Video";
+    case "CAROUSEL_ALBUM":
+      return "Album";
+    default:
+      return null;
+  }
+};
+
+const getMediaIcon = (mediaType) => {
+  switch (mediaType) {
+    case "VIDEO":
+      return <FiPlay className="w-3 h-3" />;
+    case "CAROUSEL_ALBUM":
+      return <FiImage className="w-3 h-3" />;
+    default:
+      return null;
+  }
+};
 
 // ------------------ Step 1 ------------------
 function Step1_SelectPost({ selectedPost, onSelect, user, openModal }) {
@@ -112,49 +157,7 @@ function Step1_SelectPost({ selectedPost, onSelect, user, openModal }) {
     setHasMore(true);
     setError(null);
     loadPosts(true);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
-
-  const getMediaIcon = (mediaType) => {
-    switch (mediaType) {
-      case "VIDEO":
-        return <FiPlay className="w-3 h-3" />;
-      case "CAROUSEL_ALBUM":
-        return <FiImage className="w-3 h-3" />;
-      default:
-        return null;
-    }
-  };
-
-  const getMediaLabel = (mediaType) => {
-    switch (mediaType) {
-      case "VIDEO":
-        return "Video";
-      case "CAROUSEL_ALBUM":
-        return "Album";
-      default:
-        return null;
-    }
+    loadAutomatedPosts();
   };
 
   if (loading) {
@@ -288,7 +291,7 @@ function Step1_SelectPost({ selectedPost, onSelect, user, openModal }) {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4"
           >
             <AnimatePresence>
               {posts.map((post, index) => (
@@ -308,7 +311,7 @@ function Step1_SelectPost({ selectedPost, onSelect, user, openModal }) {
                   <div className="overflow-hidden relative aspect-square">
                     <motion.img
                       src={
-                        post.thumbnailUrl || post.mediaUrl || "/placeholder.jpg"
+                        post.thumbnailUrl || post.mediaUrl || "/placeholder.png"
                       }
                       alt={post.caption || "Instagram post"}
                       className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
@@ -408,17 +411,12 @@ function Step1_SelectPost({ selectedPost, onSelect, user, openModal }) {
                       </p>
                     </motion.div>
                     {selectedPost?.id === post.id && (
-                      // <Button
-                      //   onClick={openModal}
-                      //   className="self-end p-0 text-sm text-white bg-blue-500 rounded-full hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                      // >
                       <div
                         onClick={openModal}
                         className="absolute right-2 bottom-2 self-end p-2 text-sm text-white bg-blue-500 rounded-full hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         <FiArrowRight />
                       </div>
-                      // </Button>
                     )}
                   </div>
                 </motion.div>
@@ -1279,378 +1277,6 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
   };
 
   return (
-    // <div>
-    //   <h2 className="mb-4 text-2xl font-semibold">Configure DMs</h2>
-
-    //   {/* DM Mode */}
-    //   <div className="mb-4">
-    //     <label className="block mb-1 font-medium">DM Mode</label>
-    //     <select
-    //       value={dmSettings.mode}
-    //       onChange={(e) =>
-    //         setDmSettings({ ...dmSettings, mode: e.target.value })
-    //       }
-    //       className="p-2 w-full rounded border"
-    //     >
-    //       <option value="all">DM all commenters</option>
-    //       <option value="keywords">DM commenters with specific keywords</option>
-    //     </select>
-    //   </div>
-
-    //   {dmSettings.mode === "keywords" && (
-    //     <div className="mb-4">
-    //       <label className="block mb-1 font-medium">
-    //         Keywords (comma separated)
-    //       </label>
-    //       <input
-    //         type="text"
-    //         value={dmSettings.keywords}
-    //         onChange={(e) =>
-    //           setDmSettings({ ...dmSettings, keywords: e.target.value })
-    //         }
-    //         className="p-2 w-full rounded border"
-    //       />
-    //     </div>
-    //   )}
-
-    //   {/* DM Type */}
-    //   <div className="mb-4">
-    //     <label className="block mb-1 font-medium">DM Type</label>
-    //     <select
-    //       value={dmSettings.type}
-    //       onChange={(e) =>
-    //         setDmSettings({ ...dmSettings, type: e.target.value })
-    //       }
-    //       className="p-2 w-full rounded border"
-    //     >
-    //       <option value="TEXT">Normal text message</option>
-    //       <option value="TEXT_MEDIA">Media + text message</option>
-    //       <option value="GENERIC_TEMPLATE">Product Carousel Cards</option>
-    //       <option value="BUTTON_TEMPLATE">Single Button Card</option>
-    //     </select>
-    //   </div>
-
-    //   {/* Text */}
-    //   {dmSettings.type === "TEXT" && (
-    //     <div className="mb-4">
-    //       <label className="block mb-1 font-medium">Message</label>
-    //       <textarea
-    //         value={dmSettings.message}
-    //         onChange={(e) =>
-    //           setDmSettings({ ...dmSettings, message: e.target.value })
-    //         }
-    //         className="p-2 w-full rounded border"
-    //       />
-    //     </div>
-    //   )}
-
-    //   {/* Media */}
-    //   {dmSettings.type === "TEXT_MEDIA" && (
-    //     <>
-    //       <div className="mb-4">
-    //         <label className="block mb-1 font-medium">Message</label>
-    //         <textarea
-    //           value={dmSettings.message}
-    //           onChange={(e) =>
-    //             setDmSettings({ ...dmSettings, message: e.target.value })
-    //           }
-    //           className="p-2 w-full rounded border"
-    //         />
-    //       </div>
-    //       <div className="mb-4">
-    //         <label className="block mb-1 font-medium">Upload Media</label>
-    //         <input
-    //           type="file"
-    //           accept="image/*,audio/*,video/*"
-    //           onChange={async (e) => {
-    //             const mediaData = await validateAndUpload(e.target.files[0]);
-    //             if (mediaData) {
-    //               setDmSettings({ ...dmSettings, media: mediaData });
-    //             }
-    //           }}
-    //           className="p-2 w-full rounded border"
-    //         />
-    //         <div className="mt-1 text-sm text-gray-500">
-    //           Images (PNG, JPEG, GIF): Max 8MB | Audio (AAC, M4A, WAV, MP4): Max
-    //           25MB | Video (MP4, OGG, AVI, MOV, WEBM): Max 25MB
-    //         </div>
-    //         {renderMediaPreview(dmSettings.media)}
-    //       </div>
-    //     </>
-    //   )}
-
-    //   {/* Carousel - Multiple Cards */}
-    //   {dmSettings.type === "GENERIC_TEMPLATE" && (
-    //     <>
-    //       <div className="flex justify-between items-center mb-4">
-    //         <h3 className="text-lg font-medium">Product Cards</h3>
-    //         <button
-    //           type="button"
-    //           onClick={addCard}
-    //           className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
-    //         >
-    //           Add Card
-    //         </button>
-    //       </div>
-
-    //       {(dmSettings.cards || []).length === 0 && (
-    //         <div className="p-4 mb-4 text-center text-gray-500 bg-gray-50 rounded border">
-    //           No cards added yet. Click "Add Card" to create your first product
-    //           card.
-    //         </div>
-    //       )}
-
-    //       {(dmSettings.cards || []).map((card, cardIndex) => (
-    //         <div key={cardIndex} className="p-4 mb-6 bg-gray-50 rounded border">
-    //           <div className="flex justify-between items-center mb-4">
-    //             <h4 className="font-medium text-md">Card {cardIndex + 1}</h4>
-    //             {(dmSettings.cards || []).length > 1 && (
-    //               <button
-    //                 type="button"
-    //                 onClick={() => removeCard(cardIndex)}
-    //                 className="px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600"
-    //               >
-    //                 Remove
-    //               </button>
-    //             )}
-    //           </div>
-
-    //           <div className="mb-4">
-    //             <label className="block mb-1 font-medium">Card Title</label>
-    //             <input
-    //               type="text"
-    //               value={card.title || ""}
-    //               onChange={(e) =>
-    //                 updateCard(cardIndex, "title", e.target.value)
-    //               }
-    //               className="p-2 w-full rounded border"
-    //             />
-    //           </div>
-
-    //           <div className="mb-4">
-    //             <label className="block mb-1 font-medium">Product Media</label>
-    //             <input
-    //               type="file"
-    //               accept="image/*,audio/*,video/*"
-    //               onChange={(e) =>
-    //                 handleCardMediaUpload(cardIndex, e.target.files[0])
-    //               }
-    //               className="p-2 w-full rounded border"
-    //             />
-    //             <div className="mt-1 text-sm text-gray-500">
-    //               Images (PNG, JPEG, GIF): Max 8MB | Audio (AAC, M4A, WAV, MP4):
-    //               Max 25MB | Video (MP4, OGG, AVI, MOV, WEBM): Max 25MB
-    //             </div>
-    //             {renderCardMediaPreview(card.image, cardIndex)}
-    //           </div>
-
-    //           {/* Buttons for this card */}
-    //           <div className="space-y-3">
-    //             <div className="flex justify-between items-center">
-    //               <label className="block font-medium">Buttons</label>
-    //               <div className="flex gap-2">
-    //                 <button
-    //                   type="button"
-    //                   onClick={() => addButtonToCard(cardIndex)}
-    //                   disabled={(card.buttons || []).length >= 3}
-    //                   className="px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
-    //                 >
-    //                   Add Button
-    //                 </button>
-    //               </div>
-    //             </div>
-
-    //             {card.buttons?.map((button, buttonIndex) => {
-    //               const validationError = getButtonValidationError(button);
-    //               return (
-    //                 <div
-    //                   key={buttonIndex}
-    //                   className="p-3 bg-white rounded border"
-    //                 >
-    //                   <div className="flex justify-between items-center mb-2">
-    //                     <span className="text-sm font-medium text-gray-700">
-    //                       Button {buttonIndex + 1}
-    //                     </span>
-    //                     {(card.buttons || []).length > 1 && (
-    //                       <button
-    //                         type="button"
-    //                         onClick={() =>
-    //                           removeButtonFromCard(cardIndex, buttonIndex)
-    //                         }
-    //                         className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
-    //                       >
-    //                         Remove
-    //                       </button>
-    //                     )}
-    //                   </div>
-
-    //                   <div className="grid grid-cols-2 gap-2">
-    //                     <div>
-    //                       <label className="block mb-1 text-sm font-medium">
-    //                         Label
-    //                       </label>
-    //                       <input
-    //                         type="text"
-    //                         value={button.label || ""}
-    //                         onChange={(e) =>
-    //                           updateCardButton(
-    //                             cardIndex,
-    //                             buttonIndex,
-    //                             "label",
-    //                             e.target.value
-    //                           )
-    //                         }
-    //                         className={`p-2 w-full rounded border ${
-    //                           validationError ? "border-red-500" : ""// }`}
-    //                         placeholder="e.g., Buy Now"
-    //                       />
-    //                     </div>
-    //                     <div>
-    //                       <label className="block mb-1 text-sm font-medium">
-    //                         URL
-    //                       </label>
-    //                       <input
-    //                         type="text"
-    //                         value={button.url || ""}
-    //                         onChange={(e) =>
-    //                           updateCardButton(
-    //                             cardIndex,
-    //                             buttonIndex,
-    //                             "url",
-    //                             e.target.value
-    //                           )
-    //                         }
-    //                         className={`p-2 w-full rounded border ${
-    //                           validationError ? "border-red-500" : ""// }`}
-    //                         placeholder="https://..."
-    //                       />
-    //                     </div>
-    //                   </div>
-
-    //                   {validationError && (
-    //                     <div className="mt-1 text-sm text-red-600">
-    //                       {validationError}
-    //                     </div>
-    //                   )}
-    //                 </div>
-    //               );
-    //             })}
-    //           </div>
-    //         </div>
-    //       ))}
-    //     </>
-    //   )}
-
-    //   {/* BUTTON_TEMPLATE - Single Button Card */}
-    //   {dmSettings.type === "BUTTON_TEMPLATE" && dmSettings.buttonCard && (
-    //     <>
-    //       <div className="p-4 mb-6 bg-gray-50 rounded border">
-    //         <h3 className="mb-4 text-lg font-medium">Single Button Card</h3>
-
-    //         <div className="mb-4">
-    //           <label className="block mb-1 font-medium">Card Title</label>
-    //           <input
-    //             type="text"
-    //             value={dmSettings.buttonCard?.title || ""}
-    //             onChange={(e) => updateButtonCard("title", e.target.value)}
-    //             className="p-2 w-full rounded border"
-    //             placeholder="Enter card title"
-    //           />
-    //         </div>
-
-    //         {/* Buttons */}
-    //         <div className="space-y-3">
-    //           <div className="flex justify-between items-center">
-    //             <label className="block font-medium">Buttons</label>
-    //             <button
-    //               type="button"
-    //               onClick={addButtonToButtonCard}
-    //               disabled={(dmSettings.buttonCard?.buttons || []).length >= 3}
-    //               className="px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
-    //             >
-    //               Add Button
-    //             </button>
-    //           </div>
-
-    //           {dmSettings.buttonCard?.buttons?.map((button, buttonIndex) => {
-    //             const validationError = getButtonValidationError(button);
-    //             return (
-    //               <div
-    //                 key={buttonIndex}
-    //                 className="p-3 bg-white rounded border"
-    //               >
-    //                 <div className="flex justify-between items-center mb-2">
-    //                   <span className="text-sm font-medium text-gray-700">
-    //                     Button {buttonIndex + 1}
-    //                   </span>
-    //                   {(dmSettings.buttonCard?.buttons || []).length > 1 && (
-    //                     <button
-    //                       type="button"
-    //                       onClick={() =>
-    //                         removeButtonFromButtonCard(buttonIndex)
-    //                       }
-    //                       className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
-    //                     >
-    //                       Remove
-    //                     </button>
-    //                   )}
-    //                 </div>
-
-    //                 <div className="grid grid-cols-2 gap-2">
-    //                   <div>
-    //                     <label className="block mb-1 text-sm font-medium">
-    //                       Label
-    //                     </label>
-    //                     <input
-    //                       type="text"
-    //                       value={button.label || ""}
-    //                       onChange={(e) =>
-    //                         updateButtonCardButton(
-    //                           buttonIndex,
-    //                           "label",
-    //                           e.target.value
-    //                         )
-    //                       }
-    //                       className={`p-2 w-full rounded border ${
-    //                         validationError ? "border-red-500" : ""// }`}
-    //                       placeholder="e.g., Visit Website"
-    //                     />
-    //                   </div>
-    //                   <div>
-    //                     <label className="block mb-1 text-sm font-medium">
-    //                       URL
-    //                     </label>
-    //                     <input
-    //                       type="text"
-    //                       value={button.url || ""}
-    //                       onChange={(e) =>
-    //                         updateButtonCardButton(
-    //                           buttonIndex,
-    //                           "url",
-    //                           e.target.value
-    //                         )
-    //                       }
-    //                       className={`p-2 w-full rounded border ${
-    //                         validationError ? "border-red-500" : ""// }`}
-    //                       placeholder="https://..."
-    //                     />
-    //                   </div>
-    //                 </div>
-
-    //                 {validationError && (
-    //                   <div className="mt-1 text-sm text-red-600">
-    //                     {validationError}
-    //                   </div>
-    //                 )}
-    //               </div>
-    //             );
-    //           })}
-    //         </div>
-    //       </div>
-    //     </>
-    //   )}
-    // </div>
-
     <div className="px-4 mx-auto max-w-7xl">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -1841,7 +1467,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                 whileTap={{ scale: 0.95 }}
                 type="button"
                 onClick={addCard}
-                className="px-6 py-3 font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg transition-all duration-200 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl"
+                className="p-2 font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg transition-all duration-200 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl"
               >
                 + Add Card
               </motion.button>
@@ -2206,267 +1832,17 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
   );
 }
 
-// ------------------ Main Automation Page ------------------
-// export default function AutomationPage() {
-//   const { user } = useUser();
-//   const [step, setStep] = useState(1);
-//   const [selectedPost, setSelectedPost] = useState(null);
-//   const [automationType, setAutomationType] = useState("");
-//   const [replySettings, setReplySettings] = useState({
-//     mode: "all",
-//     keywords: "",
-//     message: "",
-//   });
-//   const [dmSettings, setDmSettings] = useState({
-//     mode: "all",
-//     keywords: "",
-//     type: "TEXT_MEDIA",
-//     message: "",
-//     image: null,
-//     cardTitle: "",
-//     productImage: null,
-//     buttons: [],
-//     cards: [], // New field for multiple cards
-//   });
-
-//   const nextStep = () => {
-//     // Validation before proceeding
-//     if (step === 1 && !selectedPost) {
-//       alert("Please select a post to continue");
-//       return;
-//     }
-//     if (step === 2 && !automationType) {
-//       alert("Please choose an automation type");
-//       return;
-//     }
-//     setStep((prev) => prev + 1);
-//   };
-
-//   const prevStep = () => setStep((prev) => prev - 1);
-
-//   const canProceed = () => {
-//     switch (step) {
-//       case 1:
-//         return selectedPost !== null;
-//       case 2:
-//         return automationType !== "";
-//       case 3:
-//         if (automationType === "reply") {
-//           return replySettings.message.trim() !== "";
-//         }
-//         if (automationType === "dm") {
-//           if (dmSettings.type === "GENERIC_TEMPLATE") {
-//             return (dmSettings.cards || []).length > 0;
-//           }
-//           return dmSettings.message.trim() !== "" || dmSettings.type !== "text";
-//         }
-//         return true;
-//       case 4:
-//         if (dmSettings.type === "GENERIC_TEMPLATE") {
-//           return (dmSettings.cards || []).length > 0;
-//         }
-//         return dmSettings.message.trim() !== "" || dmSettings.type !== "text";
-//       default:
-//         return true;
-//     }
-//   };
-
-//   return (
-//     <div className="p-8 mx-auto max-w-4xl">
-//       {/* Progress indicator */}
-//       <div className="mb-8">
-//         <div className="flex justify-between items-center mb-2">
-//           <span className="text-sm font-medium text-gray-700">
-//             Step {step} of 4
-//           </span>
-//           <span className="text-sm text-gray-500">
-//             {Math.round((step / 4) * 100)}% Complete
-//           </span>
-//         </div>
-//         <div className="w-full h-2 bg-gray-200 rounded-full">
-//           <div
-//             className="h-2 bg-blue-500 rounded-full transition-all duration-300"
-//             style={{ width: `${(step / 4) * 100}%` }}
-//           ></div>
-//         </div>
-//       </div>
-
-//       {step === 1 && (
-//         <Step1_SelectPost
-//           selectedPost={selectedPost}
-//           onSelect={setSelectedPost}
-//           user={user}
-//         />
-//       )}
-//       {step === 2 && (
-//         <Step2_ChooseAutomationType
-//           automationType={automationType}
-//           setAutomationType={setAutomationType}
-//         />
-//       )}
-//       {step === 3 && automationType === "reply" && (
-//         <Step3_ConfigureReplies
-//           replySettings={replySettings}
-//           setReplySettings={setReplySettings}
-//         />
-//       )}
-//       {step === 3 && automationType === "dm" && (
-//         <Step4_ConfigureDMs
-//           dmSettings={dmSettings}
-//           setDmSettings={setDmSettings}
-//         />
-//       )}
-//       {step === 4 && automationType === "both" && (
-//         <Step4_ConfigureDMs
-//           dmSettings={dmSettings}
-//           setDmSettings={setDmSettings}
-//         />
-//       )}
-
-//       <div className="flex gap-4 mt-6">
-//         {step > 1 && (
-//           <Button
-//             onClick={prevStep}
-//             className="text-white bg-gray-500 hover:bg-gray-600"
-//           >
-//             Back
-//           </Button>
-//         )}
-
-//         {step < 4 && (
-//           <Button
-//             onClick={nextStep}
-//             disabled={!canProceed()}
-//             className="text-white bg-blue-500 hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
-//           >
-//             Next
-//           </Button>
-//         )}
-
-//         {step === 4 && (
-//           <Button
-//             onClick={async () => {
-//               if (automationType === "reply") {
-//                 await manageIgMediaAutomationAPI("CREATE", {
-//                   id: selectedPost.id,
-//                   userId: user.id,
-//                   mediaType: selectedPost.mediaType,
-//                   mediaUrl: selectedPost.mediaUrl,
-//                   postedAt: new Date(selectedPost.timestamp).toISOString(),
-//                   isActive: true,
-//                   automationType: "COMMENT_ONLY",
-//                   automationTrigger:
-//                     replySettings.mode === "all"
-//                       ? "ANY_COMMENT"
-//                       : "SPECIFIC_KEYWORD",
-//                   keywords: replySettings.keywords
-//                     .split(",")
-//                     .map((k) => k.toLowerCase().trim()),
-//                   replyCommentText: replySettings.message,
-//                 });
-//               }
-
-//               if (automationType === "dm") {
-//                 if (
-//                   dmSettings.type === "TEXT_MEDIA" ||
-//                   dmSettings.type === "TEXT"
-//                 ) {
-//                   await manageIgMediaAutomationAPI("CREATE", {
-//                     id: selectedPost.id,
-//                     userId: user.id,
-//                     mediaType: selectedPost.mediaType,
-//                     mediaUrl: selectedPost.mediaUrl,
-//                     postedAt: new Date(selectedPost.timestamp).toISOString(),
-//                     isActive: true,
-//                     automationType: "DM_ONLY",
-//                     automationTrigger:
-//                       dmSettings.mode === "all"
-//                         ? "ANY_COMMENT"
-//                         : "SPECIFIC_KEYWORD",
-//                     keywords: dmSettings.keywords
-//                       .split(",")
-//                       .map((k) => k.toLowerCase().trim()),
-//                     replyDMType: dmSettings.type,
-//                     replyDMText: dmSettings.message,
-//                     ...(dmSettings.type === "TEXT_MEDIA" && {
-//                       replyDMMediaUrl: dmSettings.media.path,
-//                     }),
-//                   });
-//                 } else if (dmSettings.type === "GENERIC_TEMPLATE") {
-//                   // For GENERIC_TEMPLATE, use the cards array
-//                   const cardsData = (dmSettings.cards || []).map((card) => ({
-//                     mediaUrl: card.image?.path || "",
-//                     title: card.title || "",
-//                     buttons: (card.buttons || []).map((btn) => ({
-//                       title: btn.label || "",
-//                       link: btn.url || "",
-//                     })),
-//                   }));
-
-//                   await manageIgMediaAutomationAPI("CREATE", {
-//                     id: selectedPost.id,
-//                     userId: user.id,
-//                     mediaType: selectedPost.mediaType,
-//                     mediaUrl: selectedPost.mediaUrl,
-//                     postedAt: new Date(selectedPost.timestamp).toISOString(),
-//                     isActive: true,
-//                     automationType: "DM_ONLY",
-//                     automationTrigger:
-//                       dmSettings.mode === "all"
-//                         ? "ANY_COMMENT"
-//                         : "SPECIFIC_KEYWORD",
-//                     keywords: dmSettings.keywords
-//                       .split(",")
-//                       .map((k) => k.toLowerCase().trim()),
-//                     replyDMType: dmSettings.type,
-//                     replyDMCards: cardsData,
-//                   });
-//                 } else if (dmSettings.type === "BUTTON_TEMPLATE") {
-//                   const buttonCardData = {
-//                     title: dmSettings.buttonCard?.title || "",
-//                     buttons: (dmSettings.buttonCard?.buttons || []).map(
-//                       (btn) => ({
-//                         title: btn.label || "",
-//                         link: btn.url || "",
-//                       })
-//                     ),
-//                   };
-
-//                   await manageIgMediaAutomationAPI("CREATE", {
-//                     id: selectedPost.id,
-//                     userId: user.id,
-//                     mediaType: selectedPost.mediaType,
-//                     mediaUrl: selectedPost.mediaUrl,
-//                     postedAt: new Date(selectedPost.timestamp).toISOString(),
-//                     isActive: true,
-//                     automationType: "DM_ONLY",
-//                     automationTrigger:
-//                       dmSettings.mode === "all"
-//                         ? "ANY_COMMENT"
-//                         : "SPECIFIC_KEYWORD",
-//                     keywords: dmSettings.keywords
-//                       .split(",")
-//                       .map((k) => k.toLowerCase().trim()),
-//                     replyDMType: dmSettings.type,
-//                     replyDMCards: [buttonCardData], // Single card in array format
-//                   });
-//                 }
-//               }
-//             }}
-//             className="text-white bg-green-500 hover:bg-green-600"
-//           >
-//             Save Automation
-//           </Button>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
 export default function AutomationPage() {
   const { user } = useUser();
   const [selectedPost, setSelectedPost] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [automatedPosts, setAutomatedPosts] = useState([]);
+  const [modifyPostAutomation, setModifyPostAutomation] = useState(null);
+  const [modifyPostAutomationType, setModifyPostAutomationType] =
+    useState(null);
+  const [selectedModifyPost, setSelectedModifyPost] = useState(null);
+
+  const [tab, setTab] = useState("posts");
 
   // Modal-specific states
   const [modalStep, setModalStep] = useState(2); // Start from step 2 in modal
@@ -2487,6 +1863,18 @@ export default function AutomationPage() {
     buttons: [],
     cards: [],
   });
+
+  useEffect(() => {
+    loadAutomatedPosts();
+  }, [user]);
+
+  const loadAutomatedPosts = async () => {
+    if (!user) return;
+    const res = await manageIgMediaAutomationAPI("LIST", { userId: user.id });
+    if (res.success && res.items) {
+      setAutomatedPosts(res.items || []);
+    }
+  };
 
   const openModal = () => {
     if (!selectedPost) {
@@ -2656,129 +2044,386 @@ export default function AutomationPage() {
   };
 
   return (
-    <div className="relative p-8 mx-auto max-w-4xl">
-      {/* Step 1 - Always visible */}
-      <Step1_SelectPost
-        selectedPost={selectedPost}
-        onSelect={setSelectedPost}
-        user={user}
-        openModal={openModal}
-      />
+    <div className="flex relative flex-col gap-4 p-8 mx-auto max-w-4xl">
+      <div>
+        {/* show tabs */}
+        <div className="flex space-x-4">
+          <button
+            onClick={() => setTab("posts")}
+            className={`px-4 py-2 text-sm font-medium transition-all duration-200 ${
+              tab === "posts" ? "border-b-2 border-blue-500 text-blue-500" : ""
+            }`}
+          >
+            Posts
+          </button>
+          <button
+            onClick={() => setTab("automatedPosts")}
+            className={`px-4 py-2 text-sm font-medium transition-all duration-200 ${
+              tab === "automatedPosts"
+                ? "border-b-2 border-blue-500 text-blue-500"
+                : ""
+            }`}
+          >
+            Automated Posts
+          </button>
+        </div>
+      </div>
+      <div>
+        <div className={`${tab === "posts" ? "" : "hidden"}`}>
+          {/* Step 1 - Always visible */}
+          <Step1_SelectPost
+            selectedPost={selectedPost}
+            onSelect={setSelectedPost}
+            user={user}
+            openModal={openModal}
+          />
 
-      {/* Next Button */}
-      {/* <div className="flex fixed top-2 right-10 gap-4 mt-6">
-        <Button
-          onClick={openModal}
-          disabled={!selectedPost}
-          className="text-white bg-blue-500 hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          Next
-        </Button>
-      </div> */}
-
-      {/* Modal for Steps 2, 3, and 4 */}
-      {isModalOpen && (
-        <div className="flex fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-hidden">
-            {/* Modal Header */}
-            <div className="flex flex-col p-6 border-b">
-              <div className="flex justify-between">
-                <h2 className="text-xl font-semibold text-gray-900">
-                  Setup Automation
-                </h2>
-                <button
-                  onClick={closeModal}
-                  className="text-gray-400 transition-colors hover:text-gray-600"
-                >
-                  <FiX className="w-4 h-4" />
-                </button>
-              </div>
-              <div className="mt-2">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-gray-700">
-                    Step {modalStep} of 4
-                  </span>
-                  <span className="text-sm text-gray-500">
-                    {Math.round((modalStep / 4) * 100)}% Complete
-                  </span>
+          {/* Modal for Steps 2, 3, and 4 */}
+          {isModalOpen && (
+            <div className="flex fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50">
+              <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-hidden">
+                {/* Modal Header */}
+                <div className="flex flex-col p-6 border-b">
+                  <div className="flex justify-between">
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      Setup Automation
+                    </h2>
+                    <button
+                      onClick={closeModal}
+                      className="text-gray-400 transition-colors hover:text-gray-600"
+                    >
+                      <FiX className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <div className="mt-2">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm font-medium text-gray-700">
+                        Step {modalStep} of 4
+                      </span>
+                      <span className="text-sm text-gray-500">
+                        {Math.round((modalStep / 4) * 100)}% Complete
+                      </span>
+                    </div>
+                    <div className="w-full h-2 bg-gray-200 rounded-full">
+                      <div
+                        className="h-2 bg-blue-500 rounded-full transition-all duration-300"
+                        style={{ width: `${(modalStep / 4) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
                 </div>
-                <div className="w-full h-2 bg-gray-200 rounded-full">
-                  <div
-                    className="h-2 bg-blue-500 rounded-full transition-all duration-300"
-                    style={{ width: `${(modalStep / 4) * 100}%` }}
-                  ></div>
-                </div>
-              </div>
-            </div>
 
-            {/* Modal Content */}
-            <div className="p-4 max-h-[25rem] overflow-y-auto no-scrollbar">
-              {modalStep === 2 && (
-                <Step2_ChooseAutomationType
-                  automationType={automationType}
-                  setAutomationType={setAutomationType}
-                />
-              )}
-              {modalStep === 3 && automationType === "reply" && (
-                <Step3_ConfigureReplies
-                  replySettings={replySettings}
-                  setReplySettings={setReplySettings}
-                />
-              )}
-              {modalStep === 3 && automationType === "dm" && (
-                <Step4_ConfigureDMs
-                  dmSettings={dmSettings}
-                  setDmSettings={setDmSettings}
-                />
-              )}
-              {/* {modalStep === 4 && automationType === "both" && (
+                {/* Modal Content */}
+                <div className="p-4 max-h-[25rem] overflow-y-auto no-scrollbar">
+                  {modalStep === 2 && (
+                    <Step2_ChooseAutomationType
+                      automationType={automationType}
+                      setAutomationType={setAutomationType}
+                    />
+                  )}
+                  {modalStep === 3 && automationType === "reply" && (
+                    <Step3_ConfigureReplies
+                      replySettings={replySettings}
+                      setReplySettings={setReplySettings}
+                    />
+                  )}
+                  {modalStep === 3 && automationType === "dm" && (
+                    <Step4_ConfigureDMs
+                      dmSettings={dmSettings}
+                      setDmSettings={setDmSettings}
+                    />
+                  )}
+                  {/* {modalStep === 4 && automationType === "both" && (
                 <Step4_ConfigureDMs
                   dmSettings={dmSettings}
                   setDmSettings={setDmSettings}
                 />
               )} */}
+                </div>
+
+                {/* Modal Footer */}
+                <div className="flex gap-4 p-6 bg-gray-50 border-t">
+                  {modalStep > 2 && (
+                    <Button
+                      onClick={prevModalStep}
+                      className="text-white bg-gray-500 hover:bg-gray-600 h-fit"
+                    >
+                      Back
+                    </Button>
+                  )}
+
+                  <Button
+                    onClick={closeModal}
+                    className="text-gray-700 bg-gray-200 hover:bg-gray-300 h-fit"
+                  >
+                    Cancel
+                  </Button>
+
+                  {modalStep < 4 && (
+                    <Button
+                      onClick={nextModalStep}
+                      disabled={!canProceedModal()}
+                      className="ml-auto text-white bg-blue-500 hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed h-fit"
+                    >
+                      Next
+                    </Button>
+                  )}
+
+                  {modalStep === 4 && (
+                    <Button
+                      onClick={handleSaveAutomation}
+                      className="ml-auto text-white bg-green-500 hover:bg-green-600 h-fit"
+                    >
+                      Save Automation
+                    </Button>
+                  )}
+                </div>
+              </div>
             </div>
-
-            {/* Modal Footer */}
-            <div className="flex gap-4 p-6 bg-gray-50 border-t">
-              {modalStep > 2 && (
-                <Button
-                  onClick={prevModalStep}
-                  className="text-white bg-gray-500 hover:bg-gray-600 h-fit"
-                >
-                  Back
-                </Button>
-              )}
-
-              <Button
-                onClick={closeModal}
-                className="text-gray-700 bg-gray-200 hover:bg-gray-300 h-fit"
-              >
-                Cancel
-              </Button>
-
-              {modalStep < 4 && (
-                <Button
-                  onClick={nextModalStep}
-                  disabled={!canProceedModal()}
-                  className="ml-auto text-white bg-blue-500 hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed h-fit"
-                >
-                  Next
-                </Button>
-              )}
-
-              {modalStep === 4 && (
-                <Button
-                  onClick={handleSaveAutomation}
-                  className="ml-auto text-white bg-green-500 hover:bg-green-600 h-fit"
-                >
-                  Save Automation
-                </Button>
-              )}
-            </div>
-          </div>
+          )}
         </div>
-      )}
+
+        <div className={`${tab === "automatedPosts" ? "" : "hidden"}`}>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4"
+          >
+            <AnimatePresence>
+              {automatedPosts.map((post, index) => (
+                <motion.div
+                  key={post.id}
+                  variants={itemVariants}
+                  layout
+                  className={`overflow-hidden relative bg-white rounded-xl transition-all duration-300 cursor-pointer group`}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <div className="overflow-hidden relative aspect-square">
+                    <motion.img
+                      src={
+                        post?.mediaDetails?.thumbnailUrl ||
+                        post?.mediaDetails?.mediaUrl ||
+                        "/placeholder.png"
+                      }
+                      alt={post?.mediaDetails?.caption || "Instagram post"}
+                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: index * 0.05 }}
+                    />
+
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-300 from-black/20 group-hover:opacity-100" />
+
+                    {/* Action buttons - Better UX positioning */}
+                    {!post.isActive && (
+                      <div className="flex absolute top-3 right-3 z-30 items-center space-x-2">
+                        <span
+                          className={`px-2 py-1 text-xs font-medium text-red-500 bg-white rounded-full`}
+                        >
+                          Inactive
+                        </span>
+                      </div>
+                    )}
+
+                    <div className="flex absolute right-3 bottom-3 z-30 items-center space-x-2">
+                      {/* Pause button */}
+                      <div
+                        className="flex justify-center items-center p-1.5 text-white rounded-full shadow-lg transition-colors backdrop-blur-sm bg-black/70 hover:bg-black/80 border-white border"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModifyPostAutomation(!modifyPostAutomation);
+                          setModifyPostAutomationType(
+                            post.isActive ? "pause" : "resume"
+                          );
+                          setSelectedModifyPost(post);
+                        }}
+                        title="Pause automation"
+                      >
+                        {post.isActive ? (
+                          <FiPause className="w-4 h-4" />
+                        ) : (
+                          <FiPlay className="pl-0.5 w-4 h-4" />
+                        )}
+                      </div>
+
+                      {/* Delete button */}
+                      <div
+                        className="flex justify-center items-center p-1.5 text-white rounded-full shadow-lg transition-colors bg-red-500/80 backdrop-blur-sm hover:bg-red-600/90"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModifyPostAutomation(!modifyPostAutomation);
+                          setModifyPostAutomationType("delete");
+                          console.log("post", post);
+                          setSelectedModifyPost(post);
+                        }}
+                        title="Delete automation"
+                      >
+                        <FiTrash className="w-4 h-4" />
+                      </div>
+                    </div>
+
+                    {/* Hover overlay */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      className="flex absolute inset-0 justify-center items-center bg-blue-500/10"
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        whileHover={{ scale: 1 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 15,
+                        }}
+                        className="flex justify-center items-center w-12 h-12 rounded-full shadow-xl bg-white/90"
+                      >
+                        <motion.div
+                          whileHover={{ rotate: 180 }}
+                          transition={{ duration: 0.3 }}
+                          className="flex justify-center items-center w-6 h-6 rounded-full border-2 border-blue-500"
+                        >
+                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                        </motion.div>
+                      </motion.div>
+                    </motion.div>
+                  </div>
+
+                  {/* Post info */}
+                  <div className="flex relative flex-col gap-2 justify-between p-3">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.05 + 0.2 }}
+                      className="space-y-2"
+                    >
+                      {post.automationTrigger === "SPECIFIC_KEYWORD" ? (
+                        <div className="flex flex-col items-center space-y-1">
+                          <span className="w-full text-xs font-medium">
+                            Specific Keyword(s):
+                          </span>
+                          <div className="flex flex-wrap gap-2 items-center w-full">
+                            {post.keywords.map((keyword, index) => (
+                              <span
+                                key={index}
+                                className="p-1 px-3 max-w-full text-xs font-medium text-white break-all bg-gradient-to-r from-blue-400 to-purple-500 rounded-md w-fit"
+                              >
+                                {keyword}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <span className="w-full text-xs font-medium">
+                          Any Comment
+                        </span>
+                      )}
+                    </motion.div>
+                    <div className="flex flex-col">
+                      <span className="text-xs font-medium">Automated on:</span>
+                      <p className="text-xs font-medium text-gray-400">
+                        {post.createdAt
+                          ? new Date(post.createdAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                month: "short",
+                                day: "numeric",
+                                year: "numeric",
+                              }
+                            )
+                          : ""}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+            {modifyPostAutomation && (
+              <div className="flex fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50">
+                <div className="p-6 bg-white rounded-lg shadow-lg">
+                  <div className="flex justify-between">
+                    <h2 className="mb-2 text-lg font-semibold">
+                      {modifyPostAutomationType === "pause"
+                        ? "Pause Automation"
+                        : modifyPostAutomationType === "resume"
+                        ? "Resume Automation"
+                        : "Delete Automation"}
+                    </h2>
+                    <button
+                      onClick={() => {
+                        setModifyPostAutomation(null);
+                        setModifyPostAutomationType(null);
+                      }}
+                      className="text-gray-600 hover:text-gray-800"
+                    >
+                      <FiX className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  <span className="mb-2 text-sm font-medium">
+                    {modifyPostAutomationType === "pause"
+                      ? "Are you sure you want to pause this automation?"
+                      : modifyPostAutomationType === "resume"
+                      ? "Are you sure you want to resume this automation?"
+                      : "Are you sure you want to delete this automation?"}
+                  </span>
+                  <div className="flex gap-4 justify-end mt-6">
+                    <button
+                      onClick={() => {
+                        setModifyPostAutomation(null);
+                        setModifyPostAutomationType(null);
+                      }}
+                      className="px-4 py-2 text-sm text-gray-600 rounded-md border hover:text-gray-800"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={async () => {
+                        if (!selectedModifyPost) return;
+                        if (
+                          modifyPostAutomationType === "pause" ||
+                          modifyPostAutomationType === "resume"
+                        ) {
+                          await manageIgMediaAutomationAPI("UPDATE", {
+                            id: selectedModifyPost.id,
+                            isActive:
+                              modifyPostAutomationType === "pause"
+                                ? false
+                                : true,
+                          });
+                        } else {
+                          await manageIgMediaAutomationAPI("DELETE", {
+                            id: selectedModifyPost.id,
+                          });
+                        }
+                        setModifyPostAutomation(null);
+                        setModifyPostAutomationType(null);
+                      }}
+                      className={`text-white px-4 py-2 rounded-md text-sm ${
+                        modifyPostAutomationType === "pause"
+                          ? "bg-blue-500"
+                          : modifyPostAutomationType === "resume"
+                          ? "bg-green-500"
+                          : "bg-red-500"
+                      }`}
+                    >
+                      {modifyPostAutomationType === "pause"
+                        ? "Pause"
+                        : modifyPostAutomationType === "resume"
+                        ? "Resume"
+                        : "Delete"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
