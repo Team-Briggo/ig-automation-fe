@@ -232,7 +232,7 @@ function Step1_SelectPost({ selectedPost, onSelect, user, openModal }) {
   }
 
   return (
-    <div className="px-4 mx-auto max-w-7xl">
+    <div className="mx-auto">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -612,54 +612,297 @@ function Step2_ChooseAutomationType({ automationType, setAutomationType }) {
 }
 
 // ------------------ Step 3 ------------------
+// function Step3_ConfigureReplies({ replySettings, setReplySettings }) {
+//   return (
+//     <div>
+//       <h2 className="mb-4 text-2xl font-semibold">Configure Replies</h2>
+
+//       <div className="mb-4">
+//         <label className="block mb-1 font-medium">Reply Mode</label>
+//         <select
+//           value={replySettings.mode}
+//           onChange={(e) =>
+//             setReplySettings({ ...replySettings, mode: e.target.value })
+//           }
+//           className="p-2 w-full rounded border"
+//         >
+//           <option value="all">Reply to all comments</option>
+//           <option value="keywords">
+//             Reply to comments with specific keywords
+//           </option>
+//         </select>
+//       </div>
+
+//       {replySettings.mode === "keywords" && (
+//         <div className="mb-4">
+//           <label className="block mb-1 font-medium">
+//             Keywords (comma separated)
+//           </label>
+//           <input
+//             type="text"
+//             value={replySettings.keywords}
+//             onChange={(e) =>
+//               setReplySettings({ ...replySettings, keywords: e.target.value })
+//             }
+//             className="p-2 w-full rounded border"
+//           />
+//         </div>
+//       )}
+
+//       <div className="mb-4">
+//         <label className="block mb-1 font-medium">Reply Message</label>
+//         <textarea
+//           value={replySettings.message}
+//           onChange={(e) =>
+//             setReplySettings({ ...replySettings, message: e.target.value })
+//           }
+//           className="p-2 w-full rounded border"
+//           rows="3"
+//         />
+//       </div>
+//     </div>
+//   );
+// }
+
 function Step3_ConfigureReplies({ replySettings, setReplySettings }) {
   return (
-    <div>
-      <h2 className="mb-4 text-2xl font-semibold">Configure Replies</h2>
+    <div className="px-4 mx-auto max-w-7xl">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-8"
+      >
+        <h2 className="mb-2 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600">
+          Configure Replies
+        </h2>
+        <p className="text-sm text-gray-600">
+          Set up how you want to respond to comments on your selected post
+        </p>
+      </motion.div>
 
-      <div className="mb-4">
-        <label className="block mb-1 font-medium">Reply Mode</label>
-        <select
-          value={replySettings.mode}
-          onChange={(e) =>
-            setReplySettings({ ...replySettings, mode: e.target.value })
-          }
-          className="p-2 w-full rounded border"
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="p-8 mx-auto bg-white rounded-xl shadow-lg"
+      >
+        {/* Reply Mode Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mb-6"
         >
-          <option value="all">Reply to all comments</option>
-          <option value="keywords">
-            Reply to comments with specific keywords
-          </option>
-        </select>
-      </div>
-
-      {replySettings.mode === "keywords" && (
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">
-            Keywords (comma separated)
+          <label className="block mb-3 text-sm font-semibold text-gray-700">
+            Reply Mode
           </label>
-          <input
-            type="text"
-            value={replySettings.keywords}
-            onChange={(e) =>
-              setReplySettings({ ...replySettings, keywords: e.target.value })
-            }
-            className="p-2 w-full rounded border"
-          />
-        </div>
-      )}
+          <div className="relative">
+            <select
+              value={replySettings.mode}
+              onChange={(e) =>
+                setReplySettings({ ...replySettings, mode: e.target.value })
+              }
+              className="p-4 w-full text-gray-700 bg-gradient-to-r from-gray-50 to-white rounded-xl border-2 border-gray-200 shadow-sm transition-all duration-300 appearance-none focus:border-purple-500 focus:ring-4 focus:ring-purple-100 focus:outline-none hover:border-gray-300 hover:shadow-md"
+            >
+              <option value="all">Reply to all comments</option>
+              <option value="keywords">
+                Reply to comments with specific keywords
+              </option>
+            </select>
+            <motion.div
+              className="flex absolute inset-y-0 right-4 items-center pointer-events-none"
+              initial={{ rotate: 0 }}
+              whileHover={{ rotate: 180 }}
+              transition={{ duration: 0.3 }}
+            >
+              <svg
+                className="w-5 h-5 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </motion.div>
+          </div>
+        </motion.div>
 
-      <div className="mb-4">
-        <label className="block mb-1 font-medium">Reply Message</label>
-        <textarea
-          value={replySettings.message}
-          onChange={(e) =>
-            setReplySettings({ ...replySettings, message: e.target.value })
-          }
-          className="p-2 w-full rounded border"
-          rows="3"
-        />
-      </div>
+        {/* Keywords Section - Conditional */}
+        <AnimatePresence>
+          {replySettings.mode === "keywords" && (
+            <motion.div
+              initial={{ opacity: 0, height: 0, y: -20 }}
+              animate={{ opacity: 1, height: "auto", y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="mb-6"
+            >
+              <label className="block mb-3 text-sm font-semibold text-gray-700">
+                Keywords (comma separated)
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  value={replySettings.keywords}
+                  onChange={(e) =>
+                    setReplySettings({
+                      ...replySettings,
+                      keywords: e.target.value,
+                    })
+                  }
+                  placeholder="e.g., amazing, love, great, awesome"
+                  className="p-4 w-full text-gray-700 bg-gradient-to-r from-gray-50 to-white rounded-xl border-2 border-gray-200 shadow-sm transition-all duration-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 focus:outline-none hover:border-gray-300 hover:shadow-md"
+                />
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.1 }}
+                  className="flex absolute top-4 right-4 items-center text-gray-400"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"
+                    />
+                  </svg>
+                </motion.div>
+              </div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="mt-2 text-xs text-gray-500"
+              >
+                Separate multiple keywords with commas. Comments containing any
+                of these words will receive a reply.
+              </motion.p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Reply Message Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mb-6"
+        >
+          <label className="block mb-3 text-sm font-semibold text-gray-700">
+            Reply Message
+          </label>
+          <div className="relative">
+            <textarea
+              value={replySettings.message}
+              onChange={(e) =>
+                setReplySettings({ ...replySettings, message: e.target.value })
+              }
+              placeholder="Write your reply message here..."
+              className="p-4 w-full text-gray-700 bg-gradient-to-r from-gray-50 to-white rounded-xl border-2 border-gray-200 shadow-sm transition-all duration-300 resize-none focus:border-green-500 focus:ring-4 focus:ring-green-100 focus:outline-none hover:border-gray-300 hover:shadow-md"
+              rows="4"
+            />
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.1 }}
+              className="flex absolute top-4 right-4 items-center text-gray-400"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
+              </svg>
+            </motion.div>
+          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-between mt-2"
+          >
+            <p className="text-xs text-gray-500">
+              This message will be sent as a reply to matching comments.
+            </p>
+            <motion.span
+              animate={{
+                color:
+                  replySettings.message.length > 150 ? "#ef4444" : "#6b7280",
+              }}
+              className="text-xs font-medium"
+            >
+              {replySettings.message.length}/280
+            </motion.span>
+          </motion.div>
+        </motion.div>
+
+        {/* Preview Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-200"
+        >
+          <div className="flex items-center mb-3 space-x-2">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
+              className="flex justify-center items-center w-6 h-6 bg-blue-500 rounded-full"
+            >
+              <svg
+                className="w-3 h-3 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                <path
+                  fillRule="evenodd"
+                  d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </motion.div>
+            <h3 className="text-sm font-semibold text-blue-700">Preview</h3>
+          </div>
+          <div className="space-y-2">
+            <p className="text-xs text-blue-600">
+              <span className="font-medium">Mode:</span>{" "}
+              {replySettings.mode === "all"
+                ? "Reply to all comments"
+                : "Reply to comments with keywords"}
+            </p>
+            {replySettings.mode === "keywords" && replySettings.keywords && (
+              <p className="text-xs text-blue-600">
+                <span className="font-medium">Keywords:</span>{" "}
+                {replySettings.keywords}
+              </p>
+            )}
+            <div className="p-3 bg-white rounded-lg border-l-4 border-blue-400 shadow-sm">
+              <p className="text-sm text-gray-700">
+                {replySettings.message ||
+                  "Your reply message will appear here..."}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
@@ -1036,250 +1279,906 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
   };
 
   return (
-    <div>
-      <h2 className="mb-4 text-2xl font-semibold">Configure DMs</h2>
+    // <div>
+    //   <h2 className="mb-4 text-2xl font-semibold">Configure DMs</h2>
 
-      {/* DM Mode */}
-      <div className="mb-4">
-        <label className="block mb-1 font-medium">DM Mode</label>
-        <select
-          value={dmSettings.mode}
-          onChange={(e) =>
-            setDmSettings({ ...dmSettings, mode: e.target.value })
-          }
-          className="p-2 w-full rounded border"
+    //   {/* DM Mode */}
+    //   <div className="mb-4">
+    //     <label className="block mb-1 font-medium">DM Mode</label>
+    //     <select
+    //       value={dmSettings.mode}
+    //       onChange={(e) =>
+    //         setDmSettings({ ...dmSettings, mode: e.target.value })
+    //       }
+    //       className="p-2 w-full rounded border"
+    //     >
+    //       <option value="all">DM all commenters</option>
+    //       <option value="keywords">DM commenters with specific keywords</option>
+    //     </select>
+    //   </div>
+
+    //   {dmSettings.mode === "keywords" && (
+    //     <div className="mb-4">
+    //       <label className="block mb-1 font-medium">
+    //         Keywords (comma separated)
+    //       </label>
+    //       <input
+    //         type="text"
+    //         value={dmSettings.keywords}
+    //         onChange={(e) =>
+    //           setDmSettings({ ...dmSettings, keywords: e.target.value })
+    //         }
+    //         className="p-2 w-full rounded border"
+    //       />
+    //     </div>
+    //   )}
+
+    //   {/* DM Type */}
+    //   <div className="mb-4">
+    //     <label className="block mb-1 font-medium">DM Type</label>
+    //     <select
+    //       value={dmSettings.type}
+    //       onChange={(e) =>
+    //         setDmSettings({ ...dmSettings, type: e.target.value })
+    //       }
+    //       className="p-2 w-full rounded border"
+    //     >
+    //       <option value="TEXT">Normal text message</option>
+    //       <option value="TEXT_MEDIA">Media + text message</option>
+    //       <option value="GENERIC_TEMPLATE">Product Carousel Cards</option>
+    //       <option value="BUTTON_TEMPLATE">Single Button Card</option>
+    //     </select>
+    //   </div>
+
+    //   {/* Text */}
+    //   {dmSettings.type === "TEXT" && (
+    //     <div className="mb-4">
+    //       <label className="block mb-1 font-medium">Message</label>
+    //       <textarea
+    //         value={dmSettings.message}
+    //         onChange={(e) =>
+    //           setDmSettings({ ...dmSettings, message: e.target.value })
+    //         }
+    //         className="p-2 w-full rounded border"
+    //       />
+    //     </div>
+    //   )}
+
+    //   {/* Media */}
+    //   {dmSettings.type === "TEXT_MEDIA" && (
+    //     <>
+    //       <div className="mb-4">
+    //         <label className="block mb-1 font-medium">Message</label>
+    //         <textarea
+    //           value={dmSettings.message}
+    //           onChange={(e) =>
+    //             setDmSettings({ ...dmSettings, message: e.target.value })
+    //           }
+    //           className="p-2 w-full rounded border"
+    //         />
+    //       </div>
+    //       <div className="mb-4">
+    //         <label className="block mb-1 font-medium">Upload Media</label>
+    //         <input
+    //           type="file"
+    //           accept="image/*,audio/*,video/*"
+    //           onChange={async (e) => {
+    //             const mediaData = await validateAndUpload(e.target.files[0]);
+    //             if (mediaData) {
+    //               setDmSettings({ ...dmSettings, media: mediaData });
+    //             }
+    //           }}
+    //           className="p-2 w-full rounded border"
+    //         />
+    //         <div className="mt-1 text-sm text-gray-500">
+    //           Images (PNG, JPEG, GIF): Max 8MB | Audio (AAC, M4A, WAV, MP4): Max
+    //           25MB | Video (MP4, OGG, AVI, MOV, WEBM): Max 25MB
+    //         </div>
+    //         {renderMediaPreview(dmSettings.media)}
+    //       </div>
+    //     </>
+    //   )}
+
+    //   {/* Carousel - Multiple Cards */}
+    //   {dmSettings.type === "GENERIC_TEMPLATE" && (
+    //     <>
+    //       <div className="flex justify-between items-center mb-4">
+    //         <h3 className="text-lg font-medium">Product Cards</h3>
+    //         <button
+    //           type="button"
+    //           onClick={addCard}
+    //           className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+    //         >
+    //           Add Card
+    //         </button>
+    //       </div>
+
+    //       {(dmSettings.cards || []).length === 0 && (
+    //         <div className="p-4 mb-4 text-center text-gray-500 bg-gray-50 rounded border">
+    //           No cards added yet. Click "Add Card" to create your first product
+    //           card.
+    //         </div>
+    //       )}
+
+    //       {(dmSettings.cards || []).map((card, cardIndex) => (
+    //         <div key={cardIndex} className="p-4 mb-6 bg-gray-50 rounded border">
+    //           <div className="flex justify-between items-center mb-4">
+    //             <h4 className="font-medium text-md">Card {cardIndex + 1}</h4>
+    //             {(dmSettings.cards || []).length > 1 && (
+    //               <button
+    //                 type="button"
+    //                 onClick={() => removeCard(cardIndex)}
+    //                 className="px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600"
+    //               >
+    //                 Remove
+    //               </button>
+    //             )}
+    //           </div>
+
+    //           <div className="mb-4">
+    //             <label className="block mb-1 font-medium">Card Title</label>
+    //             <input
+    //               type="text"
+    //               value={card.title || ""}
+    //               onChange={(e) =>
+    //                 updateCard(cardIndex, "title", e.target.value)
+    //               }
+    //               className="p-2 w-full rounded border"
+    //             />
+    //           </div>
+
+    //           <div className="mb-4">
+    //             <label className="block mb-1 font-medium">Product Media</label>
+    //             <input
+    //               type="file"
+    //               accept="image/*,audio/*,video/*"
+    //               onChange={(e) =>
+    //                 handleCardMediaUpload(cardIndex, e.target.files[0])
+    //               }
+    //               className="p-2 w-full rounded border"
+    //             />
+    //             <div className="mt-1 text-sm text-gray-500">
+    //               Images (PNG, JPEG, GIF): Max 8MB | Audio (AAC, M4A, WAV, MP4):
+    //               Max 25MB | Video (MP4, OGG, AVI, MOV, WEBM): Max 25MB
+    //             </div>
+    //             {renderCardMediaPreview(card.image, cardIndex)}
+    //           </div>
+
+    //           {/* Buttons for this card */}
+    //           <div className="space-y-3">
+    //             <div className="flex justify-between items-center">
+    //               <label className="block font-medium">Buttons</label>
+    //               <div className="flex gap-2">
+    //                 <button
+    //                   type="button"
+    //                   onClick={() => addButtonToCard(cardIndex)}
+    //                   disabled={(card.buttons || []).length >= 3}
+    //                   className="px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
+    //                 >
+    //                   Add Button
+    //                 </button>
+    //               </div>
+    //             </div>
+
+    //             {card.buttons?.map((button, buttonIndex) => {
+    //               const validationError = getButtonValidationError(button);
+    //               return (
+    //                 <div
+    //                   key={buttonIndex}
+    //                   className="p-3 bg-white rounded border"
+    //                 >
+    //                   <div className="flex justify-between items-center mb-2">
+    //                     <span className="text-sm font-medium text-gray-700">
+    //                       Button {buttonIndex + 1}
+    //                     </span>
+    //                     {(card.buttons || []).length > 1 && (
+    //                       <button
+    //                         type="button"
+    //                         onClick={() =>
+    //                           removeButtonFromCard(cardIndex, buttonIndex)
+    //                         }
+    //                         className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
+    //                       >
+    //                         Remove
+    //                       </button>
+    //                     )}
+    //                   </div>
+
+    //                   <div className="grid grid-cols-2 gap-2">
+    //                     <div>
+    //                       <label className="block mb-1 text-sm font-medium">
+    //                         Label
+    //                       </label>
+    //                       <input
+    //                         type="text"
+    //                         value={button.label || ""}
+    //                         onChange={(e) =>
+    //                           updateCardButton(
+    //                             cardIndex,
+    //                             buttonIndex,
+    //                             "label",
+    //                             e.target.value
+    //                           )
+    //                         }
+    //                         className={`p-2 w-full rounded border ${
+    //                           validationError ? "border-red-500" : ""// }`}
+    //                         placeholder="e.g., Buy Now"
+    //                       />
+    //                     </div>
+    //                     <div>
+    //                       <label className="block mb-1 text-sm font-medium">
+    //                         URL
+    //                       </label>
+    //                       <input
+    //                         type="text"
+    //                         value={button.url || ""}
+    //                         onChange={(e) =>
+    //                           updateCardButton(
+    //                             cardIndex,
+    //                             buttonIndex,
+    //                             "url",
+    //                             e.target.value
+    //                           )
+    //                         }
+    //                         className={`p-2 w-full rounded border ${
+    //                           validationError ? "border-red-500" : ""// }`}
+    //                         placeholder="https://..."
+    //                       />
+    //                     </div>
+    //                   </div>
+
+    //                   {validationError && (
+    //                     <div className="mt-1 text-sm text-red-600">
+    //                       {validationError}
+    //                     </div>
+    //                   )}
+    //                 </div>
+    //               );
+    //             })}
+    //           </div>
+    //         </div>
+    //       ))}
+    //     </>
+    //   )}
+
+    //   {/* BUTTON_TEMPLATE - Single Button Card */}
+    //   {dmSettings.type === "BUTTON_TEMPLATE" && dmSettings.buttonCard && (
+    //     <>
+    //       <div className="p-4 mb-6 bg-gray-50 rounded border">
+    //         <h3 className="mb-4 text-lg font-medium">Single Button Card</h3>
+
+    //         <div className="mb-4">
+    //           <label className="block mb-1 font-medium">Card Title</label>
+    //           <input
+    //             type="text"
+    //             value={dmSettings.buttonCard?.title || ""}
+    //             onChange={(e) => updateButtonCard("title", e.target.value)}
+    //             className="p-2 w-full rounded border"
+    //             placeholder="Enter card title"
+    //           />
+    //         </div>
+
+    //         {/* Buttons */}
+    //         <div className="space-y-3">
+    //           <div className="flex justify-between items-center">
+    //             <label className="block font-medium">Buttons</label>
+    //             <button
+    //               type="button"
+    //               onClick={addButtonToButtonCard}
+    //               disabled={(dmSettings.buttonCard?.buttons || []).length >= 3}
+    //               className="px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
+    //             >
+    //               Add Button
+    //             </button>
+    //           </div>
+
+    //           {dmSettings.buttonCard?.buttons?.map((button, buttonIndex) => {
+    //             const validationError = getButtonValidationError(button);
+    //             return (
+    //               <div
+    //                 key={buttonIndex}
+    //                 className="p-3 bg-white rounded border"
+    //               >
+    //                 <div className="flex justify-between items-center mb-2">
+    //                   <span className="text-sm font-medium text-gray-700">
+    //                     Button {buttonIndex + 1}
+    //                   </span>
+    //                   {(dmSettings.buttonCard?.buttons || []).length > 1 && (
+    //                     <button
+    //                       type="button"
+    //                       onClick={() =>
+    //                         removeButtonFromButtonCard(buttonIndex)
+    //                       }
+    //                       className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
+    //                     >
+    //                       Remove
+    //                     </button>
+    //                   )}
+    //                 </div>
+
+    //                 <div className="grid grid-cols-2 gap-2">
+    //                   <div>
+    //                     <label className="block mb-1 text-sm font-medium">
+    //                       Label
+    //                     </label>
+    //                     <input
+    //                       type="text"
+    //                       value={button.label || ""}
+    //                       onChange={(e) =>
+    //                         updateButtonCardButton(
+    //                           buttonIndex,
+    //                           "label",
+    //                           e.target.value
+    //                         )
+    //                       }
+    //                       className={`p-2 w-full rounded border ${
+    //                         validationError ? "border-red-500" : ""// }`}
+    //                       placeholder="e.g., Visit Website"
+    //                     />
+    //                   </div>
+    //                   <div>
+    //                     <label className="block mb-1 text-sm font-medium">
+    //                       URL
+    //                     </label>
+    //                     <input
+    //                       type="text"
+    //                       value={button.url || ""}
+    //                       onChange={(e) =>
+    //                         updateButtonCardButton(
+    //                           buttonIndex,
+    //                           "url",
+    //                           e.target.value
+    //                         )
+    //                       }
+    //                       className={`p-2 w-full rounded border ${
+    //                         validationError ? "border-red-500" : ""// }`}
+    //                       placeholder="https://..."
+    //                     />
+    //                   </div>
+    //                 </div>
+
+    //                 {validationError && (
+    //                   <div className="mt-1 text-sm text-red-600">
+    //                     {validationError}
+    //                   </div>
+    //                 )}
+    //               </div>
+    //             );
+    //           })}
+    //         </div>
+    //       </div>
+    //     </>
+    //   )}
+    // </div>
+
+    <div className="px-4 mx-auto max-w-7xl">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-8"
+      >
+        <h2 className="mb-2 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600">
+          Configure DMs
+        </h2>
+        <p className="text-sm text-gray-600">
+          Set up your direct message configuration
+        </p>
+      </motion.div>
+
+      <div className="space-y-6">
+        {/* DM Mode */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
         >
-          <option value="all">DM all commenters</option>
-          <option value="keywords">DM commenters with specific keywords</option>
-        </select>
-      </div>
-
-      {dmSettings.mode === "keywords" && (
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">
-            Keywords (comma separated)
+          <label className="block mb-3 text-sm font-semibold text-gray-700">
+            DM Mode
           </label>
-          <input
-            type="text"
-            value={dmSettings.keywords}
+          <select
+            value={dmSettings.mode}
             onChange={(e) =>
-              setDmSettings({ ...dmSettings, keywords: e.target.value })
+              setDmSettings({ ...dmSettings, mode: e.target.value })
             }
-            className="p-2 w-full rounded border"
-          />
-        </div>
-      )}
+            className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white hover:bg-gray-100"
+          >
+            <option value="all">DM all commenters</option>
+            <option value="keywords">
+              DM commenters with specific keywords
+            </option>
+          </select>
+        </motion.div>
 
-      {/* DM Type */}
-      <div className="mb-4">
-        <label className="block mb-1 font-medium">DM Type</label>
-        <select
-          value={dmSettings.type}
-          onChange={(e) =>
-            setDmSettings({ ...dmSettings, type: e.target.value })
-          }
-          className="p-2 w-full rounded border"
+        {dmSettings.mode === "keywords" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+          >
+            <label className="block mb-3 text-sm font-semibold text-gray-700">
+              Keywords (comma separated)
+            </label>
+            <input
+              type="text"
+              value={dmSettings.keywords}
+              onChange={(e) =>
+                setDmSettings({ ...dmSettings, keywords: e.target.value })
+              }
+              className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white hover:bg-gray-100"
+              placeholder="Enter keywords separated by commas"
+            />
+          </motion.div>
+        )}
+
+        {/* DM Type */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
         >
-          <option value="TEXT">Normal text message</option>
-          <option value="TEXT_MEDIA">Media + text message</option>
-          <option value="GENERIC_TEMPLATE">Product Carousel Cards</option>
-          <option value="BUTTON_TEMPLATE">Single Button Card</option>
-        </select>
-      </div>
-
-      {/* Text */}
-      {dmSettings.type === "TEXT" && (
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">Message</label>
-          <textarea
-            value={dmSettings.message}
+          <label className="block mb-3 text-sm font-semibold text-gray-700">
+            DM Type
+          </label>
+          <select
+            value={dmSettings.type}
             onChange={(e) =>
-              setDmSettings({ ...dmSettings, message: e.target.value })
+              setDmSettings({ ...dmSettings, type: e.target.value })
             }
-            className="p-2 w-full rounded border"
-          />
-        </div>
-      )}
+            className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white hover:bg-gray-100"
+          >
+            <option value="TEXT">Normal text message</option>
+            <option value="TEXT_MEDIA">Media + text message</option>
+            <option value="GENERIC_TEMPLATE">Product Carousel Cards</option>
+            <option value="BUTTON_TEMPLATE">Single Button Card</option>
+          </select>
+        </motion.div>
 
-      {/* Media */}
-      {dmSettings.type === "TEXT_MEDIA" && (
-        <>
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">Message</label>
+        {/* Text Message */}
+        {dmSettings.type === "TEXT" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+          >
+            <label className="block mb-3 text-sm font-semibold text-gray-700">
+              Message
+            </label>
             <textarea
               value={dmSettings.message}
               onChange={(e) =>
                 setDmSettings({ ...dmSettings, message: e.target.value })
               }
-              className="p-2 w-full rounded border"
+              rows={4}
+              className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 resize-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white hover:bg-gray-100"
+              placeholder="Enter your message..."
             />
-          </div>
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">Upload Media</label>
-            <input
-              type="file"
-              accept="image/*,audio/*,video/*"
-              onChange={async (e) => {
-                const mediaData = await validateAndUpload(e.target.files[0]);
-                if (mediaData) {
-                  setDmSettings({ ...dmSettings, media: mediaData });
+          </motion.div>
+        )}
+
+        {/* Media + Text */}
+        {dmSettings.type === "TEXT_MEDIA" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            className="space-y-6"
+          >
+            <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg">
+              <label className="block mb-3 text-sm font-semibold text-gray-700">
+                Message
+              </label>
+              <textarea
+                value={dmSettings.message}
+                onChange={(e) =>
+                  setDmSettings({ ...dmSettings, message: e.target.value })
                 }
-              }}
-              className="p-2 w-full rounded border"
-            />
-            <div className="mt-1 text-sm text-gray-500">
-              Images (PNG, JPEG, GIF): Max 8MB | Audio (AAC, M4A, WAV, MP4): Max
-              25MB | Video (MP4, OGG, AVI, MOV, WEBM): Max 25MB
+                rows={4}
+                className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 resize-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white hover:bg-gray-100"
+                placeholder="Enter your message..."
+              />
             </div>
-            {renderMediaPreview(dmSettings.media)}
-          </div>
-        </>
-      )}
 
-      {/* Carousel - Multiple Cards */}
-      {dmSettings.type === "GENERIC_TEMPLATE" && (
-        <>
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-medium">Product Cards</h3>
-            <button
-              type="button"
-              onClick={addCard}
-              className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
-            >
-              Add Card
-            </button>
-          </div>
-
-          {(dmSettings.cards || []).length === 0 && (
-            <div className="p-4 mb-4 text-center text-gray-500 bg-gray-50 rounded border">
-              No cards added yet. Click "Add Card" to create your first product
-              card.
-            </div>
-          )}
-
-          {(dmSettings.cards || []).map((card, cardIndex) => (
-            <div key={cardIndex} className="p-4 mb-6 bg-gray-50 rounded border">
-              <div className="flex justify-between items-center mb-4">
-                <h4 className="font-medium text-md">Card {cardIndex + 1}</h4>
-                {(dmSettings.cards || []).length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => removeCard(cardIndex)}
-                    className="px-3 py-1 text-sm text-white bg-red-500 rounded hover:bg-red-600"
-                  >
-                    Remove
-                  </button>
-                )}
-              </div>
-
-              <div className="mb-4">
-                <label className="block mb-1 font-medium">Card Title</label>
-                <input
-                  type="text"
-                  value={card.title || ""}
-                  onChange={(e) =>
-                    updateCard(cardIndex, "title", e.target.value)
-                  }
-                  className="p-2 w-full rounded border"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label className="block mb-1 font-medium">Product Media</label>
+            <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg">
+              <label className="block mb-3 text-sm font-semibold text-gray-700">
+                Upload Media
+              </label>
+              <div className="relative">
                 <input
                   type="file"
                   accept="image/*,audio/*,video/*"
-                  onChange={(e) =>
-                    handleCardMediaUpload(cardIndex, e.target.files[0])
-                  }
-                  className="p-2 w-full rounded border"
+                  onChange={async (e) => {
+                    const mediaData = await validateAndUpload(
+                      e.target.files[0]
+                    );
+                    if (mediaData) {
+                      setDmSettings({ ...dmSettings, media: mediaData });
+                    }
+                  }}
+                  className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 hover:border-blue-400"
                 />
-                <div className="mt-1 text-sm text-gray-500">
-                  Images (PNG, JPEG, GIF): Max 8MB | Audio (AAC, M4A, WAV, MP4):
-                  Max 25MB | Video (MP4, OGG, AVI, MOV, WEBM): Max 25MB
-                </div>
-                {renderCardMediaPreview(card.image, cardIndex)}
               </div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="p-3 mt-2 text-xs text-gray-500 bg-gray-50 rounded-lg"
+              >
+                <span className="font-medium">Supported formats:</span>
+                <br />
+                📸 Images (PNG, JPEG, GIF): Max 8MB
+                <br />
+                🎵 Audio (AAC, M4A, WAV, MP4): Max 25MB
+                <br />
+                🎥 Video (MP4, OGG, AVI, MOV, WEBM): Max 25MB
+              </motion.div>
+              {renderMediaPreview(dmSettings.media)}
+            </div>
+          </motion.div>
+        )}
 
-              {/* Buttons for this card */}
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <label className="block font-medium">Buttons</label>
-                  <div className="flex gap-2">
-                    <button
+        {/* Product Carousel Cards */}
+        {dmSettings.type === "GENERIC_TEMPLATE" && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="space-y-6"
+          >
+            <div className="flex justify-between items-center p-6 bg-white rounded-xl border border-gray-100 shadow-lg">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800">
+                  Product Cards
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Create engaging product carousel cards
+                </p>
+              </div>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="button"
+                onClick={addCard}
+                className="px-6 py-3 font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg transition-all duration-200 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl"
+              >
+                + Add Card
+              </motion.button>
+            </div>
+
+            {(dmSettings.cards || []).length === 0 && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="p-12 text-center bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-2 border-gray-300 border-dashed"
+              >
+                <div className="inline-flex justify-center items-center mx-auto mb-4 w-16 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full">
+                  <span className="text-2xl">🛍️</span>
+                </div>
+                <p className="mb-2 text-lg font-medium text-gray-600">
+                  No cards added yet
+                </p>
+                <p className="text-sm text-gray-500">
+                  Click "Add Card" to create your first product card
+                </p>
+              </motion.div>
+            )}
+
+            {(dmSettings.cards || []).map((card, cardIndex) => (
+              <motion.div
+                key={cardIndex}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: cardIndex * 0.1 }}
+                className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+              >
+                <div className="flex justify-between items-center mb-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="flex justify-center items-center w-8 h-8 text-sm font-bold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
+                      {cardIndex + 1}
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-800">
+                      Card {cardIndex + 1}
+                    </h4>
+                  </div>
+                  {(dmSettings.cards || []).length > 1 && (
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       type="button"
-                      onClick={() => addButtonToCard(cardIndex)}
-                      disabled={(card.buttons || []).length >= 3}
-                      className="px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={() => removeCard(cardIndex)}
+                      className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-red-500 to-red-600 rounded-lg shadow-md transition-all duration-200 hover:from-red-600 hover:to-red-700 hover:shadow-lg"
                     >
-                      Add Button
-                    </button>
+                      Remove
+                    </motion.button>
+                  )}
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <label className="block mb-2 text-sm font-semibold text-gray-700">
+                      Card Title
+                    </label>
+                    <input
+                      type="text"
+                      value={card.title || ""}
+                      onChange={(e) =>
+                        updateCard(cardIndex, "title", e.target.value)
+                      }
+                      className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white hover:bg-gray-100"
+                      placeholder="Enter card title..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block mb-2 text-sm font-semibold text-gray-700">
+                      Product Media
+                    </label>
+                    <input
+                      type="file"
+                      accept="image/*,audio/*,video/*"
+                      onChange={(e) =>
+                        handleCardMediaUpload(cardIndex, e.target.files[0])
+                      }
+                      className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border-2 border-gray-300 border-dashed transition-all duration-200 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 hover:border-blue-400"
+                    />
+                    <div className="p-3 mt-2 text-xs text-gray-500 bg-gray-50 rounded-lg">
+                      <span className="font-medium">Supported formats:</span>
+                      <br />
+                      📸 Images (PNG, JPEG, GIF): Max 8MB | 🎵 Audio (AAC, M4A,
+                      WAV, MP4): Max 25MB | 🎥 Video (MP4, OGG, AVI, MOV, WEBM):
+                      Max 25MB
+                    </div>
+                    {renderCardMediaPreview(card.image, cardIndex)}
+                  </div>
+
+                  {/* Card Buttons */}
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <label className="block text-sm font-semibold text-gray-700">
+                        Buttons
+                      </label>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        type="button"
+                        onClick={() => addButtonToCard(cardIndex)}
+                        disabled={(card.buttons || []).length >= 3}
+                        className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-green-500 to-green-600 rounded-lg shadow-md transition-all duration-200 hover:from-green-600 hover:to-green-700 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                      >
+                        + Add Button
+                      </motion.button>
+                    </div>
+
+                    {card.buttons?.map((button, buttonIndex) => {
+                      const validationError = getButtonValidationError(button);
+                      return (
+                        <motion.div
+                          key={buttonIndex}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: buttonIndex * 0.1 }}
+                          className="p-4 bg-gray-50 rounded-lg border border-gray-200"
+                        >
+                          <div className="flex justify-between items-center mb-3">
+                            <div className="flex items-center space-x-2">
+                              <div className="flex justify-center items-center w-6 h-6 text-xs font-bold text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-full">
+                                {buttonIndex + 1}
+                              </div>
+                              <span className="text-sm font-semibold text-gray-700">
+                                Button {buttonIndex + 1}
+                              </span>
+                            </div>
+                            {(card.buttons || []).length > 1 && (
+                              <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                type="button"
+                                onClick={() =>
+                                  removeButtonFromCard(cardIndex, buttonIndex)
+                                }
+                                className="px-3 py-1 text-xs font-medium text-white bg-red-500 rounded-full shadow-sm transition-all duration-200 hover:bg-red-600 hover:shadow-md"
+                              >
+                                Remove
+                              </motion.button>
+                            )}
+                          </div>
+
+                          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                            <div>
+                              <label className="block mb-1 text-xs font-semibold tracking-wide text-gray-600 uppercase">
+                                Label
+                              </label>
+                              <input
+                                type="text"
+                                value={button.label || ""}
+                                onChange={(e) =>
+                                  updateCardButton(
+                                    cardIndex,
+                                    buttonIndex,
+                                    "label",
+                                    e.target.value
+                                  )
+                                }
+                                className={`p-3 w-full text-gray-700 bg-white rounded-lg border transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 ${
+                                  validationError
+                                    ? "bg-red-50 border-red-500"
+                                    : "border-gray-200"
+                                }`}
+                                placeholder="e.g., Buy Now"
+                              />
+                            </div>
+                            <div>
+                              <label className="block mb-1 text-xs font-semibold tracking-wide text-gray-600 uppercase">
+                                URL
+                              </label>
+                              <input
+                                type="text"
+                                value={button.url || ""}
+                                onChange={(e) =>
+                                  updateCardButton(
+                                    cardIndex,
+                                    buttonIndex,
+                                    "url",
+                                    e.target.value
+                                  )
+                                }
+                                className={`p-3 w-full text-gray-700 bg-white rounded-lg border transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 ${
+                                  validationError
+                                    ? "bg-red-50 border-red-500"
+                                    : "border-gray-200"
+                                }`}
+                                placeholder="https://..."
+                              />
+                            </div>
+                          </div>
+
+                          {validationError && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              className="p-3 mt-3 text-sm text-red-600 bg-red-50 rounded-lg border border-red-200"
+                            >
+                              ⚠️ {validationError}
+                            </motion.div>
+                          )}
+                        </motion.div>
+                      );
+                    })}
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
 
-                {card.buttons?.map((button, buttonIndex) => {
+        {/* Single Button Card */}
+        {dmSettings.type === "BUTTON_TEMPLATE" && dmSettings.buttonCard && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+          >
+            <div className="mb-6">
+              <h3 className="mb-2 text-lg font-semibold text-gray-800">
+                Single Button Card
+              </h3>
+              <p className="text-sm text-gray-600">
+                Create a focused call-to-action card
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <label className="block mb-2 text-sm font-semibold text-gray-700">
+                  Card Title
+                </label>
+                <input
+                  type="text"
+                  value={dmSettings.buttonCard?.title || ""}
+                  onChange={(e) => updateButtonCard("title", e.target.value)}
+                  className="p-3 w-full text-gray-700 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white hover:bg-gray-100"
+                  placeholder="Enter card title..."
+                />
+              </div>
+
+              {/* Buttons */}
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <label className="block text-sm font-semibold text-gray-700">
+                    Buttons
+                  </label>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    type="button"
+                    onClick={addButtonToButtonCard}
+                    disabled={
+                      (dmSettings.buttonCard?.buttons || []).length >= 3
+                    }
+                    className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-green-500 to-green-600 rounded-lg shadow-md transition-all duration-200 hover:from-green-600 hover:to-green-700 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  >
+                    + Add Button
+                  </motion.button>
+                </div>
+
+                {dmSettings.buttonCard?.buttons?.map((button, buttonIndex) => {
                   const validationError = getButtonValidationError(button);
                   return (
-                    <div
+                    <motion.div
                       key={buttonIndex}
-                      className="p-3 bg-white rounded border"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: buttonIndex * 0.1 }}
+                      className="p-4 bg-gray-50 rounded-lg border border-gray-200"
                     >
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium text-gray-700">
-                          Button {buttonIndex + 1}
-                        </span>
-                        {(card.buttons || []).length > 1 && (
-                          <button
+                      <div className="flex justify-between items-center mb-3">
+                        <div className="flex items-center space-x-2">
+                          <div className="flex justify-center items-center w-6 h-6 text-xs font-bold text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-full">
+                            {buttonIndex + 1}
+                          </div>
+                          <span className="text-sm font-semibold text-gray-700">
+                            Button {buttonIndex + 1}
+                          </span>
+                        </div>
+                        {(dmSettings.buttonCard?.buttons || []).length > 1 && (
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             type="button"
                             onClick={() =>
-                              removeButtonFromCard(cardIndex, buttonIndex)
+                              removeButtonFromButtonCard(buttonIndex)
                             }
-                            className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
+                            className="px-3 py-1 text-xs font-medium text-white bg-red-500 rounded-full shadow-sm transition-all duration-200 hover:bg-red-600 hover:shadow-md"
                           >
                             Remove
-                          </button>
+                          </motion.button>
                         )}
                       </div>
 
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         <div>
-                          <label className="block mb-1 text-sm font-medium">
+                          <label className="block mb-1 text-xs font-semibold tracking-wide text-gray-600 uppercase">
                             Label
                           </label>
                           <input
                             type="text"
                             value={button.label || ""}
                             onChange={(e) =>
-                              updateCardButton(
-                                cardIndex,
+                              updateButtonCardButton(
                                 buttonIndex,
                                 "label",
                                 e.target.value
                               )
                             }
-                            className={`p-2 w-full rounded border ${
-                              validationError ? "border-red-500" : ""
+                            className={`p-3 w-full text-gray-700 bg-white rounded-lg border transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 ${
+                              validationError
+                                ? "bg-red-50 border-red-500"
+                                : "border-gray-200"
                             }`}
-                            placeholder="e.g., Buy Now"
+                            placeholder="e.g., Visit Website"
                           />
                         </div>
                         <div>
-                          <label className="block mb-1 text-sm font-medium">
+                          <label className="block mb-1 text-xs font-semibold tracking-wide text-gray-600 uppercase">
                             URL
                           </label>
                           <input
                             type="text"
                             value={button.url || ""}
                             onChange={(e) =>
-                              updateCardButton(
-                                cardIndex,
+                              updateButtonCardButton(
                                 buttonIndex,
                                 "url",
                                 e.target.value
                               )
                             }
-                            className={`p-2 w-full rounded border ${
-                              validationError ? "border-red-500" : ""
+                            className={`p-3 w-full text-gray-700 bg-white rounded-lg border transition-all duration-200 focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 ${
+                              validationError
+                                ? "bg-red-50 border-red-500"
+                                : "border-gray-200"
                             }`}
                             placeholder="https://..."
                           />
@@ -1287,129 +2186,22 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                       </div>
 
                       {validationError && (
-                        <div className="mt-1 text-sm text-red-600">
-                          {validationError}
-                        </div>
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="p-3 mt-3 text-sm text-red-600 bg-red-50 rounded-lg border border-red-200"
+                        >
+                          ⚠️ {validationError}
+                        </motion.div>
                       )}
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
             </div>
-          ))}
-        </>
-      )}
-
-      {/* BUTTON_TEMPLATE - Single Button Card */}
-      {dmSettings.type === "BUTTON_TEMPLATE" && dmSettings.buttonCard && (
-        <>
-          <div className="p-4 mb-6 bg-gray-50 rounded border">
-            <h3 className="mb-4 text-lg font-medium">Single Button Card</h3>
-
-            <div className="mb-4">
-              <label className="block mb-1 font-medium">Card Title</label>
-              <input
-                type="text"
-                value={dmSettings.buttonCard?.title || ""}
-                onChange={(e) => updateButtonCard("title", e.target.value)}
-                className="p-2 w-full rounded border"
-                placeholder="Enter card title"
-              />
-            </div>
-
-            {/* Buttons */}
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <label className="block font-medium">Buttons</label>
-                <button
-                  type="button"
-                  onClick={addButtonToButtonCard}
-                  disabled={(dmSettings.buttonCard?.buttons || []).length >= 3}
-                  className="px-3 py-1 text-sm text-white bg-green-500 rounded hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Add Button
-                </button>
-              </div>
-
-              {dmSettings.buttonCard?.buttons?.map((button, buttonIndex) => {
-                const validationError = getButtonValidationError(button);
-                return (
-                  <div
-                    key={buttonIndex}
-                    className="p-3 bg-white rounded border"
-                  >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm font-medium text-gray-700">
-                        Button {buttonIndex + 1}
-                      </span>
-                      {(dmSettings.buttonCard?.buttons || []).length > 1 && (
-                        <button
-                          type="button"
-                          onClick={() =>
-                            removeButtonFromButtonCard(buttonIndex)
-                          }
-                          className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
-                        >
-                          Remove
-                        </button>
-                      )}
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2">
-                      <div>
-                        <label className="block mb-1 text-sm font-medium">
-                          Label
-                        </label>
-                        <input
-                          type="text"
-                          value={button.label || ""}
-                          onChange={(e) =>
-                            updateButtonCardButton(
-                              buttonIndex,
-                              "label",
-                              e.target.value
-                            )
-                          }
-                          className={`p-2 w-full rounded border ${
-                            validationError ? "border-red-500" : ""
-                          }`}
-                          placeholder="e.g., Visit Website"
-                        />
-                      </div>
-                      <div>
-                        <label className="block mb-1 text-sm font-medium">
-                          URL
-                        </label>
-                        <input
-                          type="text"
-                          value={button.url || ""}
-                          onChange={(e) =>
-                            updateButtonCardButton(
-                              buttonIndex,
-                              "url",
-                              e.target.value
-                            )
-                          }
-                          className={`p-2 w-full rounded border ${
-                            validationError ? "border-red-500" : ""
-                          }`}
-                          placeholder="https://..."
-                        />
-                      </div>
-                    </div>
-
-                    {validationError && (
-                      <div className="mt-1 text-sm text-red-600">
-                        {validationError}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </>
-      )}
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 }
@@ -1920,7 +2712,7 @@ export default function AutomationPage() {
             </div>
 
             {/* Modal Content */}
-            <div className="p-6 max-h-[25rem] overflow-y-auto no-scrollbar">
+            <div className="p-4 max-h-[25rem] overflow-y-auto no-scrollbar">
               {modalStep === 2 && (
                 <Step2_ChooseAutomationType
                   automationType={automationType}
@@ -1939,12 +2731,12 @@ export default function AutomationPage() {
                   setDmSettings={setDmSettings}
                 />
               )}
-              {modalStep === 4 && automationType === "both" && (
+              {/* {modalStep === 4 && automationType === "both" && (
                 <Step4_ConfigureDMs
                   dmSettings={dmSettings}
                   setDmSettings={setDmSettings}
                 />
-              )}
+              )} */}
             </div>
 
             {/* Modal Footer */}
