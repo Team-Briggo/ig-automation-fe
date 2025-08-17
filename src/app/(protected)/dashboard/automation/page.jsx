@@ -2257,7 +2257,6 @@ export default function AutomationPage() {
                           e.stopPropagation();
                           setModifyPostAutomation(!modifyPostAutomation);
                           setModifyPostAutomationType("delete");
-                          console.log("post", post);
                           setSelectedModifyPost(post);
                         }}
                         title="Delete automation"
