@@ -2379,7 +2379,7 @@ export default function AutomationPage() {
                   key={post.id}
                   variants={itemVariants}
                   layout
-                  className={`overflow-hidden relative bg-white rounded-xl transition-all duration-300 cursor-pointer group`}
+                  className={`overflow-hidden relative bg-white rounded-xl shadow-lg transition-all duration-300 cursor-pointer group`}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
