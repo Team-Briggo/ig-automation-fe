@@ -2608,6 +2608,12 @@ export default function AutomationPage() {
               </div>
             )}
           </motion.div>
+
+          {!automatedPostsLoading && automatedPosts.length === 0 && (
+            <div className="flex justify-center items-center h-full">
+              <p className="text-lg text-gray-400">No automated posts found.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
