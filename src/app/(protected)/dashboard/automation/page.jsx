@@ -2002,6 +2002,7 @@ export default function AutomationPage() {
   const [selectedPost, setSelectedPost] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [automatedPosts, setAutomatedPosts] = useState([]);
+  const [automatedPostsLoading, setAutomatedPostsLoading] = useState(false);
   const [modifyPostAutomation, setModifyPostAutomation] = useState(null);
   const [modifyPostAutomationType, setModifyPostAutomationType] =
     useState(null);
@@ -2035,9 +2036,16 @@ export default function AutomationPage() {
 
   const loadAutomatedPosts = async () => {
     if (!user) return;
-    const res = await manageIgMediaAutomationAPI("LIST", { userId: user.id });
-    if (res.success && res.items) {
-      setAutomatedPosts(res.items || []);
+
+    try {
+      setAutomatedPostsLoading(true);
+      const res = await manageIgMediaAutomationAPI("LIST", { userId: user.id });
+      if (res.success && res.items) {
+        setAutomatedPosts(res.items || []);
+      }
+    } catch (error) {
+    } finally {
+      setAutomatedPostsLoading(false);
     }
   };
 
@@ -2349,6 +2357,16 @@ export default function AutomationPage() {
         </div>
 
         <div className={`${tab === "automatedPosts" ? "" : "hidden"}`}>
+          {automatedPostsLoading && (
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4">
+              {Array.from({ length: 12 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="w-full h-64 bg-gray-200 rounded-lg animate-pulse"
+                />
+              ))}
+            </div>
+          )}
           <motion.div
             variants={containerVariants}
             initial="hidden"
