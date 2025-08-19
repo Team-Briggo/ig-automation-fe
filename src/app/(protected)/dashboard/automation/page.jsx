@@ -1047,7 +1047,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
 
         {type === "image" && (
           <img
-            src={path}
+            src={path || "/placeholder.png"}
             alt="Card Preview"
             className="object-cover max-w-full h-32 rounded border"
           />
@@ -1277,7 +1277,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
   };
 
   return (
-    <div className="px-4 mx-auto max-w-7xl">
+    <div className="mx-auto max-w-7xl">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -1297,7 +1297,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+          className="p-4 bg-white rounded-xl border border-gray-100 shadow-lg"
         >
           <label className="block mb-3 text-sm font-semibold text-gray-700">
             DM Mode
@@ -1321,7 +1321,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+            className="p-4 bg-white rounded-xl border border-gray-100 shadow-lg"
           >
             <label className="block mb-3 text-sm font-semibold text-gray-700">
               Keywords (comma separated)
@@ -1343,7 +1343,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+          className="p-4 bg-white rounded-xl border border-gray-100 shadow-lg"
         >
           <label className="block mb-3 text-sm font-semibold text-gray-700">
             DM Type
@@ -1368,7 +1368,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+            className="p-4 bg-white rounded-xl border border-gray-100 shadow-lg"
           >
             <label className="block mb-3 text-sm font-semibold text-gray-700">
               Message
@@ -1393,7 +1393,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="space-y-6"
           >
-            <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg">
+            <div className="p-4 bg-white rounded-xl border border-gray-100 shadow-lg">
               <label className="block mb-3 text-sm font-semibold text-gray-700">
                 Message
               </label>
@@ -1408,7 +1408,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
               />
             </div>
 
-            <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg">
+            <div className="p-4 bg-white rounded-xl border border-gray-100 shadow-lg">
               <label className="block mb-3 text-sm font-semibold text-gray-700">
                 Upload Media
               </label>
@@ -1453,7 +1453,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
             transition={{ delay: 0.3 }}
             className="space-y-6"
           >
-            <div className="flex justify-between items-center p-6 bg-white rounded-xl border border-gray-100 shadow-lg">
+            <div className="flex justify-between items-center p-4 bg-white rounded-xl border border-gray-100 shadow-lg">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800">
                   Product Cards
@@ -1467,7 +1467,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                 whileTap={{ scale: 0.95 }}
                 type="button"
                 onClick={addCard}
-                className="p-2 font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg transition-all duration-200 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl"
+                className="p-2 text-sm font-medium text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg transition-all duration-200 hover:from-blue-600 hover:to-purple-700 hover:shadow-xl shrink-0"
               >
                 + Add Card
               </motion.button>
@@ -1497,7 +1497,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                 initial={{ opacity: 0, y: 20, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ delay: cardIndex * 0.1 }}
-                className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+                className="p-4 bg-white rounded-xl border border-gray-100 shadow-lg"
               >
                 <div className="flex justify-between items-center mb-6">
                   <div className="flex items-center space-x-3">
@@ -1685,7 +1685,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="p-6 bg-white rounded-xl border border-gray-100 shadow-lg"
+            className="p-4 bg-white rounded-xl border border-gray-100 shadow-lg"
           >
             <div className="mb-6">
               <h3 className="mb-2 text-lg font-semibold text-gray-800">
@@ -1828,6 +1828,171 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
           </motion.div>
         )}
       </div>
+      {/* Preview Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="p-4 mt-4 rounded-xl border border-blue-200"
+      >
+        <div className="flex items-center mb-3 space-x-2">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.1, type: "spring", stiffness: 200 }}
+            className="flex justify-center items-center w-6 h-6 bg-blue-500 rounded-full"
+          >
+            <svg
+              className="w-3 h-3 text-white"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+              <path
+                fillRule="evenodd"
+                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </motion.div>
+          <h3 className="text-sm font-semibold text-blue-700">Preview</h3>
+        </div>
+        {console.log("dmSettings", dmSettings)}
+        <div className="space-y-2">
+          <p className="text-xs text-blue-600">
+            <span className="font-medium">Mode:</span>{" "}
+            {dmSettings.mode === "all"
+              ? "DM to all users"
+              : "DM to users with keywords"}
+          </p>
+          {dmSettings.mode === "keywords" && dmSettings.keywords && (
+            <p className="text-xs text-blue-600">
+              <span className="font-medium">Keywords:</span>{" "}
+              {dmSettings.keywords}
+            </p>
+          )}
+          {dmSettings.type === "TEXT_MEDIA" && dmSettings?.media?.path && (
+            <p className="text-xs text-blue-600">
+              <span className="font-medium">Media:</span>{" "}
+              <div className="p-3 mt-2 bg-gray-50 rounded-md border">
+                <div className="flex justify-between items-start mb-2">
+                  <div className="text-sm text-gray-600">
+                    <div className="font-medium">{dmSettings.media.name}</div>
+                    <div className="text-xs">
+                      Size: {dmSettings.media.size}MB | Type:{" "}
+                      {dmSettings.media.type}
+                    </div>
+                  </div>
+                </div>
+
+                {dmSettings.media.type === "image" && (
+                  <img
+                    src={dmSettings.media.path || "/placeholder.png"}
+                    alt="Card Preview"
+                    className="object-cover max-w-full h-32 rounded border"
+                  />
+                )}
+
+                {dmSettings.media.type === "video" && (
+                  <video
+                    src={dmSettings.media.path || "/placeholder.png"}
+                    controls
+                    className="max-w-full h-32 rounded border"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+
+                {dmSettings.media.type === "audio" && (
+                  <audio
+                    src={dmSettings.media.path}
+                    controls
+                    className="w-full"
+                  >
+                    Your browser does not support the audio tag.
+                  </audio>
+                )}
+              </div>
+            </p>
+          )}
+          {(dmSettings.type === "TEXT_MEDIA" || dmSettings.type === "TEXT") && (
+            <div className="p-3 bg-white rounded-lg border-l-4 border-blue-400 shadow-sm">
+              <p className="text-sm text-gray-700">
+                {dmSettings.message || "Your reply message will appear here..."}
+              </p>
+            </div>
+          )}
+          {dmSettings.type === "GENERIC_TEMPLATE" &&
+            dmSettings?.cards?.length > 0 && (
+              <p className="text-xs text-black/90">
+                <span className="font-medium">Cards:</span>
+                <div className="flex gap-2 p-3 mt-2 rounded-xl border">
+                  {dmSettings.cards.map((card, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col justify-between items-start bg-gray-100 rounded-xl border w-fit"
+                    >
+                      {dmSettings.type === "GENERIC_TEMPLATE" &&
+                        card?.image?.path && (
+                          <img
+                            src={card?.image?.path || "/placeholder.png"}
+                            alt="Card Preview"
+                            className="object-cover w-full h-32 rounded"
+                          />
+                        )}
+                      <div className="flex flex-col gap-1 p-2 min-w-32 max-w-64">
+                        <div className="flex flex-col mb-2">
+                          <span className="text-lg font-bold leading-none line-clamp-1">
+                            {card.title}
+                          </span>
+                          <span className="text-[10px] font-light text-gray-600">
+                            Powered by Briggo
+                          </span>
+                        </div>
+                        {card?.buttons?.map((button, index) => (
+                          <div key={index}>
+                            {button.label && (
+                              <button className="p-2 w-full font-semibold bg-gray-200 rounded-lg text-black/100 text-md line-clamp-1">
+                                {button.label}
+                              </button>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </p>
+            )}
+          {dmSettings.type === "BUTTON_TEMPLATE" && dmSettings?.buttonCard && (
+            <div className="text-xs text-black/90">
+              <span className="font-medium">Button Card:</span>
+              <div className="flex gap-2 p-3 mt-2 bg-gray-100 rounded-xl border w-fit min-w-32 max-w-64">
+                <div className="flex flex-col gap-1 w-full max-w-64">
+                  <div className="flex flex-col mb-1">
+                    <span className="text-lg font-bold leading-none line-clamp-1">
+                      {dmSettings?.buttonCard?.title}
+                    </span>
+                    <span className="text-[10px] font-light text-gray-600">
+                      Powered by Briggo
+                    </span>
+                  </div>
+
+                  {dmSettings?.buttonCard?.buttons?.map((button, index) => (
+                    <div key={index}>
+                      {button?.label && (
+                        <button className="overflow-hidden p-2 w-full font-semibold bg-gray-200 rounded-lg text-black/100 text-md line-clamp-1">
+                          {button?.label}
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </motion.div>
     </div>
   );
 }
