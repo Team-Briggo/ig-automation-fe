@@ -922,108 +922,6 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
     }
   };
 
-  // Function to render media preview
-  const renderMediaPreview = (media) => {
-    if (!media) return null;
-
-    const { path, type, name, size } = media;
-
-    return (
-      <div className="p-3 mt-2 bg-gray-50 rounded border">
-        <div className="flex justify-between items-start mb-2">
-          <div className="text-sm text-gray-600">
-            <div className="font-medium">{name}</div>
-            <div>
-              Size: {size}MB | Type: {type}
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={() => setDmSettings({ ...dmSettings, media: null })}
-            className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
-          >
-            Remove
-          </button>
-        </div>
-
-        {type === "image" && (
-          <img
-            src={getMediaUrl(path)}
-            alt="Preview"
-            className="object-contain max-w-full h-32 rounded border"
-          />
-        )}
-
-        {type === "video" && (
-          <video
-            src={getMediaUrl(path)}
-            controls
-            className="object-contain max-w-full h-32 rounded border"
-          >
-            Your browser does not support the video tag.
-          </video>
-        )}
-
-        {type === "audio" && (
-          <audio src={path} controls className="w-full">
-            Your browser does not support the audio tag.
-          </audio>
-        )}
-      </div>
-    );
-  };
-
-  // Function to render card media preview
-  const renderCardMediaPreview = (media, cardIndex) => {
-    if (!media) return null;
-
-    const { path, type, name, size } = media;
-
-    return (
-      <div className="p-3 mt-2 bg-gray-50 rounded border">
-        <div className="flex justify-between items-start mb-2">
-          <div className="text-sm text-gray-600">
-            <div className="font-medium">{name}</div>
-            <div>
-              Size: {size}MB | Type: {type}
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={() => updateCard(cardIndex, "image", null)}
-            className="px-2 py-1 text-xs text-white bg-red-500 rounded hover:bg-red-600"
-          >
-            Remove
-          </button>
-        </div>
-
-        {type === "image" && (
-          <img
-            src={getMediaUrl(path) || "/placeholder.png"}
-            alt="Card Preview"
-            className="object-cover max-w-full h-32 rounded border"
-          />
-        )}
-
-        {type === "video" && (
-          <video
-            src={getMediaUrl(path)}
-            controls
-            className="max-w-full h-32 rounded border"
-          >
-            Your browser does not support the video tag.
-          </video>
-        )}
-
-        {type === "audio" && (
-          <audio src={getMediaUrl(path)} controls className="w-full">
-            Your browser does not support the audio tag.
-          </audio>
-        )}
-      </div>
-    );
-  };
-
   // Function to add a new card
   const addCard = () => {
     const newCard = {
@@ -1396,7 +1294,6 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                 <br />
                 🎥 Video (MP4, OGG, AVI, MOV, WEBM): Max 25MB
               </motion.div>
-              {renderMediaPreview(dmSettings.media)}
             </div>
           </motion.div>
         )}
@@ -1512,7 +1409,6 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                       WAV, MP4): Max 25MB | 🎥 Video (MP4, OGG, AVI, MOV, WEBM):
                       Max 25MB
                     </div>
-                    {renderCardMediaPreview(card.image, cardIndex)}
                   </div>
 
                   {/* Card Buttons */}
@@ -1889,7 +1785,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                   {dmSettings.cards.map((card, index) => (
                     <div
                       key={index}
-                      className="flex flex-col justify-between items-start bg-gray-100 rounded-xl border w-fit"
+                      className="flex flex-col justify-between items-start bg-gray-100 rounded-xl border w-fit max-w-64"
                     >
                       {dmSettings.type === "GENERIC_TEMPLATE" &&
                         card?.image?.path && (
@@ -1902,7 +1798,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                             className="object-cover w-full h-32 rounded"
                           />
                         )}
-                      <div className="flex flex-col gap-1 p-2 min-w-32 max-w-64">
+                      <div className="flex flex-col gap-1 p-2 w-full min-w-32">
                         <div className="flex flex-col mb-2">
                           <span className="text-lg font-bold leading-none line-clamp-1">
                             {card.title}
@@ -2060,23 +1956,74 @@ export default function AutomationPage() {
   const canProceedModal = () => {
     switch (modalStep) {
       case 2:
+        // Step 2: Must select an automation type
         return automationType !== "";
+
       case 3:
         if (automationType === "reply") {
-          return replySettings.message.trim() !== "";
+          // Reply automation validation
+          const { mode, keywords, message } = replySettings;
+
+          // Message is always required
+          if (!message.trim()) return false;
+
+          // If mode is "keywords", keywords are required
+          if (mode === "keywords" && !keywords.trim()) return false;
+
+          return true;
         }
+
         if (automationType === "dm") {
-          if (dmSettings.type === "GENERIC_TEMPLATE") {
-            return (dmSettings.cards || []).length > 0;
+          // DM automation validation
+          const { mode, keywords, type, message, cards, buttonCard } =
+            dmSettings;
+
+          // If mode is "keywords", keywords are required
+          if (mode === "keywords" && !keywords.trim()) return false;
+
+          // Validation based on DM type
+          switch (type) {
+            case "TEXT":
+              return message.trim() !== "";
+
+            case "TEXT_MEDIA":
+              // Both message and media are required
+              return message.trim() !== "" && dmSettings?.media?.path !== null;
+
+            case "GENERIC_TEMPLATE":
+              // Must have at least one card with required fields
+              if (!cards || cards.length === 0) return false;
+
+              return cards.every((card) => {
+                // Each card must have title and image
+                if (!card.title?.trim() || !card.image) return false;
+
+                // Each card must have at least one button with label and URL
+                if (!card.buttons || card.buttons.length === 0) return false;
+
+                return card.buttons.every(
+                  (button) => button.label?.trim() && button.url?.trim()
+                );
+              });
+
+            case "BUTTON_TEMPLATE":
+              // Must have button card with title and buttons
+              if (!buttonCard?.title?.trim()) return false;
+
+              if (!buttonCard.buttons || buttonCard.buttons.length === 0)
+                return false;
+
+              return buttonCard.buttons.every(
+                (button) => button.label?.trim() && button.url?.trim()
+              );
+
+            default:
+              return false;
           }
-          return dmSettings.message.trim() !== "" || dmSettings.type !== "text";
         }
+
         return true;
-      case 4:
-        if (dmSettings.type === "GENERIC_TEMPLATE") {
-          return (dmSettings.cards || []).length > 0;
-        }
-        return dmSettings.message.trim() !== "" || dmSettings.type !== "text";
+
       default:
         return true;
     }
@@ -2275,12 +2222,6 @@ export default function AutomationPage() {
                       setDmSettings={setDmSettings}
                     />
                   )}
-                  {/* {modalStep === 4 && automationType === "both" && (
-                <Step4_ConfigureDMs
-                  dmSettings={dmSettings}
-                  setDmSettings={setDmSettings}
-                />
-              )} */}
                 </div>
 
                 {/* Modal Footer */}
@@ -2293,14 +2234,12 @@ export default function AutomationPage() {
                       Back
                     </Button>
                   )}
-
                   <Button
                     onClick={closeModal}
                     className="text-sm text-gray-700 bg-gray-200 hover:bg-gray-300 h-fit"
                   >
                     Cancel
                   </Button>
-
                   {modalStep < 3 && (
                     <Button
                       onClick={nextModalStep}
@@ -2314,7 +2253,8 @@ export default function AutomationPage() {
                   {modalStep === 3 && (
                     <Button
                       onClick={handleSaveAutomation}
-                      className="ml-auto text-sm text-white bg-green-500 hover:bg-green-600 h-fit shrink-0"
+                      className="ml-auto text-sm text-white bg-green-500 hover:bg-green-600 h-fit shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                      disabled={!canProceedModal()}
                     >
                       Save Automation
                     </Button>
