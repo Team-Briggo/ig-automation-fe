@@ -3,11 +3,11 @@
 import InstagramConnect from "@/components/InstagramConnect";
 import Button from "@/components/ui/Button";
 import { useUser } from "@/contexts/UserContext";
-import { getCurrentUser, signOut } from "aws-amplify/auth";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaInstagram } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -36,8 +36,13 @@ export default function Dashboard() {
   // -------- LOADING VIEW --------
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen text-pepper">
-        <p className="animate-pulse">Loading your dashboard...</p>
+      <div className="grid grid-cols-1 gap-6 p-6 sm:grid-cols-4">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <div
+            key={index}
+            className="w-full h-48 bg-gray-200 rounded-lg shadow animate-pulse"
+          ></div>
+        ))}
       </div>
     );
   }
@@ -78,8 +83,9 @@ export default function Dashboard() {
         </div>
         <Button
           onClick={logout}
-          className="text-white bg-black hover:bg-black/80"
+          className="flex gap-1 items-center text-sm text-white bg-black hover:bg-black/80 shrink-0"
         >
+          <FiLogOut className="w-4 h-4" />
           Sign out
         </Button>
       </div>

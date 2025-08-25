@@ -6,6 +6,7 @@ import {
   getMediaFromInstagramAccountAPI,
   manageIgMediaAutomationAPI,
 } from "@/lib/apiHandler";
+import { getMediaUrl } from "@/utils/getMediaUrl";
 import { uploadData } from "@aws-amplify/storage";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useCallback, useEffect, useState } from "react";
@@ -609,59 +610,6 @@ function Step2_ChooseAutomationType({ automationType, setAutomationType }) {
   );
 }
 
-// ------------------ Step 3 ------------------
-// function Step3_ConfigureReplies({ replySettings, setReplySettings }) {
-//   return (
-//     <div>
-//       <h2 className="mb-4 text-2xl font-semibold">Configure Replies</h2>
-
-//       <div className="mb-4">
-//         <label className="block mb-1 font-medium">Reply Mode</label>
-//         <select
-//           value={replySettings.mode}
-//           onChange={(e) =>
-//             setReplySettings({ ...replySettings, mode: e.target.value })
-//           }
-//           className="p-2 w-full rounded border"
-//         >
-//           <option value="all">Reply to all comments</option>
-//           <option value="keywords">
-//             Reply to comments with specific keywords
-//           </option>
-//         </select>
-//       </div>
-
-//       {replySettings.mode === "keywords" && (
-//         <div className="mb-4">
-//           <label className="block mb-1 font-medium">
-//             Keywords (comma separated)
-//           </label>
-//           <input
-//             type="text"
-//             value={replySettings.keywords}
-//             onChange={(e) =>
-//               setReplySettings({ ...replySettings, keywords: e.target.value })
-//             }
-//             className="p-2 w-full rounded border"
-//           />
-//         </div>
-//       )}
-
-//       <div className="mb-4">
-//         <label className="block mb-1 font-medium">Reply Message</label>
-//         <textarea
-//           value={replySettings.message}
-//           onChange={(e) =>
-//             setReplySettings({ ...replySettings, message: e.target.value })
-//           }
-//           className="p-2 w-full rounded border"
-//           rows="3"
-//         />
-//       </div>
-//     </div>
-//   );
-// }
-
 function Step3_ConfigureReplies({ replySettings, setReplySettings }) {
   return (
     <div className="px-4 mx-auto max-w-7xl">
@@ -682,7 +630,7 @@ function Step3_ConfigureReplies({ replySettings, setReplySettings }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="p-8 mx-auto bg-white rounded-xl shadow-lg"
+        className="p-4 mx-auto bg-white rounded-xl shadow-lg"
       >
         {/* Reply Mode Section */}
         <motion.div
@@ -1000,14 +948,18 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
 
         {type === "image" && (
           <img
-            src={path}
+            src={getMediaUrl(path)}
             alt="Preview"
-            className="object-cover max-w-full h-32 rounded border"
+            className="object-contain max-w-full h-32 rounded border"
           />
         )}
 
         {type === "video" && (
-          <video src={path} controls className="max-w-full h-32 rounded border">
+          <video
+            src={getMediaUrl(path)}
+            controls
+            className="object-contain max-w-full h-32 rounded border"
+          >
             Your browser does not support the video tag.
           </video>
         )}
@@ -1047,20 +999,24 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
 
         {type === "image" && (
           <img
-            src={path || "/placeholder.png"}
+            src={getMediaUrl(path) || "/placeholder.png"}
             alt="Card Preview"
             className="object-cover max-w-full h-32 rounded border"
           />
         )}
 
         {type === "video" && (
-          <video src={path} controls className="max-w-full h-32 rounded border">
+          <video
+            src={getMediaUrl(path)}
+            controls
+            className="max-w-full h-32 rounded border"
+          >
             Your browser does not support the video tag.
           </video>
         )}
 
         {type === "audio" && (
-          <audio src={path} controls className="w-full">
+          <audio src={getMediaUrl(path)} controls className="w-full">
             Your browser does not support the audio tag.
           </audio>
         )}
@@ -1277,7 +1233,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
   };
 
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="px-4 mx-auto max-w-7xl">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -1857,7 +1813,6 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
           </motion.div>
           <h3 className="text-sm font-semibold text-blue-700">Preview</h3>
         </div>
-        {console.log("dmSettings", dmSettings)}
         <div className="space-y-2">
           <p className="text-xs text-blue-600">
             <span className="font-medium">Mode:</span>{" "}
@@ -1887,7 +1842,9 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
 
                 {dmSettings.media.type === "image" && (
                   <img
-                    src={dmSettings.media.path || "/placeholder.png"}
+                    src={
+                      getMediaUrl(dmSettings.media.path) || "/placeholder.png"
+                    }
                     alt="Card Preview"
                     className="object-cover max-w-full h-32 rounded border"
                   />
@@ -1895,7 +1852,9 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
 
                 {dmSettings.media.type === "video" && (
                   <video
-                    src={dmSettings.media.path || "/placeholder.png"}
+                    src={
+                      getMediaUrl(dmSettings.media.path) || "/placeholder.png"
+                    }
                     controls
                     className="max-w-full h-32 rounded border"
                   >
@@ -1935,7 +1894,10 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
                       {dmSettings.type === "GENERIC_TEMPLATE" &&
                         card?.image?.path && (
                           <img
-                            src={card?.image?.path || "/placeholder.png"}
+                            src={
+                              getMediaUrl(card?.image?.path) ||
+                              "/placeholder.png"
+                            }
                             alt="Card Preview"
                             className="object-cover w-full h-32 rounded"
                           />
@@ -2006,6 +1968,7 @@ export default function AutomationPage() {
   const [modifyPostAutomation, setModifyPostAutomation] = useState(null);
   const [modifyPostAutomationType, setModifyPostAutomationType] =
     useState(null);
+  const [postIndex, setPostIndex] = useState(null);
   const [selectedModifyPost, setSelectedModifyPost] = useState(null);
 
   const [tab, setTab] = useState("posts");
@@ -2056,10 +2019,12 @@ export default function AutomationPage() {
     }
     setModalStep(2);
     setIsModalOpen(true);
+    document?.body?.classList?.add("modal-open");
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    document?.body?.classList?.remove("modal-open");
     // Reset modal states if needed
     setModalStep(2);
     setAutomationType("");
@@ -2118,8 +2083,9 @@ export default function AutomationPage() {
   };
 
   const handleSaveAutomation = async () => {
+    let response;
     if (automationType === "reply") {
-      await manageIgMediaAutomationAPI("CREATE", {
+      response = await manageIgMediaAutomationAPI("CREATE", {
         id: selectedPost.id,
         userId: user.id,
         mediaType: selectedPost.mediaType,
@@ -2138,7 +2104,7 @@ export default function AutomationPage() {
 
     if (automationType === "dm") {
       if (dmSettings.type === "TEXT_MEDIA" || dmSettings.type === "TEXT") {
-        await manageIgMediaAutomationAPI("CREATE", {
+        response = await manageIgMediaAutomationAPI("CREATE", {
           id: selectedPost.id,
           userId: user.id,
           mediaType: selectedPost.mediaType,
@@ -2167,7 +2133,7 @@ export default function AutomationPage() {
           })),
         }));
 
-        await manageIgMediaAutomationAPI("CREATE", {
+        response = await manageIgMediaAutomationAPI("CREATE", {
           id: selectedPost.id,
           userId: user.id,
           mediaType: selectedPost.mediaType,
@@ -2192,7 +2158,7 @@ export default function AutomationPage() {
           })),
         };
 
-        await manageIgMediaAutomationAPI("CREATE", {
+        response = await manageIgMediaAutomationAPI("CREATE", {
           id: selectedPost.id,
           userId: user.id,
           mediaType: selectedPost.mediaType,
@@ -2211,13 +2177,16 @@ export default function AutomationPage() {
       }
     }
 
-    // Close modal and show success message
-    closeModal();
-    alert("Automation saved successfully!");
+    if (response.success) {
+      alert("Automation saved successfully!");
+      closeModal();
+    } else {
+      alert("Failed to save automation");
+    }
   };
 
   return (
-    <div className="flex relative flex-col gap-4 p-8 mx-auto max-w-4xl">
+    <div className="flex relative flex-col gap-4 p-4 mx-auto max-w-4xl">
       <div>
         {/* show tabs */}
         <div className="flex space-x-4">
@@ -2271,23 +2240,23 @@ export default function AutomationPage() {
                   <div className="mt-2">
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-sm font-medium text-gray-700">
-                        Step {modalStep} of 4
+                        Step {modalStep} of 3
                       </span>
                       <span className="text-sm text-gray-500">
-                        {Math.round((modalStep / 4) * 100)}% Complete
+                        {Math.round((modalStep / 3) * 100)}% Complete
                       </span>
                     </div>
                     <div className="w-full h-2 bg-gray-200 rounded-full">
                       <div
                         className="h-2 bg-blue-500 rounded-full transition-all duration-300"
-                        style={{ width: `${(modalStep / 4) * 100}%` }}
+                        style={{ width: `${(modalStep / 3) * 100}%` }}
                       ></div>
                     </div>
                   </div>
                 </div>
 
                 {/* Modal Content */}
-                <div className="p-4 max-h-[25rem] overflow-y-auto no-scrollbar">
+                <div className="py-4 max-h-[25rem] overflow-y-auto no-scrollbar">
                   {modalStep === 2 && (
                     <Step2_ChooseAutomationType
                       automationType={automationType}
@@ -2315,11 +2284,11 @@ export default function AutomationPage() {
                 </div>
 
                 {/* Modal Footer */}
-                <div className="flex gap-4 p-6 bg-gray-50 border-t">
+                <div className="flex gap-4 p-3 bg-gray-50 border-t">
                   {modalStep > 2 && (
                     <Button
                       onClick={prevModalStep}
-                      className="text-white bg-gray-500 hover:bg-gray-600 h-fit"
+                      className="text-sm text-white bg-gray-500 hover:bg-gray-600 h-fit"
                     >
                       Back
                     </Button>
@@ -2327,12 +2296,12 @@ export default function AutomationPage() {
 
                   <Button
                     onClick={closeModal}
-                    className="text-gray-700 bg-gray-200 hover:bg-gray-300 h-fit"
+                    className="text-sm text-gray-700 bg-gray-200 hover:bg-gray-300 h-fit"
                   >
                     Cancel
                   </Button>
 
-                  {modalStep < 4 && (
+                  {modalStep < 3 && (
                     <Button
                       onClick={nextModalStep}
                       disabled={!canProceedModal()}
@@ -2342,10 +2311,10 @@ export default function AutomationPage() {
                     </Button>
                   )}
 
-                  {modalStep === 4 && (
+                  {modalStep === 3 && (
                     <Button
                       onClick={handleSaveAutomation}
-                      className="ml-auto text-white bg-green-500 hover:bg-green-600 h-fit"
+                      className="ml-auto text-sm text-white bg-green-500 hover:bg-green-600 h-fit shrink-0"
                     >
                       Save Automation
                     </Button>
@@ -2423,6 +2392,7 @@ export default function AutomationPage() {
                             post.isActive ? "pause" : "resume"
                           );
                           setSelectedModifyPost(post);
+                          setPostIndex(index);
                         }}
                         title="Pause automation"
                       >
@@ -2484,7 +2454,7 @@ export default function AutomationPage() {
                       className="space-y-2"
                     >
                       {post.automationTrigger === "SPECIFIC_KEYWORD" ? (
-                        <div className="flex flex-col items-center space-y-1">
+                        <div className="flex flex-col gap-1 items-center">
                           <span className="w-full text-xs font-medium">
                             {post.automationType === "COMMENT_ONLY"
                               ? "Reply on Specific Keyword(s):"
@@ -2502,11 +2472,26 @@ export default function AutomationPage() {
                           </div>
                         </div>
                       ) : (
-                        <span className="w-full text-xs font-medium">
-                          {post.automationType === "COMMENT_ONLY"
-                            ? "Reply on Any Comment"
-                            : "DM on Any Comment"}
-                        </span>
+                        <div className="flex flex-col gap-1">
+                          <span className="w-full text-xs font-medium">
+                            {post.automationType === "COMMENT_ONLY"
+                              ? "Reply on Any Comment"
+                              : "DM on Any Comment"}
+                          </span>
+                          {post.replyDMText && (
+                            <span className="px-2 py-1 text-xs italic font-medium text-gray-800 bg-blue-100 rounded-lg border border-t-0 border-r-0 border-b-0 border-l-4 border-blue-400">
+                              {post.automationType === "COMMENT_ONLY"
+                                ? "Reply Text: "
+                                : "DM Text: "}
+                              {post.replyDMText}
+                            </span>
+                          )}
+                          {post.replyCommentText && (
+                            <span className="px-2 py-1 text-xs italic font-medium text-gray-800 bg-blue-100 rounded-lg border border-t-0 border-r-0 border-b-0 border-l-4 border-blue-400">
+                              Reply Text: {post.replyCommentText}
+                            </span>
+                          )}
+                        </div>
                       )}
                     </motion.div>
                     <div className="flex flex-col">
@@ -2530,7 +2515,7 @@ export default function AutomationPage() {
             </AnimatePresence>
             {modifyPostAutomation && (
               <div className="flex fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50">
-                <div className="p-6 bg-white rounded-lg shadow-lg">
+                <div className="p-6 m-2 bg-white rounded-lg shadow-lg">
                   <div className="flex justify-between">
                     <h2 className="mb-2 text-lg font-semibold">
                       {modifyPostAutomationType === "pause"
@@ -2581,10 +2566,32 @@ export default function AutomationPage() {
                                 ? false
                                 : true,
                           });
+                          if (res.success) {
+                            setAutomatedPosts((prev) => {
+                              const updatedPosts = [...prev];
+                              updatedPosts[postIndex].isActive =
+                                modifyPostAutomationType === "pause"
+                                  ? false
+                                  : true;
+                              return updatedPosts;
+                            });
+                            setPostIndex(null);
+                          }
                         } else {
-                          await manageIgMediaAutomationAPI("DELETE", {
-                            id: selectedModifyPost.id,
-                          });
+                          const res = await manageIgMediaAutomationAPI(
+                            "DELETE",
+                            {
+                              id: selectedModifyPost.id,
+                            }
+                          );
+                          if (res.success) {
+                            setAutomatedPosts((prev) => {
+                              const updatedPosts = [...prev];
+                              updatedPosts.splice(postIndex + 1, 1);
+                              return updatedPosts;
+                            });
+                            setPostIndex(null);
+                          }
                         }
                         setModifyPostAutomation(null);
                         setModifyPostAutomationType(null);

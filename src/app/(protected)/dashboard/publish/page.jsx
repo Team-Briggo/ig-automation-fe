@@ -387,7 +387,7 @@ const Publish = () => {
             className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300
           ${
             step >= stepNum
-              ? "bg-blue-500 text-white"
+              ? "bg-green-500 text-white"
               : "bg-gray-200 text-gray-500"
           }
         `}
@@ -399,7 +399,7 @@ const Publish = () => {
           {idx < 2 && (
             <div
               className={`w-12 h-0.5 mx-2 transition-colors duration-300 
-            ${step > stepNum ? "bg-blue-500" : "bg-gray-200"}
+            ${step > stepNum ? "bg-green-500" : "bg-gray-200"}
           `}
             />
           )}
@@ -409,7 +409,7 @@ const Publish = () => {
   );
 
   return (
-    <div className="px-4 py-4 min-h-screen bg-gray-50 sm:py-8">
+    <div className="px-4 py-4 min-h-screen sm:py-8">
       <div className="mx-auto max-w-2xl">
         {/* Header */}
         <div className="mb-8 text-center">

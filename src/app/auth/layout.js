@@ -20,13 +20,5 @@ export default function AuthLayout({ children }) {
     })();
   }, [router]);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
   return <>{children}</>;
 }

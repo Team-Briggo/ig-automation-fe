@@ -288,7 +288,7 @@ export default function AllPosts() {
   return (
     <div className="p-6 min-h-screen bg-salt">
       <h1 className="mb-6 text-3xl font-bold text-pepper">
-        📸 All Instagram Posts
+        All Instagram Posts
       </h1>
 
       {/* Show skeleton loading during initial load */}

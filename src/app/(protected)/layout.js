@@ -1,8 +1,9 @@
 "use client";
 
+import { getCurrentUser } from "aws-amplify/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getCurrentUser } from "aws-amplify/auth";
+import { FiArrowLeft } from "react-icons/fi";
 
 export default function ProtectedLayout({ children }) {
   const router = useRouter();
@@ -24,13 +25,15 @@ export default function ProtectedLayout({ children }) {
     })();
   }, [router]);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <p>Loading...</p>
+  return (
+    <div className="flex flex-col w-full">
+      <div className="px-6 py-4 w-full">
+        <FiArrowLeft
+          className="w-6 h-6 cursor-pointer"
+          onClick={() => router.back()}
+        />
       </div>
-    );
-  }
-
-  return <>{children}</>;
+      <div className="shrink-0">{children}</div>
+    </div>
+  );
 }
