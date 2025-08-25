@@ -954,7 +954,7 @@ function Step4_ConfigureDMs({ dmSettings, setDmSettings }) {
 
     try {
       const result = await uploadData({
-        path: `ig-automation/${Date.now()}::${file.name}::${fileType}`,
+        path: `public/ig-automation/${Date.now()}::${file.name}::${fileType}`,
         data: file,
         options: {
           contentType: file.type,

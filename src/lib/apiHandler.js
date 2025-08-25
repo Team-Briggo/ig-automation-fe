@@ -7,6 +7,7 @@ import {
   linkInstagramAccount,
   manageIgMediaAutomation,
   manageUser,
+  publishInstagramContent,
   sendReplyToComment,
 } from "./api";
 
@@ -150,6 +151,16 @@ export const manageIgMediaAutomationAPI = async (action, data) => {
   }
 };
 
-// await manageIgMediaAutomationAPI("LIST", userId: user.id) - will get the posts with automation enabled
-// await manageIgMediaAutomationAPI("UPDATE", {id: post.id, isActive: false}) - will update the posts with automation enabled
-// await manageIgMediaAutomationAPI("DELETE", id: post.id) - will delete the posts with automation enabled
+export const publishInstagramContentAPI = async (userId, media) => {
+  try {
+    const response = await client.graphql({
+      query: publishInstagramContent,
+      variables: { userId: userId, media: media },
+      authMode: "userPool",
+    });
+    return response.data.publishInstagramContent;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};

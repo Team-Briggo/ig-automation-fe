@@ -62,6 +62,12 @@ bun dev
   - if user selects "comments with specific keywords only", ask user to enter keywords
   - ask user to enter dm message
 
+<!-- Publish page -->
+
+- ask user to enter caption
+- mediatype - image, video, carousel
+- mediaUrl, thumbnailUrl
+
 # Backend Migration Guide
 
 ## 1. Move CommentAnalysisService Class to Backend

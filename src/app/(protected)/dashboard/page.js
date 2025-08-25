@@ -86,26 +86,32 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-4">
         <StatCard
-          label="Total Posts"
-          value={stats?.posts}
+          label={`${stats?.posts} Posts`}
+          value={`📮`}
           description="All the posts you've shared so far."
           onClick={() => router.push("/dashboard/posts")}
         />
         <StatCard
-          label="Followers"
-          value={stats?.followers}
+          label={`${stats?.followers} Followers`}
+          value={`👣`}
           description="People who follow your profile."
         />
         <StatCard
-          label="Following"
-          value={stats?.following}
+          label={`${stats?.following} Following`}
+          value={`👥`}
           description="Accounts you're currently following."
         />
         <StatCard
           label="Automation"
-          value="⚡"
+          value="🤖"
           description="Manage and monitor automated actions."
           onClick={() => router.push("/dashboard/automation")}
+        />
+        <StatCard
+          label="Publish"
+          value="🎥"
+          description="Publish your content."
+          onClick={() => router.push("/dashboard/publish")}
         />
       </div>
     </main>
@@ -118,8 +124,7 @@ function StatCard({ label, value, description, onClick }) {
       onClick={onClick}
       whileHover={{ scale: 1.05 }}
       className={`bg-white p-6 rounded-lg shadow-md text-center cursor-pointer transition ${
-        onClick ? "hover:bg-gray-50" : ""
-      }`}
+        onClick ? "hover:bg-gray-50" : ""}`}
     >
       <p className="text-4xl font-bold text-pepper">{value}</p>
       <p className="mt-2 font-medium text-muted">{label}</p>
