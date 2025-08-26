@@ -306,3 +306,9 @@ Consider caching analysis results in backend database to avoid re-analyzing same
 - Create analysis API endpoints
 - Add environment variable for API key
 - Optionally add database caching for results
+
+<!-- Instagram messaging -->
+
+- getConversationsFrominstaAcc.... - input userId - output - conversations
+- getConversationMessagesFromInsAc..... - input userId, conversationId, nextPageToken - output - messages
+- sendInstagramMessage - input userId, conversationId, message - output - message

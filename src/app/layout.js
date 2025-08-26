@@ -9,12 +9,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ConfigureAmplifyClient />
-        <div className="flex overflow-hidden flex-col min-h-screen">
-          <Header />
-          <main className="flex-1">
+        <div>
+          {/* <Header /> */}
+          <main>
             <UserProvider>{children}</UserProvider>
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>

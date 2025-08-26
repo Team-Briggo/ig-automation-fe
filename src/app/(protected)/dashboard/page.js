@@ -119,6 +119,12 @@ export default function Dashboard() {
           description="Publish your content."
           onClick={() => router.push("/dashboard/publish")}
         />
+        <StatCard
+          label="Messaging"
+          value="💬"
+          description="Messaging."
+          onClick={() => router.push("/dashboard/messaging")}
+        />
       </div>
     </main>
   );
@@ -130,7 +136,8 @@ function StatCard({ label, value, description, onClick }) {
       onClick={onClick}
       whileHover={{ scale: 1.05 }}
       className={`bg-white p-6 rounded-lg shadow-md text-center cursor-pointer transition ${
-        onClick ? "hover:bg-gray-50" : ""}`}
+        onClick ? "hover:bg-gray-50" : ""
+      }`}
     >
       <p className="text-4xl font-bold text-pepper">{value}</p>
       <p className="mt-2 font-medium text-muted">{label}</p>

@@ -1,6 +1,8 @@
 import { generateClient } from "@aws-amplify/api";
 import {
   deleteCommentFromInstagramAccount,
+  getConversationMessagesFromInstagramAccount,
+  getConversationsFromInstagramAccount,
   getMediaCommentsFromInstagramAccount,
   getMediaFromInstagramAccount,
   hideCommentFromInstagramAccount,
@@ -8,6 +10,7 @@ import {
   manageIgMediaAutomation,
   manageUser,
   publishInstagramContent,
+  sendInstagramMessage,
   sendReplyToComment,
 } from "./api";
 
@@ -159,6 +162,64 @@ export const publishInstagramContentAPI = async (userId, media) => {
       authMode: "userPool",
     });
     return response.data.publishInstagramContent;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+export const getConversationsFromInstagramAccountAPI = async (userId) => {
+  try {
+    const response = await client.graphql({
+      query: getConversationsFromInstagramAccount,
+      variables: { userId: userId },
+      authMode: "userPool",
+    });
+    return response.data.getConversationsFromInstagramAccount;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+export const getConversationMessagesFromInstagramAccountAPI = async (
+  userId,
+  conversationId,
+  nextPageToken
+) => {
+  try {
+    const response = await client.graphql({
+      query: getConversationMessagesFromInstagramAccount,
+      variables: {
+        userId: userId,
+        conversationId: conversationId,
+        nextPageToken: nextPageToken,
+      },
+      authMode: "userPool",
+    });
+    return response.data.getConversationMessagesFromInstagramAccount;
+  } catch (error) {
+    console.log("Error:", error);
+    return error;
+  }
+};
+
+export const sendInstagramMessageAPI = async (
+  userId,
+  conversationId,
+  message
+) => {
+  try {
+    const response = await client.graphql({
+      query: sendInstagramMessage,
+      variables: {
+        userId: userId,
+        conversationId: conversationId,
+        message: message,
+      },
+      authMode: "userPool",
+    });
+    return response.data.sendInstagramMessage;
   } catch (error) {
     console.log("Error:", error);
     return error;

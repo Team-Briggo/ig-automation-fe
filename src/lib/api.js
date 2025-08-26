@@ -235,3 +235,64 @@ export const publishInstagramContent = /* GraphQL */ `
     }
   }
 `;
+
+export const getConversationsFromInstagramAccount = /* GraphQL */ `
+  query GetConversationsFromInstagramAccount($userId: String!) {
+    getConversationsFromInstagramAccount(userId: $userId) {
+      success
+      message
+      items {
+        id
+        user2Id
+        user2Username
+        __typename
+      }
+      __typename
+    }
+  }
+`;
+
+export const getConversationMessagesFromInstagramAccount = /* GraphQL */ `
+  query GetConversationMessagesFromInstagramAccount(
+    $userId: String!
+    $conversationId: String!
+    $nextPageToken: String
+  ) {
+    getConversationMessagesFromInstagramAccount(
+      userId: $userId
+      conversationId: $conversationId
+      nextPageToken: $nextPageToken
+    ) {
+      success
+      message
+      items {
+        id
+        fromId
+        fromUsername
+        message
+        createdTime
+        __typename
+      }
+      __typename
+    }
+  }
+`;
+
+export const sendInstagramMessage = /* GraphQL */ `
+  mutation SendInstagramMessage(
+    $userId: String!
+    $conversationId: String!
+    $message: String!
+  ) {
+    sendInstagramMessage(
+      userId: $userId
+      conversationId: $conversationId
+      message: $message
+    ) {
+      success
+      message
+      messageId
+      __typename
+    }
+  }
+`;
