@@ -1,20 +1,27 @@
-import "./globals.css";
-import Header from "../components/Header";
+import Header from "@/components/Header";
+import { UserProvider } from "@/contexts/UserContext";
+import { Outfit } from "next/font/google";
 import Footer from "../components/Footer";
 import ConfigureAmplifyClient from "../components/client/ConfigureAmplifyClient";
-import { UserProvider } from "@/contexts/UserContext";
+import "./globals.css";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={outfit.className}>
         <ConfigureAmplifyClient />
         <div>
-          {/* <Header /> */}
+          <Header />
+          {/* <SideNav /> */}
           <main>
             <UserProvider>{children}</UserProvider>
           </main>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </body>
     </html>
