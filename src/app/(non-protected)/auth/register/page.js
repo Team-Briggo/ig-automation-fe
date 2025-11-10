@@ -2,8 +2,8 @@
 import { signUp } from "aws-amplify/auth"; // v6 functional import
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Button from "../../../components/ui/Button";
-import Input from "../../../components/ui/Input";
+import Button from "../../../../components/ui/Button";
+import Input from "../../../../components/ui/Input";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");

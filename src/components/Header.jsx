@@ -34,7 +34,8 @@ export default function Header() {
           <img
             src="/logo.png"
             alt="Card Preview"
-            className="object-contain max-w-full h-8"
+            className="object-contain max-w-full h-8 cursor-pointer"
+            onClick={() => router.push("/")}
           />
           <div className="w-[0.2px] h-8 bg-gray-400 hidden sm:flex" />
           <nav className="hidden sm:flex">

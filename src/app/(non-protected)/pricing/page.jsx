@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button";
 import React from "react";
-import TickRounded from "../../../public/svg/tickRounded";
-import CancelRounded from "../../../public/svg/cancelRounded";
+import TickRounded from "../../../../public/svg/tickRounded";
+import CancelRounded from "../../../../public/svg/cancelRounded";
 
 const Pricing = () => {
   const pricing = [

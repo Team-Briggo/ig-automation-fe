@@ -1,7 +1,5 @@
-import Header from "@/components/Header";
 import { UserProvider } from "@/contexts/UserContext";
 import { Outfit } from "next/font/google";
-import Footer from "../components/Footer";
 import ConfigureAmplifyClient from "../components/client/ConfigureAmplifyClient";
 import "./globals.css";
 
@@ -16,12 +14,9 @@ export default function RootLayout({ children }) {
       <body className={outfit.className}>
         <ConfigureAmplifyClient />
         <div className="bg-salt">
-          <Header />
-          {/* <SideNav /> */}
-          <main className="pt-40 min-h-screen">
+          <main className="min-h-screen">
             <UserProvider>{children}</UserProvider>
           </main>
-          <Footer />
         </div>
       </body>
     </html>

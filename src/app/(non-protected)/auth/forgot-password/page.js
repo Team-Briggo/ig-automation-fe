@@ -1,8 +1,8 @@
 "use client";
 import { confirmResetPassword, resetPassword } from "aws-amplify/auth";
 import { useState } from "react";
-import Button from "../../../components/ui/Button";
-import Input from "../../../components/ui/Input";
+import Button from "../../../../components/ui/Button";
+import Input from "../../../../components/ui/Input";
 
 export default function ForgotPassword() {
   const [stage, setStage] = useState(1); // 1 = request code, 2 = submit new password

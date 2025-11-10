@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex justify-center items-center min-h-screen bg-salt">
-      <HeroSection />
+      {/* <HeroSection /> */}
       {/* <section className="max-w-3xl text-center">
         <h1 className="mb-4 text-4xl font-bold">Salt & Pepper App</h1>
         <p className="mb-6 text-lg text-muted">

@@ -3,8 +3,8 @@
 import { confirmSignUp } from "aws-amplify/auth";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
-import Button from "../../../components/ui/Button";
-import Input from "../../../components/ui/Input";
+import Button from "../../../../components/ui/Button";
+import Input from "../../../../components/ui/Input";
 
 function ConfirmPageInner() {
   const params = useSearchParams();
