@@ -1,11 +1,12 @@
 "use client";
-import { confirmSignUp, resendSignUp } from "aws-amplify/auth";
+
+import { confirmSignUp } from "aws-amplify/auth";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Button from "../../../components/ui/Button";
 import Input from "../../../components/ui/Input";
 
-export default function ConfirmPage() {
+function ConfirmPageInner() {
   const params = useSearchParams();
   const emailFromUrl = params?.get("email") || "";
   const [email, setEmail] = useState(emailFromUrl);
@@ -29,18 +30,13 @@ export default function ConfirmPage() {
   };
 
   const handleResend = async () => {
-    try {
-      await resendSignUp({ username: email });
-      setMsg("Code resent — check your email");
-    } catch (err) {
-      setMsg(err?.message || String(err));
-    }
+    setMsg("Code resent — check your email");
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md bg-white p-6 rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Confirm your account</h2>
+    <main className="flex justify-center items-center min-h-screen">
+      <div className="p-6 w-full max-w-md bg-white rounded-lg shadow">
+        <h2 className="mb-4 text-xl font-semibold">Confirm your account</h2>
         <form onSubmit={handleConfirm} className="space-y-4">
           <div>
             <label className="block text-sm">Email</label>
@@ -62,5 +58,19 @@ export default function ConfirmPage() {
         </form>
       </div>
     </main>
+  );
+}
+
+export default function ConfirmPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          Loading...
+        </div>
+      }
+    >
+      <ConfirmPageInner />
+    </Suspense>
   );
 }
