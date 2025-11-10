@@ -45,7 +45,7 @@ function DotPattern({
 
 export default function SolutionSection() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background mb-10">
       <div className="absolute top-16 z-20 mb-6 bg-white">
         <span className="inline-block px-6 py-2 text-lg font-semibold rounded-full shadow-lg text-pepper">
           Solution
