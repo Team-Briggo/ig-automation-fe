@@ -71,7 +71,7 @@ export default function Dashboard() {
 
   // -------- CONNECTED VIEW --------
   return (
-    <main className="p-8 min-h-screen bg-salt">
+    <main className="p-8 min-h-screen">
       <div className="flex flex-col gap-4 justify-between items-start mb-8 sm:flex-row sm:items-center">
         <div>
           <h1 className="text-3xl font-bold text-pepper">
@@ -136,8 +136,7 @@ function StatCard({ label, value, description, onClick }) {
       onClick={onClick}
       whileHover={{ scale: 1.05 }}
       className={`bg-white p-6 rounded-lg shadow-md text-center cursor-pointer transition ${
-        onClick ? "hover:bg-gray-50" : ""
-      }`}
+        onClick ? "hover:bg-gray-50" : ""}`}
     >
       <p className="text-4xl font-bold text-pepper">{value}</p>
       <p className="mt-2 font-medium text-muted">{label}</p>

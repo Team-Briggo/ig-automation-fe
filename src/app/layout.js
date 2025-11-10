@@ -15,10 +15,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={outfit.className}>
         <ConfigureAmplifyClient />
-        <div>
+        <div className="bg-salt">
           <Header />
           {/* <SideNav /> */}
-          <main>
+          <main className="pt-40 min-h-screen">
             <UserProvider>{children}</UserProvider>
           </main>
           <Footer />
