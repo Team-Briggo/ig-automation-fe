@@ -4,12 +4,10 @@ import "../globals.css";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <div className="bg-salt">
-        <Header />
-        <div className="pt-32 min-h-screen">{children}</div>
-        <Footer />
-      </div>
-    </html>
+    <div>
+      <Header />
+      <div className="pt-32 min-h-screen">{children}</div>
+      <Footer />
+    </div>
   );
 }
