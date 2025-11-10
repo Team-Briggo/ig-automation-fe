@@ -43,7 +43,7 @@ const Pricing = () => {
           background: "url('/images/bg_grid.png') center center / contain",
         }}
       />
-      <p className="text-4xl font-bold text-center sm:text-5xl md:text-7xl">
+      <p className="text-4xl font-medium leading-tight text-center sm:text-5xl md:text-7xl">
         Simple & affordable <br /> pricing for you
       </p>
 
