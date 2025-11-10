@@ -3,6 +3,7 @@
 import { AnimatedGridPattern } from "@/components/Hero";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
+import SolutionSection from "@/components/SolutionSection";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 
@@ -31,6 +32,8 @@ export default function Home() {
       </div>
 
       <ProblemSection />
+      <SolutionSection />
+
       {/* <img src="/images/meta_logo.webp" alt="Logo" /> */}
 
       {/* <HeroSection /> */}

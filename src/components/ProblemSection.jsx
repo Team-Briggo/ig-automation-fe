@@ -84,8 +84,8 @@ export default function ProblemSection() {
     <div className="relative z-10 mx-auto mb-20 max-w-7xl">
       <div className="mb-8 text-center">
         <div className="inline-block mb-6">
-          <span className="inline-block px-6 py-2 text-sm font-semibold bg-[linear-gradient(102.33deg,#1E4331_28.87%,#188DE7_97.15%)] text-transparent bg-clip-text rounded-full shadow-lg">
-            The Problem
+          <span className="inline-block px-6 py-2 text-lg font-semibold bg-[linear-gradient(102.33deg,#1E4331_28.87%,#188DE7_97.15%)] text-transparent bg-clip-text rounded-full shadow-lg">
+            Problem
           </span>
         </div>
         <h2 className="mb-4 text-4xl leading-tight sm:text-6xl">
