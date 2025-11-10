@@ -12,10 +12,10 @@ export default function Home() {
     <main className="flex flex-col gap-10 justify-center items-center px-2 min-h-screen bg-salt">
       <div className="flex relative justify-center items-center h-full min-h-[60vh] shrink-0 mb-36">
         <div className="flex flex-col gap-1">
-          <p className="z-10 text-3xl font-medium tracking-tighter text-center text-black whitespace-pre-wrap dark:text-white">
+          <p className="z-10 text-3xl font-medium tracking-tighter text-center text-black whitespace-pre-wrap">
             Automate Your Instagram DMs.
           </p>
-          <p className="z-10 text-6xl font-medium text-center text-black whitespace-pre-wrap dark:text-white">
+          <p className="z-10 text-6xl font-medium text-center text-black whitespace-pre-wrap">
             Boost Your Growth Effortlessly.
           </p>
         </div>
