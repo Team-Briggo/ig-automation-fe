@@ -10,7 +10,7 @@ import {
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const Sidebar = ({ open, setOpen }) => {
+const BottomNav = () => {
   const pathname = usePathname();
 
   const [selected, setSelected] = useState(pathname);
@@ -21,20 +21,17 @@ const Sidebar = ({ open, setOpen }) => {
 
   return (
     <nav
-      className={`hidden md:block sticky top-0 h-screen shrink-0 transition-all duration-300 ease-in-out ${
-        open ? "w-64" : "w-20"
-      } bg-transparent p-2`}
+      className={`block fixed bottom-0 p-2 w-full bg-transparent transition-all duration-300 ease-in-out md:hidden shrink-0`}
     >
-      <TitleSection open={open} />
+      {/* <TitleSection /> */}
 
-      <div className="mb-8 space-y-1">
+      <div className="flex gap-2 justify-around w-full">
         <Option
           Icon={Home}
           title="/dashboard"
           displayTitle="Dashboard"
           selected={selected}
           setSelected={setSelected}
-          open={open}
         />
         <Option
           Icon={Workflow}
@@ -42,11 +39,8 @@ const Sidebar = ({ open, setOpen }) => {
           displayTitle="Automation"
           selected={selected}
           setSelected={setSelected}
-          open={open}
         />
       </div>
-
-      <ToggleClose open={open} setOpen={setOpen} />
     </nav>
   );
 };
@@ -57,7 +51,6 @@ const Option = ({
   displayTitle,
   selected,
   setSelected,
-  open,
   notifs,
 }) => {
   const router = useRouter();
@@ -69,9 +62,9 @@ const Option = ({
         setSelected(title);
         router.push(title);
       }}
-      className={`relative flex h-11 w-full items-center rounded-md transition-all duration-200 ${
+      className={`relative flex flex-col h-full w-max items-center rounded-md transition-all duration-200 p-2 ${
         isSelected
-          ? "border-l-2 shadow-sm bg-gray-200/50 text-pepper border-pepper/100"
+          ? "shadow-sm bg-gray-200/50 text-pepper"
           : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900"
       }`}
     >
@@ -79,17 +72,11 @@ const Option = ({
         <Icon className="w-4 h-4" />
       </div>
 
-      {open && (
-        <span
-          className={`text-sm font-medium transition-opacity duration-200 ${
-            open ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {displayTitle}
-        </span>
-      )}
+      <span className={`text-sm font-medium transition-opacity duration-200`}>
+        {displayTitle}
+      </span>
 
-      {notifs && open && (
+      {notifs && (
         <span className="flex absolute right-3 justify-center items-center w-5 h-5 text-xs font-medium text-white bg-blue-500 rounded-full dark:bg-blue-600">
           {notifs}
         </span>
@@ -98,7 +85,7 @@ const Option = ({
   );
 };
 
-const TitleSection = ({ open }) => {
+const TitleSection = () => {
   const { user, logout } = useUser();
   const [openModal, setOpenModal] = useState(false);
 
@@ -114,28 +101,20 @@ const TitleSection = ({ open }) => {
             alt=""
             className="w-10 h-10 rounded-full"
           />
-          {open && (
-            <div
-              className={`transition-opacity duration-200 ${
-                open ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <div className="flex gap-2 items-center">
-                <div>
-                  <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
-                    {user?.instagramDetails?.username}
-                  </span>
-                  <span className="block text-xs text-gray-500 dark:text-gray-400">
-                    {user?.plan || "Free"}
-                  </span>
-                </div>
+          <div>
+            <div className="flex gap-2 items-center">
+              <div>
+                <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+                  {user?.instagramDetails?.username}
+                </span>
+                <span className="block text-xs text-gray-500 dark:text-gray-400">
+                  {user?.plan || "Free"}
+                </span>
               </div>
             </div>
-          )}
+          </div>
         </div>
-        {open && (
-          <ChevronDown className="w-4 h-4 text-gray-400 dark:text-gray-500" />
-        )}
+        <ChevronDown className="w-4 h-4 text-gray-400 dark:text-gray-500" />
       </div>
       {openModal && (
         <div className="flex absolute right-0 bottom-0 left-0 top-20 z-50 flex-col flex-1 gap-2 p-4 h-full bg-gray-100 rounded-md max-w-52">
@@ -151,31 +130,4 @@ const TitleSection = ({ open }) => {
   );
 };
 
-const ToggleClose = ({ open, setOpen }) => {
-  return (
-    <button
-      onClick={() => setOpen(!open)}
-      className="hidden right-0 bottom-0 left-0 transition-colors md:block md:absolute md:border-t md:border-gray-200 hover:bg-gray-50"
-    >
-      <div className="flex items-center p-3">
-        <div className="grid place-content-center size-10">
-          <ChevronsRight
-            className={`h-4 w-4 transition-transform duration-300 text-gray-500 dark:text-gray-400 ${
-              open ? "rotate-180" : ""}`}
-          />
-        </div>
-        {open && (
-          <span
-            className={`text-sm font-medium text-gray-600 dark:text-gray-300 transition-opacity duration-200 ${
-              open ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            Hide
-          </span>
-        )}
-      </div>
-    </button>
-  );
-};
-
-export default Sidebar;
+export default BottomNav;
