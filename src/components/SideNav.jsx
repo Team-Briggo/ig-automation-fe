@@ -103,7 +103,7 @@ const TitleSection = ({ open }) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <div className="relative pb-4 mb-6 border-b border-gray-200 dark:border-gray-800">
+    <div className="relative pb-2 mb-6 border-b border-gray-200 dark:border-gray-800">
       <div
         className="flex justify-between items-center p-2 rounded-md transition-colors cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800"
         onClick={() => setOpenModal(!openModal)}
