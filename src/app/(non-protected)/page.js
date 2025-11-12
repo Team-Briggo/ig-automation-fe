@@ -1,10 +1,9 @@
 "use client";
 
 import { AnimatedGridPattern } from "@/components/Hero";
-import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
+import { ScrollingWords } from "@/components/ScrollTimeline";
 import SolutionSection from "@/components/SolutionSection";
-import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 
 export default function Home() {
@@ -30,12 +29,32 @@ export default function Home() {
           )}
         />
       </div>
-
       <ProblemSection />
       <SolutionSection />
-
+      {/* <ScrollingWords
+        items={[
+          <div className="flex gap-2">
+            <div className="flex flex-col gap-2">
+              <p className="text-wrap">Connect your Instagram account.</p>
+            </div>
+          </div>,
+          <div className="flex gap-2">
+            <div className="flex flex-col gap-2">
+              <p>Set automation triggers.</p>
+            </div>
+          </div>,
+          <div className="flex gap-2">
+            <div className="flex flex-col gap-2">
+              <p>Watch your engagement grow.</p>
+            </div>
+          </div>,
+        ]}
+        hue={270}
+        startVh={20}
+        spaceVh={50}
+        className="my-20"
+      /> */}
       {/* <img src="/images/meta_logo.webp" alt="Logo" /> */}
-
       {/* <HeroSection /> */}
       {/* <section className="max-w-3xl text-center">
         <h1 className="mb-4 text-4xl font-bold">Salt & Pepper App</h1>
