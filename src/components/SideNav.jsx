@@ -112,7 +112,7 @@ const TitleSection = ({ open }) => {
           <img
             src={getMediaUrl(user?.instagramDetails?.profilePictureUrl)}
             alt=""
-            className="w-10 h-10 rounded-full"
+            className="w-10 h-10 rounded-lg"
           />
           {open && (
             <div
