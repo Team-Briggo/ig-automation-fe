@@ -8,7 +8,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -16,11 +16,15 @@ const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const [selected, setSelected] = useState(pathname);
 
+  useEffect(() => {
+    if (pathname !== "") setSelected(pathname);
+  }, [pathname]);
+
   return (
     <nav
-      className={`sticky top-0 h-screen shrink-0 border-r transition-all duration-300 ease-in-out ${
+      className={`sticky top-0 h-screen shrink-0 transition-all duration-300 ease-in-out ${
         open ? "w-64" : "w-20"
-      } bg-salt p-2 shadow-sm`}
+      } bg-transparent p-2`}
     >
       <TitleSection open={open} />
 

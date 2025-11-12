@@ -71,7 +71,7 @@ export default function Dashboard() {
 
   // -------- CONNECTED VIEW --------
   return (
-    <main className="p-8 min-h-screen">
+    <main>
       <div className="flex flex-col gap-4 justify-between items-start mb-8 sm:flex-row sm:items-center">
         <div>
           <h1 className="text-3xl font-bold text-pepper">

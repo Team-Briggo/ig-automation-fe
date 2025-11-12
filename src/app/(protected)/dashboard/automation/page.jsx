@@ -2133,7 +2133,7 @@ export default function AutomationPage() {
   };
 
   return (
-    <div className="flex relative flex-col gap-4 p-4 mx-auto max-w-4xl">
+    <div className="flex relative flex-col gap-4 w-full">
       <div>
         {/* show tabs */}
         <div className="flex space-x-4">
