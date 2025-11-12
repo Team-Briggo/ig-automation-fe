@@ -70,11 +70,11 @@ export default function ProtectedLayout({ children }) {
       <div className="flex relative flex-col w-full text-gray-900 bg-gray-50 md:flex-row dark:bg-gray-950 dark:text-gray-100">
         <Sidebar open={open} setOpen={setOpen} />
         <div
-          className={`w-full overflow-auto px-8 py-4 right-0 mx-0 mt-0 mb-0 md:my-2 z-0 fixed rounded-b-2xl bottom-[68px] md:bottom-[unset] rounded-t-none md:rounded-2xl  h-[calc(100dvh-58px)] md:h-[calc(100dvh-20px)] box-border bg-[#F1F1F1] border border-line-dark! ${
+          className={`w-full overflow-auto p-4 right-0 mx-0 mt-0 mb-0 md:my-2 z-0 fixed rounded-b-2xl bottom-[68px] md:bottom-[unset] rounded-t-none md:rounded-2xl  h-[calc(100dvh-58px)] md:h-[calc(100dvh-20px)] box-border bg-[#F1F1F1] border border-line-dark! ${
             open ? "md:w-[calc(100vw-272px)]" : "md:w-[calc(100vw-75px)]"
           }`}
         >
-          <div className="flex gap-4 justify-between items-center pb-2 mb-2 border-b border-line-dark">
+          <div className="flex gap-4 justify-between items-center py-2 mb-2 border-b border-line-dark">
             {protectedRoutes[pathname]}
             <TitleSection />
           </div>
