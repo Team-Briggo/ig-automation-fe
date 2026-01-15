@@ -1,12 +1,10 @@
 "use client";
 
 import {
-  ActivityIcon,
   DollarSign,
   Handshake,
   Hourglass,
   MessageSquareWarning,
-  Users,
 } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 
@@ -67,36 +65,6 @@ export default function ProblemSection() {
   ];
 
   return (
-    // <div className="relative z-10 mx-auto max-w-7xl">
-    //   <div className="mb-8 text-center">
-    //     <div className="inline-block mb-6">
-    //       <span className="inline-block z-10 px-6 py-2 text-lg font-semibold text-transparent bg-clip-text rounded-full border shadow-sm bg-pepper border-border">
-    //         Problem
-    //       </span>
-    //     </div>
-    //     <h2 className="mb-4 text-4xl leading-tight sm:text-6xl">
-    //       <span className="text-pepper">Creators are overwhelmed.</span>
-    //     </h2>
-    //     <h2 className="text-5xl font-semibold leading-tight sm:text-6xl">
-    //       <span className="inline-block relative">
-    //         <span className="relative z-10 leading-10 text-transparent bg-clip-text bg-gradient-to-r to-gray-700 from-pepper">
-    //           Briggo fixes that.
-    //         </span>
-    //         <span className="absolute left-0 bottom-2 w-full h-4 bg-yellow-200 transform -rotate-1 -z-10"></span>
-    //       </span>
-    //     </h2>
-    //     <p className="mx-auto mt-8 max-w-2xl text-xl text-gray-600">
-    //       Stop letting inbox chaos hold you back from what really matters
-    //     </p>
-    //   </div>
-
-    //   <div className="grid relative z-10 grid-cols-1 py-4 mx-auto max-w-7xl md:grid-cols-2 lg:grid-cols-4">
-    //     {features.map((feature, index) => (
-    //       <Feature key={feature.title} {...feature} index={index} />
-    //     ))}
-    //   </div>
-    // </div>
-
     <div className="relative z-10 mx-auto max-w-7xl">
       <div className="mb-8 text-center">
         <div className="inline-block mb-6">
