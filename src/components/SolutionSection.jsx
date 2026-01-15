@@ -1,5 +1,6 @@
 "use client";
 
+import { Bot, Clock, Target, Zap } from "lucide-react";
 import { useId } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -43,39 +44,117 @@ function DotPattern({
   );
 }
 
+const cardContents = [
+  {
+    icon: Bot,
+    title: "AI Handles Repetitive Replies",
+    description:
+      "Smart automation responds to common questions instantly, freeing your time.",
+  },
+  {
+    icon: Target,
+    title: "Never Miss Important Messages",
+    description:
+      "Priority inbox highlights what matters, surfaces opportunities automatically.",
+  },
+  {
+    icon: Zap,
+    title: "Pay Only for What You Use",
+    description:
+      "Simple pricing that scales with you, no wasted subscriptions.",
+  },
+  {
+    icon: Clock,
+    title: "Instant Response Times",
+    description:
+      "Automated replies keep conversations moving while you focus on creating.",
+  },
+];
+
+const PlusCard = ({ className = "", icon: Icon, title, description }) => {
+  return (
+    <div
+      className={twMerge(
+        "relative p-6 bg-white rounded-lg border border-dashed border-zinc-400 dark:border-zinc-700 dark:bg-zinc-950 min-h-[200px]",
+        "flex flex-col justify-between",
+        className
+      )}
+    >
+      {/* Content */}
+      <div className="relative z-10 space-y-2">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+          {Icon && (
+            <div className="mb-3">
+              <Icon className="w-8 h-8 text-pepper" />
+            </div>
+          )}
+          {title}
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300">{description}</p>
+      </div>
+    </div>
+  );
+};
+
+function FeatureCards() {
+  return (
+    <section className="bg-white border border-gray-200 dark:bg-black dark:bg-transparent dark:border-gray-800">
+      <div className="container px-4 py-12 mx-auto border border-t-0 border-gray-200 dark:border-gray-800">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 auto-rows-auto gap-4 sm:grid-cols-2 lg:grid-cols-6">
+          <PlusCard
+            {...cardContents[0]}
+            className="lg:col-span-3 lg:row-span-2"
+          />
+          <PlusCard
+            {...cardContents[1]}
+            className="lg:col-span-3 lg:row-span-2"
+          />
+          <PlusCard
+            {...cardContents[2]}
+            className="lg:col-span-4 lg:row-span-1"
+          />
+          <PlusCard
+            {...cardContents[3]}
+            className="lg:col-span-2 lg:row-span-1"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function SolutionSection() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background mb-10">
-      <div className="absolute top-16 z-20 mb-6 bg-white">
-        <span className="inline-block px-6 py-2 text-lg font-semibold rounded-full shadow-lg text-pepper">
-          Solution
-        </span>
-      </div>
-      <div className="relative z-10 flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl">
+    <div className="overflow-hidden relative py-6 w-full bg-background">
+      <div className="relative z-10 px-4 mx-auto max-w-7xl">
         <div className="mb-8 text-center">
-          <h2 className="text-5xl font-semibold leading-tight sm:text-6xl">
-            <span className="inline-block relative">
-              <span className="relative z-10 leading-10 text-transparent bg-clip-text bg-gradient-to-r to-gray-700 from-pepper">
-                Set it once
-              </span>
-              <span className="absolute left-0 bottom-2 w-full h-4 bg-red-200 transform -rotate-1 -z-10"></span>
+          <div className="inline-block mb-6">
+            <span className="inline-block z-10 px-6 py-2 text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r to-gray-700 rounded-full border shadow-sm from-pepper border-border">
+              Solution
             </span>
+          </div>
+          <h2 className="mb-4 text-4xl leading-tight sm:text-6xl">
+            <span className="text-pepper">We built the answer.</span>
           </h2>
           <h2 className="text-5xl font-semibold leading-tight sm:text-6xl">
             <span className="inline-block relative">
               <span className="relative z-10 leading-10 text-transparent bg-clip-text bg-gradient-to-r to-gray-700 from-pepper">
-                Let Briggo do the rest.
+                How?
               </span>
-              <span className="absolute left-0 bottom-2 w-full h-4 bg-indigo-200 transform -rotate-1 -z-10"></span>
+              <span className="absolute left-0 bottom-2 w-full h-4 bg-green-200 transform rotate-1 dark:bg-green-900/30 -z-10"></span>
             </span>
           </h2>
         </div>
-        <DotPattern
-          className={twMerge(
-            "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]"
-          )}
-        />
       </div>
+
+      <DotPattern
+        className={twMerge(
+          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+          "opacity-40 dark:opacity-20"
+        )}
+      />
+      <FeatureCards />
     </div>
   );
 }
