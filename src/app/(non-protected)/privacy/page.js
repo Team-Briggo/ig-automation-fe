@@ -7,10 +7,10 @@ const Privacy = () => {
 
       <div className="space-y-6 leading-relaxed text-gray-800">
         <p>
-          At Briggo Media Tech LLP ("Briggo", "we", "us", or "our"), a limited
+          {`At Briggo Media Tech LLP ("Briggo", "we", "us", or "our"), a limited
           liability partnership registered under the laws of India with its
           registered office in Surat, Gujarat, we take the privacy and security
-          of your personal data extremely seriously.
+          of your personal data extremely seriously.`}
         </p>
         <p>
           This Privacy Policy describes how we collect, use, store, share, and
@@ -19,10 +19,10 @@ const Privacy = () => {
 
         <ul className="mt-2 ml-8 space-y-1 list-disc">
           <li>
-            Use our Instagram automation platform and related services (the
-            "Services")
+            {`Use our Instagram automation platform and related services (the
+            "Services")`}
           </li>
-          <li>Visit our website at briggo.in (the "Site")</li>
+          <li>{`Visit our website at briggo.in (the "Site")`}</li>
           <li>Use our mobile applications</li>
           <li>
             Interact with us through email, support channels, or other means
@@ -83,11 +83,11 @@ const Privacy = () => {
               <li>Tax identification information (GSTIN, PAN, etc.)</li>
             </ul>
             <p>
-              Important: We use third-party payment processors (Payment Service
+              {`Important: We use third-party payment processors (Payment Service
               Providers or "PSPs") to handle payment transactions. Full payment
               card details are collected and stored by our PSPs, not by Briggo
               directly. We only retain limited payment information necessary for
-              billing, refunds, and reconciliation purposes.
+              billing, refunds, and reconciliation purposes.`}
             </p>
           </section>
 
@@ -367,8 +367,8 @@ const Privacy = () => {
             <li>Conduct market research</li>
             <li>Promote new features and services</li>
             <li>
-              You can opt-out of marketing communications at any time by
-              clicking "unsubscribe" in emails or contacting privacy@briggo.in
+              {`You can opt-out of marketing communications at any time by
+              clicking "unsubscribe" in emails or contacting privacy@briggo.in`}
             </li>
           </ul>
         </section>
@@ -628,9 +628,9 @@ const Privacy = () => {
             5.1 Our Role as Data Processor
           </h2>
           <p>
-            When you use our Services to collect and manage information about
+            {`When you use our Services to collect and manage information about
             your end users, subscribers, or customers (collectively "Subscriber
-            Data"):
+            Data"):`}
           </p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>You are the Data Controller responsible for Subscriber Data</li>
@@ -929,7 +929,7 @@ const Privacy = () => {
           <p>To exercise any of these rights:</p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>Email: privacy@briggo.in</li>
-            <li>Subject Line: "Privacy Rights Request - [Type of Request]"</li>
+            <li>{`Subject Line: "Privacy Rights Request - [Type of Request]"`}</li>
             <li>
               Include:
               <ul className="ml-6 space-y-1 list-disc">
@@ -1126,9 +1126,9 @@ const Privacy = () => {
             9.6 Do Not Track Signals
           </h2>
           <p>
-            Our Site does not currently respond to "Do Not Track" browser
+            {`Our Site does not currently respond to "Do Not Track" browser
             signals. However, you can use the opt-out tools above to control
-            tracking.
+            tracking.`}
           </p>
         </section>
 
@@ -1182,7 +1182,7 @@ const Privacy = () => {
             <li>Instagram/Facebook: facebook.com/privacy</li>
             <li>Google: google.com/privacy</li>
             <li>WhatsApp: whatsapp.com/privacy</li>
-            <li>Payment processors' privacy policies</li>
+            <li>{`Payment processors' privacy policies`}</li>
           </ul>
         </section>
 
@@ -1219,7 +1219,7 @@ const Privacy = () => {
               platforms
             </li>
             <li>
-              Those platforms' privacy policies govern what they share with us
+              {`Those platforms' privacy policies govern what they share with us`}
             </li>
             <li>
               You can revoke access at any time through platform settings or our
@@ -1236,7 +1236,7 @@ const Privacy = () => {
         </section>
       </section>
       <section className="mt-8 mb-6">
-        <h1 className="mb-4 text-3xl font-bold">11. Children's Privacy</h1>
+        <h1 className="mb-4 text-3xl font-bold">11. {`Children's`} Privacy</h1>
 
         <section className="mt-6">
           <h2 className="mb-2 text-2xl font-semibold">11.1 Age Restriction</h2>
@@ -1255,7 +1255,7 @@ const Privacy = () => {
           </h2>
           <p>We encourage parents and guardians to:</p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Monitor their children's online activities</li>
+            <li>{`Monitor their children's online activities`}</li>
             <li>Teach children about online privacy</li>
             <li>Use parental control tools</li>
           </ul>
@@ -1285,7 +1285,7 @@ const Privacy = () => {
           <p>Contact us immediately at: privacy@briggo.in</p>
           <p>Include:</p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Child's name and email</li>
+            <li>{`Child's name and email`}</li>
             <li>Your relationship to the child</li>
             <li>Proof of parental authority</li>
           </ul>
@@ -1412,7 +1412,7 @@ const Privacy = () => {
             </li>
             <li>Payment processors</li>
             <li>Your own devices and networks</li>
-            <li>Your end users' devices and networks</li>
+            <li>{`Your end users' devices and networks`}</li>
           </ul>
         </section>
 
@@ -1481,7 +1481,7 @@ const Privacy = () => {
             <li>Types of data involved</li>
             <li>Approximate number of affected individuals</li>
             <li>Potential consequences</li>
-            <li>Measures we've taken to address the breach</li>
+            <li>{`Measures we've taken to address the breach`}</li>
             <li>Steps you can take to protect yourself</li>
             <li>Contact information for questions</li>
           </ul>
@@ -1599,7 +1599,7 @@ const Privacy = () => {
             </li>
             <ul className="ml-6 space-y-1 list-disc">
               <li>
-                We will update the "Last Updated" date at the top of this policy
+                {`We will update the "Last Updated" date at the top of this policy`}
               </li>
               <li>Changes will be effective immediately upon posting</li>
               <li>We may (but are not required to) notify you</li>
@@ -1630,7 +1630,7 @@ const Privacy = () => {
           <p>We encourage you to:</p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>Review this Privacy Policy periodically</li>
-            <li>Check the "Last Updated" date</li>
+            <li>{`Check the "Last Updated" date`}</li>
             <li>Read update notifications carefully</li>
             <li>Contact us with questions</li>
           </ul>
@@ -1665,7 +1665,7 @@ const Privacy = () => {
           </p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>Email: privacy@briggo.in</li>
-            <li>Subject Line: "Privacy Inquiry - [Brief Description]"</li>
+            <li>{`Subject Line: "Privacy Inquiry - [Brief Description]"`}</li>
           </ul>
         </section>
 
@@ -1674,7 +1674,7 @@ const Privacy = () => {
           <p>For security-related concerns or to report vulnerabilities:</p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>Email: security@briggo.in</li>
-            <li>Subject Line: "Security Issue - [Brief Description]"</li>
+            <li>{`Subject Line: "Security Issue - [Brief Description]"`}</li>
           </ul>
         </section>
 
@@ -1688,7 +1688,7 @@ const Privacy = () => {
           </p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>Email: privacy@briggo.in</li>
-            <li>Subject Line: "Privacy Rights Request - [Type of Request]"</li>
+            <li>{`Subject Line: "Privacy Rights Request - [Type of Request]"`}</li>
             <li>
               Include:
               <ul className="ml-6 space-y-1 list-disc">

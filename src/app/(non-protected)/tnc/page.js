@@ -7,13 +7,13 @@ const TnC = () => {
 
       <div className="space-y-6 leading-relaxed text-gray-800">
         <p>
-          These Terms of Service constitute a legally binding agreement between
+          {`These Terms of Service constitute a legally binding agreement between
           you and Briggo Media Tech LLP ("Briggo Media Tech LLP", "Briggo",
           "we," "our" or "us"), a limited liability partnership registered under
           the laws of India with its registered office in Surat, Gujarat,
           governing your use of our products, services, information, contents
           and tools, mobile application (the "App"), and website (the "Site" and
-          collectively with the foregoing, the "Services").
+          collectively with the foregoing, the "Services").`}
         </p>
 
         <section>
@@ -21,7 +21,7 @@ const TnC = () => {
             AGREEMENT TO TERMS
           </h2>
           <p>
-            YOU ACKNOWLEDGE AND AGREE THAT, BY CLICKING ON THE "I AGREE" OR
+            {`YOU ACKNOWLEDGE AND AGREE THAT, BY CLICKING ON THE "I AGREE" OR
             SIMILAR BUTTON, REGISTERING FOR AN ACCOUNT, DOWNLOADING THE APP OR
             ANY APP UPGRADES, USING THE APP ON YOUR MOBILE DEVICE, VISITING THE
             SITE, ACCESSING OR USING THE SERVICES, OR PARTICIPATING IN AN
@@ -30,34 +30,34 @@ const TnC = () => {
             YOU HAVE READ, UNDERSTAND AND AGREE TO BE BOUND BY THESE TERMS OF
             SERVICE AND OUR PRIVACY POLICY, WHETHER OR NOT YOU HAVE REGISTERED
             VIA THE SITE OR THE APP. IF YOU DO NOT AGREE TO THESE TERMS OF
-            SERVICE, THEN YOU HAVE NO RIGHT TO ACCESS OR USE THE SERVICES.
+            SERVICE, THEN YOU HAVE NO RIGHT TO ACCESS OR USE THE SERVICES.`}
           </p>
           <p className="mt-4">
-            These Terms of Service apply to all users of the Services, including
+            {`These Terms of Service apply to all users of the Services, including
             without limitation browsers, vendors, customers, merchants,
             consumers, content contributors, Business Owners (as defined below)
             and Agencies (as defined below). These Terms of Service are
             effective as of the date you first click "I agree" (or similar
             button or checkbox) or use or access the Services, whichever is
-            earlier.
+            earlier.`}
           </p>
           <p className="mt-4">
-            If you accept or agree to these Terms of Service on behalf of your
+            {`If you accept or agree to these Terms of Service on behalf of your
             employer or another legal entity, you represent and warrant that:
             (i) you have full legal authority to bind your employer or such
             entity to these Terms of Service; (ii) you have read and understand
             these Terms of Service; and (iii) you agree to these Terms of
             Service on behalf of the party that you represent. In such event,
             "you" and "your" will refer and apply to your employer or such other
-            legal entity.
+            legal entity.`}
           </p>
           <p className="mt-4">
-            Any personal data you submit to us or which we collect about you is
+            {`Any personal data you submit to us or which we collect about you is
             governed by our Privacy Policy ("Privacy Policy"), available at
             https://briggo.in/privacy-policy. You acknowledge that by using the
             Services, you have reviewed the Privacy Policy. The Privacy Policy
             is incorporated by reference into these Terms of Service and
-            together form and are hereinafter referred to as this "Agreement."
+            together form and are hereinafter referred to as this "Agreement."`}
           </p>
         </section>
 
@@ -79,12 +79,12 @@ const TnC = () => {
             <li>Credit-based messaging system</li>
           </ul>
           <p className="mt-4">
-            If you purchase or use our Services, you're doing so through Briggo,
+            {`If you purchase or use our Services, you're doing so through Briggo,
             and such purchase and use is subject to this Agreement; provided,
             that if you've entered into a separate written agreement or order
             form with us governing the purchase or use of our Services, such
             separate agreement or order form will govern in the event of a
-            conflict with this Agreement to the extent of such conflict.
+            conflict with this Agreement to the extent of such conflict.`}
           </p>
           <p className="mt-4 font-semibold">Service Modifications:</p>
           <p className="mt-2">
@@ -104,10 +104,10 @@ const TnC = () => {
             2.1 Account Registration
           </h3>
           <p>
-            You must register with Briggo and create an account to use the
+            {`You must register with Briggo and create an account to use the
             Services (an "Account"). As part of the registration process, you
             will be requested to provide certain information, including without
-            limitation:
+            limitation:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Full legal name</li>
@@ -178,13 +178,13 @@ const TnC = () => {
             2.4 Account Representative
           </h3>
           <p>
-            The person signing up for the Services will be the contracting party
+            {`The person signing up for the Services will be the contracting party
             ("Account Representative") for the purposes of these Terms of
             Service and will be the person who is authorized to use any
             corresponding Account we provide; provided, however, that if you are
             signing up for the Services on behalf of your employer, your
             employer shall be the Account Representative. As the Account
-            Representative, you are:
+            Representative, you are:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
@@ -203,18 +203,18 @@ const TnC = () => {
             2.5 Account Non-Transferability
           </h3>
           <p>
-            Your Account is personal to you and may not be transferred, sold, or
+            {`Your Account is personal to you and may not be transferred, sold, or
             assigned to any other person or entity without Briggo's prior
-            written consent. Any attempted transfer without consent is void.
+            written consent. Any attempted transfer without consent is void.`}
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
             2.6 Communication Consent
           </h3>
           <p>
-            By providing your phone number and email address, you hereby
+            {`By providing your phone number and email address, you hereby
             affirmatively consent to Briggo's use of your contact information
-            to:
+            to:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Perform and improve upon the Services</li>
@@ -244,15 +244,15 @@ const TnC = () => {
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">3.1 Definitions</h3>
           <p>
-            "Business Owner" means any individual or entity that uses Briggo's
+            {`"Business Owner" means any individual or entity that uses Briggo's
             Services to market, support, develop, or otherwise commercialize
-            their business, services, or products.
+            their business, services, or products.`}
           </p>
           <p className="mt-4">
-            "Agency" means any service provider retained or hired by a Business
+            {`"Agency" means any service provider retained or hired by a Business
             Owner to create and/or manage a Briggo account and use the Services
             on the Business Owner's behalf. An Agency is not required for a
-            Business Owner to use the Services.
+            Business Owner to use the Services.`}
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -290,12 +290,12 @@ const TnC = () => {
             3.3 Account Ownership
           </h3>
           <p>
-            The Business Owner shall be the sole and exclusive account
+            {`The Business Owner shall be the sole and exclusive account
             representative of any Account created on its behalf by an Agency;
             provided that the Agency shall maintain its rights and interests in
             and to all flows or other intellectual property associated with the
             automation work product created by such Agency for the Business
-            Owner (such work product, the "Agency Content").
+            Owner (such work product, the "Agency Content").`}
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -338,12 +338,12 @@ const TnC = () => {
             3.5 Agency Content Ownership
           </h3>
           <p>
-            Unless otherwise agreed in writing between Agency and Business
+            {`Unless otherwise agreed in writing between Agency and Business
             Owner, all automation flows, templates, and custom integrations
             created by the Agency ("Agency Content") remain the intellectual
             property of the Agency. The Business Owner receives a license to use
             such Agency Content only for the duration of the Agency
-            relationship, unless otherwise agreed.
+            relationship, unless otherwise agreed.`}
           </p>
         </section>
 
@@ -356,11 +356,11 @@ const TnC = () => {
             4.1 Definition of User Generated Content
           </h3>
           <p>
-            "User Generated Content" means any content, information, and
+            {`"User Generated Content" means any content, information, and
             materials that may be textual, audio, or visual that you or any
             Conversation Participant provide, submit, upload, publish, or make
             otherwise available to the Services and our users, including but not
-            limited to:
+            limited to:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Chat flow content and automation scripts</li>
@@ -374,9 +374,9 @@ const TnC = () => {
             4.2 Your Responsibilities
           </h3>
           <p>
-            You are solely responsible for your and your Conversation
+            {`You are solely responsible for your and your Conversation
             Participants' User Generated Content. You acknowledge and agree that
-            Briggo:
+            Briggo:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
@@ -417,9 +417,9 @@ const TnC = () => {
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Will not be false, inaccurate, incomplete, or misleading</li>
             <li>
-              Will not infringe on any third party's copyright, patent,
+              {`Will not infringe on any third party's copyright, patent,
               trademark, trade secret, or other proprietary right or rights of
-              publicity, personality, or privacy
+              publicity, personality, or privacy`}
             </li>
             <li>
               Will not violate any law, statute, ordinance, or regulation,
@@ -498,16 +498,16 @@ const TnC = () => {
             4.5 Data Ownership
           </h3>
           <p>
-            You retain full ownership of all data you submit to or create
+            {`You retain full ownership of all data you submit to or create
             through the Services. Briggo's license to your data is limited to
             the purposes described in Section 4.4 and terminates upon deletion
-            of your data or termination of your Account, except as required for:
+            of your data or termination of your Account, except as required for:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Legal compliance and record-keeping obligations</li>
             <li>Backup and disaster recovery (up to 180 days)</li>
             <li>Resolution of disputes</li>
-            <li>Protection of Briggo's rights</li>
+            <li>{`Protection of Briggo's rights`}</li>
           </ul>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -554,9 +554,9 @@ const TnC = () => {
             5.1 Compliance Requirements
           </h3>
           <p>
-            If you use the Services to communicate with your users via text
+            {`If you use the Services to communicate with your users via text
             message or email, you hereby agree to the following Compliance and
-            Indemnity Terms ("CIT").
+            Indemnity Terms ("CIT").`}
           </p>
           <p className="mt-4">
             You are required to use the Services in full compliance with all
@@ -577,7 +577,7 @@ const TnC = () => {
             <li>Any other applicable central, state, or local laws</li>
           </ul>
           <p className="mt-4">
-            (Collectively referred to as "Electronic Messaging Laws")
+            {`(Collectively referred to as "Electronic Messaging Laws")`}
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -690,7 +690,7 @@ const TnC = () => {
           </ul>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
-            5.6 Briggo's Role and Limitations
+            {`5.6 Briggo's Role and Limitations`}
           </h3>
           <p className="font-semibold">
             IMPORTANT: Briggo provides technical infrastructure only. Briggo:
@@ -746,12 +746,12 @@ const TnC = () => {
             5.8 Compliance Indemnification
           </h3>
           <p>
-            You agree to indemnify, defend, and hold harmless Briggo, along with
+            {`You agree to indemnify, defend, and hold harmless Briggo, along with
             its owners, members, directors, officers, agents, employees,
             contractors, consultants, and vendors from and against any and all
             claims, suits, fines, penalties, costs, expenses, judgments, and
             fees, including reasonable attorney's fees and court costs, arising
-            out of:
+            out of:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Any violation by you of Electronic Messaging Laws</li>
@@ -783,10 +783,10 @@ const TnC = () => {
               defending the matter
             </li>
             <li>
-              Give you control and authority over the defense and settlement,
+              {`Give you control and authority over the defense and settlement,
               subject to Briggo's approval of any settlement that affects
               Briggo's rights or interests (such approval will not be
-              unreasonably withheld)
+              unreasonably withheld)`}
             </li>
           </ul>
         </section>
@@ -861,7 +861,7 @@ const TnC = () => {
             <li>SMS/text messages</li>
             <li>Pre-recorded voice messages</li>
             <li>Autodialed calls</li>
-            <li>Push notifications (if you've enabled them)</li>
+            <li>{`Push notifications (if you've enabled them)`}</li>
             <li>In-app messaging</li>
           </ul>
 
@@ -873,8 +873,8 @@ const TnC = () => {
             communications at any time by:
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
-            <li>Clicking "unsubscribe" in email communications</li>
-            <li>Replying "STOP" to SMS messages</li>
+            <li>{`Clicking "unsubscribe" in email communications`}</li>
+            <li>{`Replying "STOP" to SMS messages`}</li>
             <li>Updating preferences in your Account settings</li>
             <li>Contacting support@briggo.com</li>
           </ul>
@@ -1009,8 +1009,8 @@ const TnC = () => {
               other platform with which Briggo integrates
             </li>
             <li>
-              To use the Services in a manner that could result in suspension or
-              termination of Briggo's access to third-party platforms
+              {`To use the Services in a manner that could result in suspension or
+              termination of Briggo's access to third-party platforms`}
             </li>
           </ul>
 
@@ -1035,8 +1035,8 @@ const TnC = () => {
           <p>You may not:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Access, tamper with, or use non-public areas of the Services or
-              Briggo's computer systems
+              {`Access, tamper with, or use non-public areas of the Services or
+              Briggo's computer systems`}
             </li>
             <li>
               Probe, scan, or test the vulnerability of any system or network
@@ -1070,7 +1070,7 @@ const TnC = () => {
               Create multiple accounts to circumvent restrictions or suspensions
             </li>
             <li>Share or sell your account credentials</li>
-            <li>Use another person's account without permission</li>
+            <li>{`Use another person's account without permission`}</li>
             <li>
               Maintain an account after it has been suspended or terminated
             </li>
@@ -1090,9 +1090,9 @@ const TnC = () => {
               prohibited use
             </li>
             <li>
-              Limit or restrict access to the Services for users whose actions
+              {`Limit or restrict access to the Services for users whose actions
               degrade the experience of other users, Briggo's employees,
-              affiliates, partners, or platform partners
+              affiliates, partners, or platform partners`}
             </li>
             <li>
               Review, delete, and disclose any information as reasonably
@@ -1350,11 +1350,11 @@ const TnC = () => {
             8.9 Indemnification for Representation Breaches
           </h3>
           <p>
-            You agree to indemnify and hold Briggo and its officers, directors,
+            {`You agree to indemnify and hold Briggo and its officers, directors,
             employees, agents, and affiliates harmless from any claims, demands,
             losses, liabilities, and expenses, including reasonable attorney's
             fees, arising out of your breach of any representation or warranty
-            in this Section 8.
+            in this Section 8.`}
           </p>
         </section>
 
@@ -1367,10 +1367,10 @@ const TnC = () => {
             9.1 Payment Processing
           </h3>
           <p>
-            Unless separately agreed in writing, all payments for the Services
+            {`Unless separately agreed in writing, all payments for the Services
             must be made through the third-party payment service provider (the
             "PSP") indicated on the Services or through alternative payment
-            methods approved by Briggo.
+            methods approved by Briggo.`}
           </p>
           <p className="mt-4 font-semibold">
             Payment Service Provider Agreement:
@@ -1417,9 +1417,9 @@ const TnC = () => {
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">9.3 Taxes</h3>
           <p>
-            All prices and fees are exclusive of applicable central, state, or
+            {`All prices and fees are exclusive of applicable central, state, or
             other governmental sales, goods and services, or other taxes, fees,
-            or charges now in force or enacted in the future ("Taxes").
+            or charges now in force or enacted in the future ("Taxes").`}
           </p>
           <p className="mt-4 font-semibold">Tax Responsibilities:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
@@ -1439,8 +1439,8 @@ const TnC = () => {
           <p className="mt-4 font-semibold">GST Compliance:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              If you are registered under India's Goods and Services Tax (GST),
-              you must provide your valid GSTIN
+              {`If you are registered under India's Goods and Services Tax (GST),
+              you must provide your valid GSTIN`}
             </li>
             <li>
               Briggo will issue GST-compliant invoices for all taxable
@@ -1570,7 +1570,7 @@ const TnC = () => {
             Briggo does not offer refunds in the following circumstances:
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
-            <li>Change of mind or buyer's remorse</li>
+            <li>{`Change of mind or buyer's remorse`}</li>
             <li>Voluntary account closure or deletion</li>
             <li>Termination due to breach of this Agreement</li>
             <li>Unused tokens or services</li>
@@ -1582,15 +1582,15 @@ const TnC = () => {
             </li>
           </ul>
           <p className="mt-4 font-semibold">
-            Exceptions - Refunds at Briggo's Discretion: Briggo may, at its sole
+            {`Exceptions - Refunds at Briggo's Discretion: Briggo may, at its sole
             discretion, provide partial or full refunds in the following
-            circumstances:
+            circumstances:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Service Unavailability: If the Services are unavailable or
+              {`Service Unavailability: If the Services are unavailable or
               non-functional for more than 72 consecutive hours due to issues
-              within Briggo's control
+              within Briggo's control`}
             </li>
             <li>
               Billing Errors: If Briggo mistakenly charges you incorrect amounts
@@ -1623,7 +1623,7 @@ const TnC = () => {
               Approved refunds will be processed to the original payment method
               within 15 business days
             </li>
-            <li>Refund decisions are final and at Briggo's sole discretion</li>
+            <li>{`Refund decisions are final and at Briggo's sole discretion`}</li>
           </ul>
           <p className="mt-4 font-semibold">
             Consumer Protection Act Compliance: Nothing in this refund policy
@@ -1642,10 +1642,10 @@ const TnC = () => {
             9.9 Trial Periods and Promotional Offers
           </h3>
           <p className="font-semibold">
-            Trial Eligibility: From time to time, Briggo may offer trials of
+            {`Trial Eligibility: From time to time, Briggo may offer trials of
             paid Services for a specified period without payment or at a reduced
             rate (a "Trial"). Briggo reserves the right to determine eligibility
-            for any Trial, which may vary based on:
+            for any Trial, which may vary based on:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Services selected</li>
@@ -1653,13 +1653,13 @@ const TnC = () => {
             <li>How recently you redeemed a Trial</li>
             <li>Geographic location</li>
             <li>Account type (new vs. existing)</li>
-            <li>Other factors at Briggo's discretion</li>
+            <li>Other factors at {`Briggo's`} discretion</li>
           </ul>
           <p className="mt-4 font-semibold">Trial Terms:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Each Trial provides access to specified Services for an initial,
-              introductory period (the "Trial Period")
+              {`Each Trial provides access to specified Services for an initial,
+              introductory period (the "Trial Period")`}
             </li>
             <li>
               The Trial Period begins when you confirm acceptance by submitting
@@ -1714,9 +1714,9 @@ const TnC = () => {
             9.10 In-Bot Payments and User Products
           </h3>
           <p className="font-semibold">
-            User Products: The Services may include features enabling you to
+            {`User Products: The Services may include features enabling you to
             sell goods, products, content, media, and services ("User Products")
-            through in-bot payments via your Account.
+            through in-bot payments via your Account.`}
           </p>
           <p className="mt-4 font-semibold">
             Your Responsibilities: You are solely responsible for:
@@ -1732,8 +1732,8 @@ const TnC = () => {
             </li>
           </ul>
           <p className="mt-4 font-semibold">
-            Briggo's Role: Briggo merely provides the platform infrastructure.
-            Briggo:
+            {`Briggo's Role: Briggo merely provides the platform infrastructure.
+            Briggo:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
@@ -1832,8 +1832,8 @@ const TnC = () => {
             </li>
           </ul>
           <p className="mt-4 font-semibold">
-            Briggo's Discretion: Briggo may, at any time and at its sole
-            discretion:
+            {`Briggo's Discretion: Briggo may, at any time and at its sole
+            discretion:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Suspend or disable access to your bot or Account</li>
@@ -1954,7 +1954,7 @@ const TnC = () => {
             <li>You remain responsible for all fees and obligations</li>
           </ul>
           <p className="mt-4">
-            Suspension may be converted to termination at Briggo's discretion.
+            {`Suspension may be converted to termination at Briggo's discretion.`}
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -2186,8 +2186,8 @@ const TnC = () => {
             12.3 Third-Party Accounts Integration
           </h3>
           <p>
-            As part of the Services' functionality, you may link your Account
-            with third-party service provider accounts, such as:
+            {`As part of the Services' functionality, you may link your Account
+            with third-party service provider accounts, such as:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Facebook</li>
@@ -2195,8 +2195,8 @@ const TnC = () => {
             <li>Google</li>
             <li>WhatsApp</li>
             <li>
-              Other messaging or social media platforms (Each such account, a
-              "Third-Party Account")
+              {`Other messaging or social media platforms (Each such account, a
+              "Third-Party Account")`}
             </li>
           </ul>
 
@@ -2209,8 +2209,8 @@ const TnC = () => {
               Services; OR
             </li>
             <li>
-              Allowing Briggo to access your Third-Party Account as permitted by
-              that platform's terms
+              {`Allowing Briggo to access your Third-Party Account as permitted by
+              that platform's terms`}
             </li>
           </ul>
 
@@ -2232,7 +2232,7 @@ const TnC = () => {
           <p className="mt-4">Such authorization must be:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Without breach of the Third-Party Account's terms and conditions
+              {`Without breach of the Third-Party Account's terms and conditions`}
             </li>
             <li>
               Without obligating Briggo to pay fees to the third-party provider
@@ -2249,8 +2249,8 @@ const TnC = () => {
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Briggo may access, make available, and store content from your
-              Third-Party Account ("SNS Content")
+              {`Briggo may access, make available, and store content from your
+              Third-Party Account ("SNS Content")`}
             </li>
             <li>
               SNS Content will be available through the Services via your
@@ -2287,9 +2287,9 @@ const TnC = () => {
           </ul>
 
           <p className="mt-4 font-semibold">
-            Service Availability: If a Third-Party Account or associated service
+            {`Service Availability: If a Third-Party Account or associated service
             becomes unavailable, or if Briggo's access is terminated by the
-            third-party provider:
+            third-party provider:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>SNS Content may no longer be available through the Services</li>
@@ -2329,8 +2329,8 @@ const TnC = () => {
             12.4 Third-Party Tools
           </h3>
           <p>
-            Briggo may provide access to third-party tools ("Third-Party Tools")
-            which:
+            {`Briggo may provide access to third-party tools ("Third-Party Tools")
+            which:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Briggo does not monitor</li>
@@ -2343,8 +2343,8 @@ const TnC = () => {
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Third-Party Tools are provided on an "as-is" and "as-available"
-              basis
+              {`Third-Party Tools are provided on an "as-is" and "as-available"
+              basis`}
             </li>
             <li>
               Briggo provides NO warranties, representations, or conditions
@@ -2362,7 +2362,7 @@ const TnC = () => {
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Ensure you are familiar with the third-party provider's terms
+              {`Ensure you are familiar with the third-party provider's terms`}
             </li>
             <li>Approve of the terms before using Third-Party Tools</li>
             <li>Understand the risks and limitations of Third-Party Tools</li>
@@ -3905,7 +3905,7 @@ const TnC = () => {
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
-            21.6 Children's Privacy
+            {`21.6 Children's Privacy`}
           </h3>
           <p>
             The Services are not intended for users under 18 years of age.
@@ -3959,18 +3959,18 @@ const TnC = () => {
 
           <p className="mt-4 font-semibold">Exclusions from Downtime</p>
           <p>
-            The following are NOT counted as "Downtime" for purposes of the
-            Uptime Target:
+            {`The following are NOT counted as "Downtime" for purposes of the
+            Uptime Target:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
-            <li>Scheduled maintenance (with at least 48 hours' notice)</li>
+            <li>{`Scheduled maintenance (with at least 48 hours' notice)`}</li>
             <li>
               Emergency maintenance (necessary to prevent security issues or
               data loss)
             </li>
             <li>
-              Downtime caused by factors outside Briggo's reasonable control,
-              including:
+              {`Downtime caused by factors outside Briggo's reasonable control,
+              including:`}
             </li>
             <ul className="mt-1 ml-6 space-y-1 list-disc">
               <li>
@@ -3992,8 +3992,8 @@ const TnC = () => {
           </h3>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Briggo will provide at least 48 hours' notice via email or in-app
-              notification
+              {`Briggo will provide at least 48 hours' notice via email or in-app
+              notification`}
             </li>
             <li>
               Maintenance will generally be scheduled during low-usage periods
@@ -4027,18 +4027,18 @@ const TnC = () => {
             22.4 No Service Level Credits
           </h3>
           <p>
-            IMPORTANT: This Section 22 describes Briggo's service level
+            {`IMPORTANT: This Section 22 describes Briggo's service level
             commitments but does NOT entitle you to any service credits,
             refunds, or compensation if these targets are not met. Service level
             commitments are goals that Briggo strives to achieve but are not
-            guaranteed service levels for which remedies are available.
+            guaranteed service levels for which remedies are available.`}
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">22.5 No Warranty</h3>
           <p>
-            Nothing in this Section 22 modifies or limits the disclaimer of
+            {`Nothing in this Section 22 modifies or limits the disclaimer of
             warranties in Section 16. The Services are still provided "AS IS"
-            and "AS AVAILABLE."
+            and "AS AVAILABLE."`}
           </p>
         </section>
 
@@ -4051,11 +4051,11 @@ const TnC = () => {
             23.1 Force Majeure Events
           </h3>
           <p>
-            Neither party shall be liable to the other for any failure or delay
+            {`Neither party shall be liable to the other for any failure or delay
             in performing its obligations under this Agreement (except for
             payment obligations) to the extent such failure or delay is caused
             by events, circumstances, or causes beyond that party's reasonable
-            control ("Force Majeure Event"), including but not limited to:
+            control ("Force Majeure Event"), including but not limited to:`}
           </p>
 
           <ul className="mt-2 ml-8 space-y-1 list-disc">
@@ -4075,10 +4075,10 @@ const TnC = () => {
             </li>
             <li>
               <span className="font-semibold">Infrastructure Failures:</span>
-              Internet backbone or routing failures; telecommunications or data
+              {`Internet backbone or routing failures; telecommunications or data
               network failures; power outages or electrical grid failures;
               failures of cloud hosting providers or data centers (beyond
-              Briggo's control)
+              Briggo's control)`}
             </li>
             <li>
               <span className="font-semibold">
@@ -4096,9 +4096,9 @@ const TnC = () => {
             </li>
             <li>
               <span className="font-semibold">Other Events:</span>
-              Strikes, lockouts, or labor disputes (beyond the affected party's
+              {`Strikes, lockouts, or labor disputes (beyond the affected party's
               organization); supplier failures or shortages of materials; any
-              other cause beyond the reasonable control of the affected party
+              other cause beyond the reasonable control of the affected party`}
             </li>
           </ul>
 
@@ -4268,8 +4268,8 @@ const TnC = () => {
               affect any other provision
             </li>
             <li>
-              The court should endeavor to give effect to the parties'
-              intentions as reflected in the provision
+              {`The court should endeavor to give effect to the parties'
+              intentions as reflected in the provision`}
             </li>
           </ul>
 
@@ -4277,8 +4277,9 @@ const TnC = () => {
           <p>
             <span className="font-semibold">By You:</span> You may NOT assign or
             transfer this Agreement or any of your rights or obligations under
-            this Agreement without Briggo's prior written consent. Any attempted
-            assignment or transfer without such consent shall be null and void.
+            this Agreement without {`Briggo's`} prior written consent. Any
+            attempted assignment or transfer without such consent shall be null
+            and void.
           </p>
           <p className="mt-2">
             <span className="font-semibold">By Briggo:</span> Briggo may assign
@@ -4288,7 +4289,7 @@ const TnC = () => {
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>To a parent company, subsidiary, or affiliated entity</li>
-            <li>To an acquirer of Briggo's assets or business</li>
+            <li>{`To an acquirer of Briggo's assets or business`}</li>
             <li>
               To any successor or acquirer in connection with a merger,
               acquisition, reorganization, or sale of substantially all assets
@@ -4309,9 +4310,9 @@ const TnC = () => {
             <li>The parties hereto</li>
             <li>Their respective successors and permitted assigns</li>
             <li>
-              Briggo's affiliates, officers, directors, employees, agents, and
+              {`Briggo's affiliates, officers, directors, employees, agents, and
               service providers (who are third-party beneficiaries of Sections
-              16, 17, 18, and 19)
+              16, 17, 18, and 19)`}
             </li>
           </ul>
 
@@ -4326,9 +4327,9 @@ const TnC = () => {
             25.8 Interpretation
           </h3>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
-            <li>"Including" means "including without limitation"</li>
+            <li>{`"Including" means "including without limitation"`}</li>
             <li>Singular includes plural and vice versa</li>
-            <li>"Or" is not exclusive</li>
+            <li>{`"Or" is not exclusive`}</li>
             <li>
               References to sections are to sections of this Agreement unless
               otherwise stated
@@ -4392,7 +4393,7 @@ const TnC = () => {
               Account
             </li>
             <li>Material changes will also be posted on the Site</li>
-            <li>The updated Agreement will indicate the "Last Updated" date</li>
+            <li>{`The updated Agreement will indicate the "Last Updated" date`}</li>
           </ul>
           <p className="mt-2">Material changes include:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
@@ -4419,7 +4420,7 @@ const TnC = () => {
               Notice may be provided through email, in-app notifications, or
               posting on the Site
             </li>
-            <li>Briggo will update the "Last Updated" date</li>
+            <li>{`Briggo will update the "Last Updated" date`}</li>
           </ul>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -4482,8 +4483,8 @@ const TnC = () => {
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              Briggo's affiliates, officers, directors, employees, agents, and
-              service providers (for purposes of Sections 16, 17, 18, and 19)
+              {`Briggo's affiliates, officers, directors, employees, agents, and
+              service providers (for purposes of Sections 16, 17, 18, and 19)`}
             </li>
           </ul>
 
@@ -4505,9 +4506,9 @@ const TnC = () => {
             29.1 Consent to Electronic Communications
           </h3>
           <p>
-            You consent to receive any agreements, notices, disclosures, and
+            {`You consent to receive any agreements, notices, disclosures, and
             other communications (collectively, "Notices") to which this
-            Agreement refers electronically, including without limitation:
+            Agreement refers electronically, including without limitation:`}
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>By email</li>
