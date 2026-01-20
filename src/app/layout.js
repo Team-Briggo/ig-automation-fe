@@ -1,4 +1,3 @@
-import { UserProvider } from "@/contexts/UserContext";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -14,7 +13,9 @@ export default function RootLayout({ children }) {
         {/* <ConfigureAmplifyClient /> */}
         <div className="bg-salt">
           <main className="min-h-screen">
-            <UserProvider>{children}</UserProvider>
+            {/* <UserProvider> */}
+            {children}
+            {/* </UserProvider> */}
           </main>
         </div>
       </body>
