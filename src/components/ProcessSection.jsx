@@ -14,7 +14,7 @@ function StickyScrollCards() {
       zIndex: "z-[3]",
     },
     {
-      title: "Set automation triggers triggers triggers",
+      title: "Set automation triggers",
       description:
         "Choose actions like “New follower,” “Keyword message,” or “Story reply.”",
       bgColor: "#61a5fa",
@@ -41,8 +41,8 @@ function StickyScrollCards() {
           <div
             key={index}
             className={`group relative flex flex-col overflow-hidden xl:h-[420px] xl:flex-row 
-    bg-white dark:bg-neutral-950 
-    border border-neutral-200/70 dark:border-neutral-800/70 
+    bg-white  
+    border border-neutral-200/70 
     rounded-2xl shadow-sm hover:shadow-xl
     transition-all duration-500 ease-out
     ${card.zIndex}`}
@@ -56,7 +56,7 @@ function StickyScrollCards() {
 
             {/* Content */}
             <div className="flex relative z-10 flex-col flex-1 justify-center px-8 py-10 xl:px-16 xl:py-20">
-              <h2 className="text-3xl font-semibold tracking-tight leading-tight xl:text-5xl text-neutral-900 dark:text-neutral-50">
+              <h2 className="text-3xl font-semibold tracking-tight leading-tight xl:text-5xl text-neutral-900">
                 {card.title.split("<br>").map((line, i) => (
                   <React.Fragment key={i}>
                     {line}
@@ -65,7 +65,7 @@ function StickyScrollCards() {
                 ))}
               </h2>
 
-              <p className="mt-6 max-w-lg text-base leading-relaxed xl:text-lg text-neutral-600 dark:text-neutral-400">
+              <p className="mt-6 max-w-lg text-base leading-relaxed xl:text-lg text-neutral-600">
                 {card.description}
               </p>
             </div>

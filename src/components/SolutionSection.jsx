@@ -75,14 +75,14 @@ const PlusCard = ({ className = "", icon: Icon, title, description }) => {
   return (
     <div
       className={twMerge(
-        "relative p-6 bg-white rounded-lg border border-dashed border-zinc-400 dark:border-zinc-700 dark:bg-zinc-950 min-h-[200px]",
+        "relative p-6 bg-white rounded-lg border border-dashed border-zinc-400 min-h-[200px]",
         "flex flex-col justify-between",
         className
       )}
     >
       {/* Content */}
       <div className="relative z-10 space-y-2">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+        <h3 className="text-xl font-bold text-gray-900">
           {Icon && (
             <div className="mb-3">
               <Icon className="w-8 h-8 text-pepper" />
@@ -90,7 +90,7 @@ const PlusCard = ({ className = "", icon: Icon, title, description }) => {
           )}
           {title}
         </h3>
-        <p className="text-gray-700 dark:text-gray-300">{description}</p>
+        <p className="text-gray-700">{description}</p>
       </div>
     </div>
   );

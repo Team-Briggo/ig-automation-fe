@@ -1,6 +1,5 @@
 import { UserProvider } from "@/contexts/UserContext";
 import { Outfit } from "next/font/google";
-import ConfigureAmplifyClient from "../components/client/ConfigureAmplifyClient";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -12,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <ConfigureAmplifyClient />
+        {/* <ConfigureAmplifyClient /> */}
         <div className="bg-salt">
           <main className="min-h-screen">
             <UserProvider>{children}</UserProvider>

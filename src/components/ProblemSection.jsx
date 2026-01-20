@@ -14,25 +14,25 @@ const Feature = ({ title, description, icon, index }) => {
       className={twMerge(
         "flex flex-col lg:border-r  py-10 relative group/feature dark:border-neutral-800",
         (index === 0 || index === 4) && "lg:border-l dark:border-neutral-800",
-        index < 4 && "lg:border-b dark:border-neutral-800"
+        index < 4 && "lg:border-b dark:border-neutral-800",
       )}
     >
       {index < 4 && (
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-t to-transparent opacity-0 transition duration-200 pointer-events-none group-hover/feature:opacity-100 from-neutral-100 dark:from-neutral-800" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-t to-transparent opacity-0 transition duration-200 pointer-events-none group-hover/feature:opacity-100" />
       )}
       {index >= 4 && (
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-b to-transparent opacity-0 transition duration-200 pointer-events-none group-hover/feature:opacity-100 from-neutral-100 dark:from-neutral-800" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b to-transparent opacity-0 transition duration-200 pointer-events-none group-hover/feature:opacity-100" />
       )}
-      <div className="relative z-10 px-10 mb-4 text-neutral-600 dark:text-neutral-400">
+      <div className="relative z-10 px-10 mb-4 text-neutral-600 dark:text-neutral-600">
         {icon}
       </div>
       <div className="relative z-10 px-10 mb-2 text-lg font-bold">
         <div className="absolute inset-y-0 left-0 w-1 h-6 rounded-tr-full rounded-br-full transition-all duration-200 origin-center group-hover/feature:h-8 bg-neutral-300 dark:bg-neutral-700 group-hover/feature:bg-pepper" />
-        <span className="inline-block transition duration-200 group-hover/feature:translate-x-2 text-neutral-800 dark:text-neutral-100">
+        <span className="inline-block transition duration-200 group-hover/feature:translate-x-2 text-neutral-800">
           {title}
         </span>
       </div>
-      <p className="relative z-10 px-10 max-w-xs text-sm text-neutral-600 dark:text-neutral-300">
+      <p className="relative z-10 px-10 max-w-xs text-sm text-neutral-600">
         {description}
       </p>
     </div>
@@ -48,7 +48,7 @@ export default function ProblemSection() {
       icon: <MessageSquareWarning />,
     },
     {
-      title: "Missing Important Emails",
+      title: "Missing Important DMs",
       description: "Lost deals and opportunities buried in your inbox.",
       icon: <Handshake />,
     },

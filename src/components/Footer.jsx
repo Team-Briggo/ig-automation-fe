@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="flex gap-3 items-center text-sm text-salt">
           <Link href="/privacy">Privacy</Link>
           <span className="text-sm text-salt/50">|</span>
-          <Link href="/terms">Terms</Link>
+          <Link href="/tnc">Terms</Link>
         </div>
         <div className="flex gap-6 items-center">
           <Link href="https://www.instagram.com/briggo.in/">

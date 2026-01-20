@@ -1461,9 +1461,9 @@ const TnC = () => {
           </p>
           <p className="mt-4 font-semibold">Credit Plans:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
-            <li>Credits are purchased in advance and stored in your Account</li>
+            <li>Tokens are purchased in advance and stored in your Account</li>
             <li>
-              Credits are consumed based on usage (messages sent, automation
+              Tokens are consumed based on usage (messages sent, automation
               triggers, etc.)
             </li>
             <li>
@@ -1471,11 +1471,11 @@ const TnC = () => {
               may vary by feature
             </li>
             <li>
-              Credits are non-refundable once purchased (subject to Section 9.8)
+              Tokens are non-refundable once purchased (subject to Section 9.8)
             </li>
-            <li>Credits do not expire while your Account remains active</li>
+            <li>Tokens do not expire while your Account remains active</li>
             <li>
-              Unused credits will be forfeited upon Account termination or
+              Unused tokens will be forfeited upon Account termination or
               closure
             </li>
           </ul>
@@ -1553,7 +1553,7 @@ const TnC = () => {
           </ul>
           <p className="mt-4 font-semibold">For existing customers:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
-            <li>Price changes will not affect credits already purchased</li>
+            <li>Price changes will not affect tokens already purchased</li>
             <li>
               Price changes apply to new credit purchases made after the
               effective date
@@ -1562,7 +1562,7 @@ const TnC = () => {
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">9.8 Refund Policy</h3>
           <p className="font-semibold">
-            General Policy - No Refunds: All purchases of credits and services
+            General Policy - No Refunds: All purchases of tokens and services
             are final and non-refundable except as expressly stated in this
             Section or as required by applicable law.
           </p>
@@ -1573,7 +1573,7 @@ const TnC = () => {
             <li>Change of mind or buyer's remorse</li>
             <li>Voluntary account closure or deletion</li>
             <li>Termination due to breach of this Agreement</li>
-            <li>Unused credits or services</li>
+            <li>Unused tokens or services</li>
             <li>Service discontinuation or feature changes</li>
             <li>Dissatisfaction with service quality</li>
             <li>
@@ -1635,7 +1635,7 @@ const TnC = () => {
           <p className="mt-4 font-semibold">
             No Refunds Upon Termination: If Briggo terminates your access to the
             Services for breach of this Agreement, you are not entitled to any
-            refund of unused credits or fees paid.
+            refund of unused tokens or fees paid.
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -1882,8 +1882,8 @@ const TnC = () => {
               associated data
             </li>
             <li>
-              You will not be entitled to any refund of unused credits or
-              prepaid fees
+              You will not be entitled to any refund of unused tokens or prepaid
+              fees
             </li>
             <li>
               Briggo will begin the data deletion process as described in
@@ -1924,7 +1924,7 @@ const TnC = () => {
           <p className="mt-4 font-semibold">
             No Refunds Upon Briggo Termination: If Briggo terminates your
             Account for breach of this Agreement or for cause, you forfeit all
-            unused credits and are not entitled to any refund.
+            unused tokens and are not entitled to any refund.
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -2078,7 +2078,7 @@ const TnC = () => {
               <ul className="mt-1 ml-6 space-y-1 list-circle">
                 <li>Close your Account</li>
                 <li>Delete all your data</li>
-                <li>Forfeit any unused credits</li>
+                <li>Forfeit any unused tokens</li>
               </ul>
             </li>
           </ul>
@@ -2088,7 +2088,7 @@ const TnC = () => {
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Failure to deliver inactivity notices</li>
             <li>Data loss due to inactivity-based account closure</li>
-            <li>Forfeiture of unused credits</li>
+            <li>Forfeiture of unused tokens</li>
           </ul>
           <p className="mt-4">
             To reactivate an inactive Account, you must contact
@@ -4143,8 +4143,8 @@ const TnC = () => {
           <p className="mt-2">Upon such termination:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              You may request a pro-rata refund of any prepaid, unused credits
-              or fees
+              You may request a pro-rata refund of any prepaid, unused tokens or
+              fees
             </li>
             <li>Briggo will process such refunds within 30 days</li>
             <li>
