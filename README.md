@@ -170,7 +170,7 @@ const analyzeCommentsBatch = async (comments) => {
 const handleStartAnalysis = async () => {
   if (!analysisService.current) {
     alert(
-      "Please set your Google API key in environment variables (GOOGLE_API_KEY)"
+      "Please set your Google API key in environment variables (GOOGLE_API_KEY)",
     );
     return;
   }
@@ -184,9 +184,8 @@ const handleStartAnalysis = async () => {
   setAnalysisResults([]);
 
   try {
-    const results = await analysisService.current.analyzeCommentsBatch(
-      comments
-    );
+    const results =
+      await analysisService.current.analyzeCommentsBatch(comments);
     setAnalysisResults(results);
     setShowAnalysis(true);
   } catch (error) {
@@ -227,7 +226,7 @@ Remove these from frontend:
 ```javascript
 // REMOVE THESE LINES:
 const [apiKey, setApiKey] = useState(
-  "AIzaSyDepjlF-cKFs_RvMnsmRa86-tR2VMNpLLU" || ""
+  "AIzaSyDepjlF-cKFs_RvMnsmRa86-tR2VMNpLLU" || "",
 );
 const analysisService = useRef(null);
 
@@ -267,7 +266,7 @@ export const analyzeCommentsAPI = async (userId, mediaId, comments) => {
 
 export const getCommentAnalysisAPI = async (userId, mediaId) => {
   const response = await fetch(
-    `/api/instagram/comments/analysis/${mediaId}?userId=${userId}`
+    `/api/instagram/comments/analysis/${mediaId}?userId=${userId}`,
   );
 
   if (!response.ok) {
@@ -492,10 +491,6 @@ Header
 - Create about Content
 - Start for Free - Redirect to play/app store
 
-Problem Section
-
-- Replace this "Missing Important Emails" -> Think something new
-
 Solution Section
 
 - Revamp UI
@@ -504,25 +499,6 @@ Process Section
 
 - Add Meta Verified Badge to First step
 - Add screenshot on every step
-
-FAQs Section
-
-- 2nd FAQ answer
-- 3rd FAQ answer
-- 4th FAQ answer
-  - Replace "Credits" -> "Tokens"
-  - Grammatically correct it
-- 5th FAQ answer
-  - Grammatically correct it
-- 6th FAQ answer
-  - Grammatically correct it
-- 7th FAQ answer
-  - Grammatically correct it
-- 8th FAQ answer
-  - Grammatically correct it
-  - Remove icon
-- 9th FAQ answer
-  - Grammatically correct it
 
 Add CTA like zorcha
 

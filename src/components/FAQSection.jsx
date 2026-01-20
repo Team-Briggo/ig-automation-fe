@@ -8,47 +8,47 @@ const faqs = [
   {
     question: "Is Briggo safe and Meta-compliant?",
     answer:
-      "Yes. Briggo is Meta-verified and a Meta Tech Provider, built with safety-first, rate-limited automation that follows Instagram’s platform guidelines.",
+      "Yes. Briggo is Meta-verified and a Meta Tech Provider, built with safety-first, rate-limited automation that follows Instagram's platform guidelines.",
   },
   {
     question: "Is Briggo free to use?",
     answer:
-      "Yes.Briggo gives 1,000 free tokens to every new user so you can explore all features without paying anything.",
+      "Yes, you can start for free! Briggo gives 1,000 free tokens to every new user so you can explore all features without paying anything. Once you've used your free tokens, you can purchase more to continue.",
   },
   {
     question: "Does Briggo have a subscription?",
     answer:
-      "No. Briggo works on a pay-as-you-go token model. There are no subscriptions, no lock-ins, and no monthly commitments.",
+      "No. Briggo uses a prepaid token system. Buy tokens once, use them as needed. No subscriptions, no lock-ins, and no monthly commitments.",
   },
   {
     question: "How does Briggo pricing work?",
     answer:
-      "Briggo uses tokens:\n1 token = 1 DM sent \n Your tokens are deducted, only when you actually use the service\nThis helps you save money if you don’t fully utilize automation every month.",
+      "Briggo uses tokens:\n1 token = 1 DM sent\nYour tokens are deducted only when you actually use the service.\nThis helps you save money by paying only for what you use.",
   },
   {
     question: "What Instagram automations does Briggo offer?",
     answer:
-      "Briggo supports:\nReel & Post comment automation\nStory reply automation\nDM automation\nAsk for follow automation\nCustom & unlimited keywords\nUnlimited contacts & automations",
+      "Briggo supports:\nReel & post comment automation,\nStory reply automation,\nDM automation,\nAsk for follow automation,\nCustom & unlimited keywords,\nUnlimited contacts & automations,",
   },
   {
     question: "Is there any limit on automations or keywords?",
     answer:
-      "No limits .\nBriggo offers:\nUnlimited automations\nUnlimited keywords\nUnlimited contacts\nYour usage only depends on the tokens you use.",
+      "No limits.\nBriggo offers unlimited automations, keywords, and contacts.\nYour usage only depends on the tokens you use.",
   },
   {
     question: "What analytics does Briggo provide?",
     answer:
-      "Briggo gives you powerful insights like:\nDM delivery & response analytics\nClick tracking\nProfile performance analytics\nSo you can optimize conversions and engagement.",
+      "Briggo gives you powerful insights:\nDM delivery & response analytics\nClick tracking\nProfile performance analytics\nso you can optimize conversions and engagement.",
   },
   {
-    question: "What is Briggo’s Refer & Earn program?",
+    question: "What is Briggo's Refer & Earn program?",
     answer:
-      "Invite friends and earn rewards 🎁\nFor every successful referral, you get 500 free tokens\nTokens are instantly usable for automations",
+      "Invite friends and earn rewards! \nEarn 500 free tokens each time a friend connects their Instagram through your referral link.\nTokens are instantly usable for automations.",
   },
   {
     question: "Who is Briggo best suited for?",
     answer:
-      "Briggo is ideal for:\nCreators & influencers\nBusinesses & brands\nSocial media managers\nGrowth marketers\nAnyone looking to automate Instagram engagement without overspending.",
+      "Briggo is ideal for:\nCreators & influencers,\nBusinesses & brands,\nSocial media managers,\nGrowth marketers,\nAnyone looking to automate Instagram engagement without overspending.",
   },
   {
     question: "Do my tokens ever expire?",
@@ -59,12 +59,7 @@ const faqs = [
 
 const FAQItem = ({ question, answer, isOpen, onClick, index }) => {
   return (
-    <div
-      className="relative group"
-      style={{
-        animation: `fadeInUp 0.5s ease-out forwards ${index * 0.08}s`,
-      }}
-    >
+    <div className="relative group">
       <div className="relative bg-white rounded-2xl border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-md dark:shadow-lg dark:hover:shadow-xl">
         <button
           onClick={onClick}
