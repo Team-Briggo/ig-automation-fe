@@ -14,15 +14,14 @@ export const UserProvider = ({ children }) => {
 
   const fetchAndSetUser = async (username) => {
     try {
-      const res = await manageUserAPI("GET", {
-        id: username,
-      });
-
-      if (res.success) {
-        setUser(res.items[0]);
-      } else {
-        setUser(null);
-      }
+      // const res = await manageUserAPI("GET", {
+      //   id: username,
+      // });
+      // if (res.success) {
+      //   setUser(res.items[0]);
+      // } else {
+      //   setUser(null);
+      // }
     } catch (err) {
       console.error("Error fetching user:", err);
       setUser(null);
@@ -32,14 +31,14 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const loadUser = async () => {
       try {
-        const currentUser = await getCurrentUser();
-        if (!currentUser) {
-          router.push("/auth/login");
-          return;
-        }
-        await fetchAndSetUser(
-          `${currentUser.username}::${currentUser.username}`
-        );
+        // const currentUser = await getCurrentUser();
+        // if (!currentUser) {
+        //   router.push("/auth/login");
+        //   return;
+        // }
+        // await fetchAndSetUser(
+        //   `${currentUser.username}::${currentUser.username}`
+        // );
       } catch (error) {
         console.warn("No authenticated user found");
         setUser(null);
@@ -49,13 +48,13 @@ export const UserProvider = ({ children }) => {
     };
 
     loadUser();
-  }, []);
+  }, [router]);
 
   const logout = async () => {
     try {
-      await signOut();
-      setUser(null);
-      router.push("/auth/login");
+      // await signOut();
+      // setUser(null);
+      // router.push("/auth/login");
     } catch (err) {
       console.error("Error signing out:", err);
     }
