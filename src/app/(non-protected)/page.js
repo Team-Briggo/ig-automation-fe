@@ -17,7 +17,7 @@ export default function Home() {
       <div className="flex relative justify-center items-center h-full min-h-[60vh] shrink-0 mb-36">
         <div className="flex flex-col gap-1">
           <p className="z-10 text-3xl font-medium text-center text-black whitespace-pre-wrap md:text-6xl">
-            real results, powered by smart automation.
+            Real results, powered by smart automation.
           </p>
           <div className="relative z-10 mx-auto max-w-7xl">
             <div className="mb-8 text-center">
