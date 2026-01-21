@@ -508,15 +508,9 @@ Footer
 Pricing Section
 
 - Rethink title "plan"
-- remove "Monthly cost"
 - add breakdown of each dm price as per plan [per dm cost]
-- Replace "Credits Included" -> "Token Included"
-- update plans with real ones
-
-- check credits on whole site and replace it with token
 
 - Privacy page
-- Terms page
 - Contact us form - link with api
 
 Parallax Effect
