@@ -71,13 +71,157 @@ const TnC = () => {
             and third-party platforms.
           </p>
           <p className="mt-4 font-semibold">Service Description:</p>
-          <ul className="mt-2 ml-8 space-y-1 list-disc">
-            <li>Automated chat flow creation and deployment</li>
-            <li>Integration with Instagram, Facebook, and other platforms</li>
-            <li>Customer engagement and communication tools</li>
-            <li>Analytics and reporting features</li>
-            <li>Credit-based messaging system</li>
-          </ul>
+
+          <div className="mt-2 ml-4 space-y-4">
+            <div>
+              <p className="mb-2 font-semibold">1. Automated Flow Creation</p>
+              <p className="mb-2 ml-4">
+                The Platform provides tools and interfaces that enable users to:
+              </p>
+              <ul className="ml-8 space-y-1 list-disc">
+                <li>
+                  Design, configure, and customize automated conversation flows
+                  and message sequences
+                </li>
+                <li>
+                  Create conditional logic and branching pathways based on user
+                  inputs and behaviors
+                </li>
+                <li>
+                  Establish trigger-based responses to specific user actions or
+                  keywords
+                </li>
+                <li>
+                  Configure and manage automated reply systems that operate
+                  without manual intervention
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="mb-2 font-semibold">
+                2. Social Media Platform Integration
+              </p>
+              <p className="mb-2 ml-4">
+                Briggo facilitates integration with third-party social media
+                platform, including but not limited to:
+              </p>
+              <ul className="ml-8 space-y-1 list-disc">
+                <li>
+                  <span className="font-medium">Instagram:</span> Connection to
+                  Instagram Business and Creator accounts for automated
+                  communication features
+                </li>
+              </ul>
+              <p className="mt-2 ml-4 italic">
+                Users acknowledge that integration with third-party platforms is
+                subject to the terms of service, API limitations, and policies
+                of those respective platforms. Briggo operates within the
+                parameters established by these third-party services and cannot
+                guarantee uninterrupted access if platform policies change.
+              </p>
+            </div>
+
+            <div>
+              <p className="mb-2 font-semibold">3. Automation Features</p>
+
+              <div className="ml-4 space-y-3">
+                <div>
+                  <p className="mb-1 font-medium">a) Comment Automation</p>
+                  <ul className="ml-8 space-y-1 list-disc">
+                    <li>
+                      Automated detection and response to comments on posts,
+                      images, reels, and other content published on connected
+                      social media account
+                    </li>
+                    <li>
+                      Customizable reply templates and conditional response
+                      logic based on comment content
+                    </li>
+                    <li>Keyword-triggered automated responses</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="mb-1 font-medium">
+                    b) Direct Message (DM) Automation
+                  </p>
+                  <ul className="ml-8 space-y-1 list-disc">
+                    <li>
+                      Automated responses to direct messages received on
+                      connected social media account
+                    </li>
+                    <li>
+                      Conversation routing and management based on predefined
+                      rules
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="mb-1 font-medium">c) Story Reply Automation</p>
+                  <ul className="ml-8 space-y-1 list-disc">
+                    <li>
+                      Automated detection and response to replies on Instagram
+                      Stories and similar ephemeral content
+                    </li>
+                    <li>
+                      Customizable automated responses to story interactions
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p className="mb-2 font-semibold">
+                4. Analytics and Reporting Features
+              </p>
+              <p className="mb-2 ml-4">
+                The Platform includes analytics capabilities that provide:
+              </p>
+              <ul className="ml-8 space-y-1 list-disc">
+                <li>Message delivery and engagement metrics</li>
+                <li>User engagement patterns and behavioral insights</li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="mb-2 font-semibold">
+                5. Token-Based Messaging System
+              </p>
+              <p className="mb-2 ml-4">
+                Briggo operates on a token-based usage model wherein:
+              </p>
+              <ul className="ml-8 space-y-1 list-disc">
+                <li>
+                  Message transmission and certain automation features consume
+                  platform tokens
+                </li>
+                <li>
+                  tokens are purchased by users through separate token packages
+                  or subscription plans
+                </li>
+                <li>
+                  Different message types or features may consume varying
+                  amounts of tokens
+                </li>
+                <li>
+                  Token consumption rates and policies are outlined in the
+                  applicable pricing documentation
+                </li>
+                <li>
+                  Users are responsible for monitoring their token balance and
+                  ensuring adequate tokens for desired service usage
+                </li>
+                <li>
+                  Services may be limited or suspended if token balance is
+                  insufficient
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <p className="mt-4">
             {`If you purchase or use our Services, you're doing so through Briggo,
             and such purchase and use is subject to this Agreement; provided,

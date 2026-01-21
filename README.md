@@ -557,8 +557,3 @@ rephrase this tagline: no need to give up on features cause of money
   content which shows that the website is owned by briggo media tech
 
 - Return policy page
-
-- update tnc -> services -> ellaborate the description - don't keep only title
-  "Service Description:"
-  comment - dm - story reply
-  what does it do - describe
