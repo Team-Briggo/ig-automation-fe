@@ -240,7 +240,7 @@ const Privacy = () => {
             </ul>
             <p>
               If you inadvertently provide such information, please contact us
-              immediately at privacy@briggo.in so we can delete it.
+              immediately at support@briggo.in so we can delete it.
             </p>
           </section>
         </section>
@@ -368,7 +368,7 @@ const Privacy = () => {
             <li>Promote new features and services</li>
             <li>
               {`You can opt-out of marketing communications at any time by
-              clicking "unsubscribe" in emails or contacting privacy@briggo.in`}
+              clicking "unsubscribe" in emails or contacting support@briggo.in`}
             </li>
           </ul>
         </section>
@@ -491,7 +491,7 @@ const Privacy = () => {
               </ul>
             </li>
           </ul>
-          <p>All service providers are contractually bound to:</p>
+          {/* <p>All service providers are contractually bound to:</p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>Process data only for specified purposes</li>
             <li>Maintain appropriate security measures</li>
@@ -507,7 +507,7 @@ const Privacy = () => {
               briggo.in/service-providers
             </a>
             ]
-          </p>
+          </p> */}
         </section>
 
         <section className="mt-6">
@@ -674,7 +674,7 @@ const Privacy = () => {
               We offer a standard DPA that incorporates Standard Contractual
               Clauses (where applicable)
             </li>
-            <li>Request a DPA by contacting legal@briggo.in</li>
+            <li>Request a DPA by contacting support@briggo.in</li>
             <li>Enterprise customers may negotiate custom DPA terms</li>
           </ul>
         </section>
@@ -782,7 +782,7 @@ const Privacy = () => {
           </h2>
           <p>
             If you have concerns about international data transfers, contact us
-            at privacy@briggo.in to discuss available options.
+            at support@briggo.in to discuss available options.
           </p>
         </section>
       </section>
@@ -876,7 +876,7 @@ const Privacy = () => {
             7.6 Data Deletion Requests
           </h2>
           <p>
-            To request early deletion of your data, contact privacy@briggo.in.
+            To request early deletion of your data, contact support@briggo.in.
             We will delete your data as soon as reasonably possible, subject to:
           </p>
           <ul className="ml-6 space-y-1 list-disc">
@@ -928,7 +928,7 @@ const Privacy = () => {
           </h2>
           <p>To exercise any of these rights:</p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Email: privacy@briggo.in</li>
+            <li>Email: support@briggo.in</li>
             <li>{`Subject Line: "Privacy Rights Request - [Type of Request]"`}</li>
             <li>
               Include:
@@ -1282,7 +1282,7 @@ const Privacy = () => {
             If you are a parent or guardian and believe your child under 18 has
             provided us with personal information:
           </p>
-          <p>Contact us immediately at: privacy@briggo.in</p>
+          <p>Contact us immediately at: support@briggo.in</p>
           <p>Include:</p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>{`Child's name and email`}</li>
@@ -1396,7 +1396,7 @@ const Privacy = () => {
           </p>
           <ul className="ml-6 space-y-1 list-disc">
             <li>Change your password</li>
-            <li>Contact us at security@briggo.in</li>
+            <li>Contact us at support@briggo.in</li>
             <li>Review recent account activity</li>
           </ul>
         </section>
@@ -1422,7 +1422,7 @@ const Privacy = () => {
           </h2>
           <p>
             If you have questions about the security of your personal data,
-            contact security@briggo.in.
+            contact support@briggo.in.
           </p>
         </section>
       </section>
@@ -1521,7 +1521,7 @@ const Privacy = () => {
           </h2>
           <p>If you discover a security vulnerability:</p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Email: security@briggo.in</li>
+            <li>Email: support@briggo.in</li>
             <li>
               Include:
               <ul className="ml-6 space-y-1 list-disc">
@@ -1619,7 +1619,7 @@ const Privacy = () => {
           <ul className="ml-6 space-y-1 list-disc">
             <li>Stop using the Services</li>
             <li>Close your account</li>
-            <li>Contact us with concerns at privacy@briggo.in</li>
+            <li>Contact us with concerns at support@briggo.in</li>
           </ul>
         </section>
 
@@ -1640,7 +1640,7 @@ const Privacy = () => {
           <h2 className="mb-2 text-2xl font-semibold">14.6 Prior Versions</h2>
           <p>
             We may maintain prior versions of this Privacy Policy for your
-            reference. Request previous versions by emailing privacy@briggo.in.
+            reference. Request previous versions by emailing support@briggo.in.
           </p>
         </section>
 
@@ -1664,7 +1664,7 @@ const Privacy = () => {
             Policy or our privacy practices:
           </p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Email: privacy@briggo.in</li>
+            <li>Email: support@briggo.in</li>
             <li>{`Subject Line: "Privacy Inquiry - [Brief Description]"`}</li>
           </ul>
         </section>
@@ -1673,7 +1673,7 @@ const Privacy = () => {
           <h2 className="mb-2 text-2xl font-semibold">15.2 Security Issues</h2>
           <p>For security-related concerns or to report vulnerabilities:</p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Email: security@briggo.in</li>
+            <li>Email: support@briggo.in</li>
             <li>{`Subject Line: "Security Issue - [Brief Description]"`}</li>
           </ul>
         </section>
@@ -1687,7 +1687,7 @@ const Privacy = () => {
             etc.):
           </p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Email: privacy@briggo.in</li>
+            <li>Email: support@briggo.in</li>
             <li>{`Subject Line: "Privacy Rights Request - [Type of Request]"`}</li>
             <li>
               Include:
@@ -1710,7 +1710,7 @@ const Privacy = () => {
             For legal notices, law enforcement requests, or compliance matters:
           </p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Email: legal@briggo.in</li>
+            <li>Email: support@briggo.in</li>
           </ul>
         </section>
 
@@ -1720,8 +1720,8 @@ const Privacy = () => {
           </h2>
           <p>For non-privacy-related questions:</p>
           <ul className="ml-6 space-y-1 list-disc">
-            <li>Email: contact@briggo.com or support@briggo.com</li>
-            <li>Website: https://briggo.in/support</li>
+            <li>Email: support@briggo.com</li>
+            <li>Website: https://briggo.in/contact</li>
           </ul>
         </section>
       </section>
