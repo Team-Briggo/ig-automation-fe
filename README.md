@@ -317,7 +317,6 @@ Landing page
 - update 1st section content - position correct
   - introduce 1 button for app installation
   - decide a tagline for brand or an intro message
-  - Add a Facebook Meta tag
 - Solution Section
   - shift existing content to process section
   - generate new content for solution section
@@ -558,8 +557,6 @@ rephrase this tagline: no need to give up on features cause of money
   content which shows that the website is owned by briggo media tech
 
 - Return policy page
-
-- Contact us page
 
 - update tnc -> services -> ellaborate the description - don't keep only title
   "Service Description:"

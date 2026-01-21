@@ -14,7 +14,7 @@ import { twMerge } from "tailwind-merge";
 export default function Home() {
   return (
     <main className="flex flex-col gap-12 justify-center items-center px-2 min-h-screen bg-salt">
-      <div className="flex relative justify-center items-center h-full min-h-[60vh] shrink-0 mb-36">
+      <div className="flex relative justify-center items-center h-full min-h-[60vh] shrink-0 mb-24">
         <div className="flex flex-col gap-1">
           <p className="z-10 text-3xl font-medium text-center text-black whitespace-pre-wrap md:text-6xl">
             Real results, powered by smart automation.
@@ -64,6 +64,16 @@ export default function Home() {
               </svg>
             </span>
           </h2>
+          <div className="flex z-10 flex-col gap-1 items-center mt-20">
+            <p className="text-lg text-gray-600">Approved by</p>
+            <img
+              src="/images/meta.png"
+              alt="Meta Logo"
+              width={150}
+              height={60}
+              className="object-contain"
+            />{" "}
+          </div>
         </div>
         <AnimatedGridPattern
           numSquares={120}

@@ -54,7 +54,7 @@ const TnC = () => {
           <p className="mt-4">
             {`Any personal data you submit to us or which we collect about you is
             governed by our Privacy Policy ("Privacy Policy"), available at
-            https://briggo.in/privacy-policy. You acknowledge that by using the
+            https://briggo.in/privacy. You acknowledge that by using the
             Services, you have reviewed the Privacy Policy. The Privacy Policy
             is incorporated by reference into these Terms of Service and
             together form and are hereinafter referred to as this "Agreement."`}
@@ -171,7 +171,7 @@ const TnC = () => {
             failure to maintain account security. Should you suspect that any
             unauthorized party may be using your password or Account or you
             suspect any other breach of security, you must contact Briggo
-            immediately at contact@briggo.com.
+            immediately at support@briggo.in.
           </p>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -540,7 +540,7 @@ const TnC = () => {
             <li>Aggregated, anonymized data may be retained indefinitely</li>
           </ul>
           <p className="mt-4">
-            You may request expedited deletion by contacting support@briggo.com,
+            You may request expedited deletion by contacting support@briggo.in,
             subject to verification and legal retention requirements.
           </p>
         </section>
@@ -876,7 +876,7 @@ const TnC = () => {
             <li>{`Clicking "unsubscribe" in email communications`}</li>
             <li>{`Replying "STOP" to SMS messages`}</li>
             <li>Updating preferences in your Account settings</li>
-            <li>Contacting support@briggo.com</li>
+            <li>Contacting support@briggo.in</li>
           </ul>
           <p className="mt-4 font-semibold">
             Service Communications: You cannot opt-out of essential service
@@ -1615,7 +1615,7 @@ const TnC = () => {
               occurring
             </li>
             <li>
-              Requests must be made to contact@briggo.com with order details and
+              Requests must be made to support@briggo.in with order details and
               explanation
             </li>
             <li>Briggo will investigate and respond within 10 business days</li>
@@ -1871,7 +1871,7 @@ const TnC = () => {
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Using the account deletion features in the Services</li>
-            <li>Sending written notice to contact@briggo.com</li>
+            <li>Sending written notice to support@briggo.in</li>
           </ul>
           <p className="mt-4 font-semibold">
             Effect of Termination: Upon termination by you:
@@ -2092,7 +2092,7 @@ const TnC = () => {
           </ul>
           <p className="mt-4">
             To reactivate an inactive Account, you must contact
-            support@briggo.com before the Account is closed.
+            support@briggo.in before the Account is closed.
           </p>
         </section>
 
@@ -2682,7 +2682,7 @@ const TnC = () => {
           </h3>
           <p>
             To submit a copyright infringement claim, please send the following
-            information to Briggo at legal@briggo.com:
+            information to Briggo at support@briggo.in:
           </p>
 
           <p className="mt-4 font-semibold">Required Information:</p>
@@ -2742,7 +2742,7 @@ const TnC = () => {
           <p>
             If you believe that material you posted was removed or disabled by
             mistake or misidentification, you may file a counter-notice by
-            providing the following information to legal@briggo.com:
+            providing the following information to support@briggo.in:
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>Your physical or electronic signature</li>
@@ -3398,7 +3398,8 @@ const TnC = () => {
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              <span className="font-semibold">To Briggo:</span> legal@briggo.in
+              <span className="font-semibold">To Briggo:</span>{" "}
+              support@briggo.in
             </li>
             <li>
               <span className="font-semibold">To You:</span> Email address
@@ -3492,7 +3493,7 @@ const TnC = () => {
           </p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
             <li>
-              <span className="font-semibold">Email:</span> legal@briggo.in
+              <span className="font-semibold">Email:</span> support@briggo.in
             </li>
             <li>Include full name, email, and Account information</li>
             <li>Clearly state intent to opt out</li>
@@ -3806,12 +3807,12 @@ const TnC = () => {
           <p>
             Our Privacy Policy, available at{" "}
             <a
-              href="https://briggo.in/privacy-policy"
+              href="https://briggo.in/privacy"
               className="text-blue-600 underline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              https://briggo.in/privacy-policy
+              https://briggo.in/privacy
             </a>
             , describes how we collect, use, store, and disclose your personal
             information. By using the Services, you consent to our Privacy
@@ -3896,10 +3897,10 @@ const TnC = () => {
           <p className="mt-2">
             To exercise these rights, contact{" "}
             <a
-              href="mailto:privacy@briggo.in"
+              href="mailto:support@briggo.in"
               className="text-blue-600 underline"
             >
-              privacy@briggo.in
+              support@briggo.in
             </a>
             .
           </p>
@@ -3913,10 +3914,10 @@ const TnC = () => {
             under 18. If you become aware that a child has provided us with
             personal information, please contact{" "}
             <a
-              href="mailto:privacy@briggo.in"
+              href="mailto:support@briggo.in"
               className="text-blue-600 underline"
             >
-              privacy@briggo.in
+              support@briggo.in
             </a>
             , and we will take steps to delete such information.
           </p>
@@ -4563,7 +4564,7 @@ const TnC = () => {
           </ul>
           <p>Notices to Briggo should be sent to:</p>
           <ul className="mt-2 ml-8 space-y-1 list-disc">
-            <li>Email: contact@briggo.com</li>
+            <li>Email: support@briggo.in</li>
           </ul>
 
           <h3 className="mt-6 mb-3 text-xl font-semibold">
@@ -4599,19 +4600,19 @@ const TnC = () => {
             <li>
               Website Support Portal:{" "}
               <a
-                href="https://briggo.in/support"
+                href="https://briggo.in/contact"
                 className="text-blue-600 underline"
               >
-                https://briggo.in/support
+                https://briggo.in/contact
               </a>
             </li>
             <li>
               Email:{" "}
               <a
-                href="mailto:contact@briggo.com"
+                href="mailto:support@briggo.in"
                 className="text-blue-600 underline"
               >
-                contact@briggo.com
+                support@briggo.in
               </a>
             </li>
           </ul>
@@ -4635,10 +4636,10 @@ const TnC = () => {
             <li>
               Email to{" "}
               <a
-                href="mailto:contact@briggo.com"
+                href="mailto:support@briggo.in"
                 className="text-blue-600 underline"
               >
-                contact@briggo.com
+                support@briggo.in
               </a>
             </li>
           </ul>
