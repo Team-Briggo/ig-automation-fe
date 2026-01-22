@@ -50,7 +50,7 @@ const Pricing = () => {
         "bg-[linear-gradient(102.05deg,rgba(253,251,255,0.25)_4.1%,rgba(191,191,191,0.25)_24.69%,rgba(255,255,255,0.25)_91.56%)]",
     },
     {
-      title: "Starter",
+      title: "Bronze",
       charges: "₹49",
       description: "For growing creators",
       credits: "4,000 tokens",
@@ -61,7 +61,7 @@ const Pricing = () => {
         "bg-[linear-gradient(102.05deg,rgba(223,240,245,0.25)_4.1%,rgba(140,198,255,0.25)_24.69%,rgba(230,242,245,0.25)_91.56%)]",
     },
     {
-      title: "Growth",
+      title: "Silver",
       charges: "₹99",
       description: "For scaling accounts",
       credits: "10,000 tokens",
@@ -73,7 +73,7 @@ const Pricing = () => {
         "bg-[linear-gradient(102.05deg,rgba(243,232,255,0.25)_4.1%,rgba(251,207,232,0.25)_24.69%,rgba(245,234,255,0.25)_91.56%)]",
     },
     {
-      title: "Pro",
+      title: "Gold",
       charges: "₹199",
       description: "For power users",
       credits: "25,000 tokens",
@@ -84,7 +84,7 @@ const Pricing = () => {
         "bg-[linear-gradient(102.05deg,rgba(237,255,241,0.25)_4.1%,rgba(199,255,214,0.25)_24.69%,rgba(240,255,247,0.25)_91.56%)]",
     },
     {
-      title: "Plus",
+      title: "Platinum",
       charges: "₹299",
       description: "For power users",
       credits: "40,000 tokens",
