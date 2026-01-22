@@ -190,7 +190,7 @@ const Pricing = () => {
               </div>
 
               {/* CTA Button */}
-              <Link
+              {/* <Link
                 href="https://apps.apple.com/in/app/briggo-creators/id6757666181"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -199,7 +199,7 @@ const Pricing = () => {
                 <Button className="px-6 py-3 w-full text-sm font-bold text-white bg-gradient-to-r rounded-lg shadow-lg transition-all duration-200 from-pepper/70 to-pepper sm:py-4 sm:rounded-xl sm:text-base hover:bg-pepper/80 hover:shadow-xl">
                   {selectedPlanData.buttonTitle}
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
