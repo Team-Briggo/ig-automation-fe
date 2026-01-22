@@ -10,6 +10,7 @@ export default function Contact() {
       link: {
         name: "Mail us at",
         href: "mailto:support@briggo.in",
+        mailto: "support@briggo.in",
       },
     },
 
@@ -17,18 +18,18 @@ export default function Contact() {
       icon: <MapIcon />,
 
       title: "Address",
-      desc: "Near Canal Road, Magob, Surat, Gujarat, Pin: 395010",
+      desc: "B-204, Sf Reshma Residency, Canal Road, Magob, Surat, Gujarat, India, 395010",
     },
   ];
 
   return (
     <section className="py-4">
-      <div className="gap-12 px-4 mx-auto max-w-screen-xl text-gray-600 md:px-8 lg:flex">
-        <div className="max-w-md">
-          <h3 className="text-3xl font-semibold text-gray-800 sm:text-4xl">
+      <div className="gap-12 px-4 mx-auto flex flex-col max-w-screen-xl text-gray-600 md:px-8 lg:flex">
+        <div className="max-w-md mx-auto">
+          <h3 className="text-3xl text-center font-semibold text-gray-800 sm:text-4xl">
             Contact Us
           </h3>
-          <p className="mt-3">
+          <p className="mt-3 text-center">
             We’re here to help and answer any question you might have, We look
             forward to hearing from you .
           </p>
@@ -65,6 +66,7 @@ export default function Contact() {
                         clipRule="evenodd"
                       />
                     </svg>
+                    <span>{item.link.mailto}</span>
                   </a>
                 )}
               </li>

@@ -38,6 +38,8 @@ const Footer = () => {
           <span className="text-sm text-salt/50">|</span>
           <Link href="/tnc">Terms</Link>
           <span className="text-sm text-salt/50">|</span>
+          <Link href="/refund-policy">Refund Policy</Link>
+          <span className="text-sm text-salt/50">|</span>
           <Link href="/contact">Contact</Link>
         </div>
         <div className="flex gap-6 items-center">
