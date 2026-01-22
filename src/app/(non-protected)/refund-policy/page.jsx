@@ -17,13 +17,12 @@ export default function RefundPolicy() {
               </h4> */}
               <p className="leading-relaxed">
                 At Briggo, we provide automation services through a
-                pay-as-you-go token-based system. Our policy is designed to
-                reflect the nature of digital token purchases and the resources
-                required to maintain these innovative automation solutions.
+                pay-as-you-go system. Our policy is designed to reflect the
+                nature of digital dm purchases and the resources required to
+                maintain these innovative automation solutions.
               </p>
               <p className="mt-4 font-medium text-gray-800">
-                We do not offer refunds on token purchases under any
-                circumstances.
+                We do not offer refunds under any circumstances.
               </p>
             </div>
 
@@ -34,13 +33,13 @@ export default function RefundPolicy() {
 
               <div className="mt-4">
                 <h5 className="text-lg font-medium text-gray-800 mb-2">
-                  Non-Refundable Tokens
+                  Non-Refundable
                 </h5>
                 <ul className="list-disc list-inside space-y-2 ml-2">
-                  <li>All token purchases are final and non-refundable</li>
+                  <li>All plans purchases are final and non-refundable</li>
                   {/* <li>Tokens are provided on an as-is basis</li> */}
                   <li>
-                    Once tokens are purchased, they cannot be refunded or
+                    Once plans are purchased, they cannot be refunded or
                     exchanged for cash
                   </li>
                   {/* <li>1 token equals 1 DM automation credit</li> */}
@@ -52,7 +51,7 @@ export default function RefundPolicy() {
                   Service Understanding
                 </h5>
                 <p className="leading-relaxed mb-2">
-                  By purchasing tokens, users acknowledge:
+                  By purchasing plan, users acknowledge:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-2">
                   <li>Automation technology has inherent limitations</li>
@@ -64,7 +63,7 @@ export default function RefundPolicy() {
                     Results may vary based on your specific use case and
                     platform policies
                   </li>
-                  <li>Tokens are consumed upon use and cannot be reversed</li>
+                  <li>Plan are consumed upon use and cannot be reversed</li>
                 </ul>
               </div>
             </div>
@@ -74,34 +73,34 @@ export default function RefundPolicy() {
                 Policy Overview
               </h4>
               <ul className="list-disc list-inside space-y-2 ml-2">
-                <li>Token purchases are final sale and cannot be refunded</li>
+                <li>Plan purchases are final sale and cannot be refunded</li>
                 <li>
-                  Unused tokens cannot be exchanged for cash or other services
+                  Unused plan cannot be exchanged for cash or other services
                 </li>
                 <li>
                   Users are advised to carefully consider their needs before
-                  purchasing tokens
+                  purchasing plan
                 </li>
                 <li>
-                  There are no subscription fees - you only pay for the tokens
-                  you purchase
+                  There are no subscription fees - you only pay for the plan you
+                  purchase
                 </li>
                 <li>
-                  Tokens do not expire and remain in your account until used
+                  Plan do not expire and remain in your account until used
                 </li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Token Management
+                Plan Management
               </h4>
               <p className="leading-relaxed">
-                You can view your token balance at any time through your account
-                dashboard. We recommend purchasing tokens in amounts that align
+                You can view your plan balance at any time through your account
+                dashboard. We recommend purchasing plan in amounts that align
                 with your immediate automation needs. Since there are no
                 subscriptions or recurring charges, you have complete control
-                over when and how many tokens you purchase.
+                over when and how many plan you purchase.
               </p>
             </div>
 
@@ -110,8 +109,8 @@ export default function RefundPolicy() {
                 Contact
               </h4>
               <p className="leading-relaxed">
-                For any questions about our refund policy or token system,
-                please contact us at{" "}
+                For any questions about our refund policy or plan system, please
+                contact us at{" "}
                 <a
                   href="mailto:support@briggo.in"
                   className="text-indigo-600 hover:text-indigo-400 font-medium"

@@ -13,17 +13,17 @@ const faqs = [
   {
     question: "Is Briggo free to use?",
     answer:
-      "Yes, you can start for free! Briggo gives 1,000 free tokens to every new user so you can explore all features without paying anything. Once you've used your free tokens, you can purchase more to continue.",
+      "Yes, you can start for free! Briggo gives 1,000 free dms to every new user so you can explore all features without paying anything. Once you've used your free dms, you can purchase more to continue.",
   },
   {
     question: "Does Briggo have a subscription?",
     answer:
-      "No. Briggo uses a prepaid token system. Buy tokens once, use them as needed. No subscriptions, no lock-ins, and no monthly commitments.",
+      "No. Briggo uses a prepaid system. Buy plan once, use them as needed. No subscriptions, no lock-ins, and no monthly commitments.",
   },
   {
     question: "How does Briggo pricing work?",
     answer:
-      "Briggo uses tokens:\n1 token = 1 DM sent\nYour tokens are deducted only when you actually use the service.\nThis helps you save money by paying only for what you use.",
+      "Briggo uses plans \nYour plan is deducted only when you actually use the service.\nThis helps you save money by paying only for what you use.",
   },
   {
     question: "What Instagram automations does Briggo offer?",
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Is there any limit on automations or keywords?",
     answer:
-      "No limits.\nBriggo offers unlimited automations, keywords, and contacts.\nYour usage only depends on the tokens you use.",
+      "No limits.\nBriggo offers unlimited automations, keywords, and contacts.\nYour usage only depends on the plan you use.",
   },
   {
     question: "What analytics does Briggo provide?",
@@ -43,7 +43,7 @@ const faqs = [
   {
     question: "What is Briggo's Refer & Earn program?",
     answer:
-      "Invite friends and earn rewards! \nEarn 500 free tokens each time a friend connects their Instagram through your referral link.\nTokens are instantly usable for automations.",
+      "Invite friends and earn rewards! \nEarn 500 free dm each time a friend connects their Instagram through your referral link.\nPlans are instantly usable for automations.",
   },
   {
     question: "Who is Briggo best suited for?",
@@ -51,9 +51,8 @@ const faqs = [
       "Briggo is ideal for:\nCreators & influencers,\nBusinesses & brands,\nSocial media managers,\nGrowth marketers,\nAnyone looking to automate Instagram engagement without overspending.",
   },
   {
-    question: "Do my tokens ever expire?",
-    answer:
-      "Yes. Tokens are valid for 1 year from the date of purchase or credit.",
+    question: "Do my plans ever expire?",
+    answer: "Yes. Plans are valid for 1 year from the date of purchase.",
   },
 ];
 

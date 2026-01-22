@@ -27,6 +27,14 @@ export default function Header() {
             <ul className="flex gap-4 items-center">
               <li>
                 <Link
+                  href="/about-us"
+                  className="leading-tight text-black no-underline text-md hover:text-pepper/80"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/pricing"
                   className="leading-tight text-black no-underline text-md hover:text-pepper/80"
                 >
@@ -42,7 +50,7 @@ export default function Header() {
           <nav>
             <ul className="flex gap-4 items-center">
               <li>
-                <Link
+                {/* <Link
                   href="https://apps.apple.com/in/app/briggo-creators/id6757666181"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -50,7 +58,7 @@ export default function Header() {
                   <Button className="w-max text-sm leading-tight md:text-[1rem]">
                     Start Free
                   </Button>
-                </Link>
+                </Link> */}
               </li>
             </ul>
           </nav>

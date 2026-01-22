@@ -38,13 +38,13 @@ export function GlowingEffectDemo() {
         area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
         icon={<ActivityIcon className="w-4 h-4" />}
         title="Better for Casual or Seasonal Creators"
-        description="If you post inconsistently or engagement fluctuates, you’re not locked into a monthly fee. You use your tokens only when needed."
+        description="If you post inconsistently or engagement fluctuates, you’re not locked into a monthly fee. You use your dm only when needed."
       />
       <GridItem
         area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
         icon={<Users className="w-4 h-4" />}
         title="Lower Barrier to Entry"
-        description="The 1,000-token starter package lets creators try automation risk-free and see results before spending money."
+        description="The 1,000-dm starter package lets creators try automation risk-free and see results before spending money."
       />
     </ul>
   );

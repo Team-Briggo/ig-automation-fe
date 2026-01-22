@@ -42,7 +42,7 @@ const Pricing = () => {
       title: "Free",
       charges: "₹0",
       description: "Perfect to start",
-      credits: "1,000 tokens",
+      credits: "1,000 dms",
       buttonTitle: "Start Free",
       chargesGradient:
         "bg-[linear-gradient(102.33deg,#313131_28.87%,#9B9B9B_97.15%)]",
@@ -53,7 +53,7 @@ const Pricing = () => {
       title: "Bronze",
       charges: "₹49",
       description: "For growing creators",
-      credits: "4,000 tokens",
+      credits: "4,000 dms",
       buttonTitle: "Get Started",
       chargesGradient:
         "bg-[linear-gradient(102.33deg,#1E4331_28.87%,#188DE7_97.15%)]",
@@ -64,7 +64,7 @@ const Pricing = () => {
       title: "Silver",
       charges: "₹99",
       description: "For scaling accounts",
-      credits: "10,000 tokens",
+      credits: "10,000 dms",
       buttonTitle: "Get Started",
       chargesGradient:
         "bg-[linear-gradient(102.33deg,#7C3AED_28.87%,#EC4899_97.15%)]",
@@ -76,7 +76,7 @@ const Pricing = () => {
       title: "Gold",
       charges: "₹199",
       description: "For power users",
-      credits: "25,000 tokens",
+      credits: "25,000 dms",
       buttonTitle: "Get Started",
       chargesGradient:
         "bg-[linear-gradient(102.33deg,#EA580C_28.87%,#FBBF24_97.15%)]",
@@ -87,7 +87,7 @@ const Pricing = () => {
       title: "Platinum",
       charges: "₹299",
       description: "For power users",
-      credits: "40,000 tokens",
+      credits: "40,000 dms",
       buttonTitle: "Get Started",
       chargesGradient:
         "bg-[linear-gradient(102.33deg,#EA580C_28.87%,#FBBF24_97.15%)]",
@@ -116,7 +116,7 @@ const Pricing = () => {
           </h1>
           <p className="text-sm text-gray-600 sm:text-base">
             <strong>No feature restrictions.</strong> Choose a plan based on the
-            tokens you need—every tier includes all features.
+            DMs you need—every tier includes all features.
           </p>
         </div>
 
@@ -181,7 +181,7 @@ const Pricing = () => {
                 </div>
                 <div>
                   <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wide font-semibold">
-                    Tokens Included
+                    Dms Included
                   </p>
                   <p className="mt-1 text-xl font-bold text-gray-900 sm:text-2xl">
                     {selectedPlanData.credits.split(" ")[0]}

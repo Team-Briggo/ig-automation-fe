@@ -20,7 +20,7 @@ export default function CreditsPromoSection() {
         <h2 className="mb-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
           <span className="inline-block relative">
             <span className="relative z-10 leading-tight text-transparent bg-clip-text bg-pepper/90">
-              Get 1,000 FREE Token
+              Get 1,000 FREE DMs
             </span>
             <span className="absolute left-0 bottom-2 w-full h-5 bg-lime-200 transform -rotate-1 -z-10"></span>
           </span>
@@ -39,9 +39,7 @@ export default function CreditsPromoSection() {
 
           <div className="flex relative z-10 flex-col gap-8">
             <div className="flex gap-2 justify-center items-center mb-6">
-              <h3 className="text-3xl font-bold text-gray-900">
-                Why Briggo Tokens?
-              </h3>
+              <h3 className="text-3xl font-bold text-gray-900">Why Briggo?</h3>
             </div>
 
             <div className="flex justify-center mb-6">
@@ -63,7 +61,7 @@ export default function CreditsPromoSection() {
                   </div>
                   <div className="flex flex-col col-span-1 justify-center items-center p-4 text-center rounded-lg min-h-72 min-w-96">
                     <Icon icon={RotateCcw} iconColor={"text-blue-600"} />
-                    <p className="text-2xl font-bold">Tokens Carry Over</p>
+                    <p className="text-2xl font-bold">DM's Carry Over</p>
                     <p className="text-center text-gray-600 text-md text-wrap max-w-68">
                       Unused balance automatically carries forward
                     </p>
@@ -74,7 +72,7 @@ export default function CreditsPromoSection() {
                       Earn More with Referrals
                     </p>
                     <p className="text-center text-gray-600 text-md text-wrap max-w-60">
-                      Turn referrals into account tokens
+                      Turn referrals into account dms
                     </p>
                   </div>
                   <div className="relative col-span-1 justify-center items-center rounded-lg backdrop-blur-lg bg-white/80 min-w-96 min-h-72">
@@ -110,7 +108,7 @@ export default function CreditsPromoSection() {
               </div>
             </div>
 
-            <div className="text-center">
+            {/* <div className="text-center">
               <Link
                 href="https://apps.apple.com/in/app/briggo-creators/id6757666181"
                 target="_blank"
@@ -120,7 +118,7 @@ export default function CreditsPromoSection() {
                   Claim Your 1,000 Free Tokens →
                 </button>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
