@@ -1,4 +1,5 @@
 import { MapIcon } from "lucide-react";
+import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 export default function Contact() {
@@ -11,6 +12,16 @@ export default function Contact() {
         name: "Mail us at",
         href: "mailto:support@briggo.in",
         mailto: "support@briggo.in",
+      },
+    },
+    {
+      icon: <FaPhone className="w-4 h-4" />,
+      title: "Phone",
+      desc: "Give us a call for immediate assistance.",
+      link: {
+        name: "Call us at",
+        href: "tel:+919099166905",
+        mailto: "+91 9099166905",
       },
     },
 

@@ -6,43 +6,42 @@ export default function RefundPolicy() {
           <h3 className="text-3xl font-semibold text-gray-800 sm:text-4xl">
             Refund Policy
           </h3>
-          {/* <p className="mt-3 text-center text-sm text-gray-500">
-            Last updated: January 22, 2026
-          </p> */}
 
           <div className="mt-8 space-y-8">
             <div>
-              {/* <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Token-Based Payment Model
-              </h4> */}
               <p className="leading-relaxed">
                 At Briggo, we provide automation services through a
                 pay-as-you-go system. Our policy is designed to reflect the
-                nature of digital dm purchases and the resources required to
-                maintain these innovative automation solutions.
+                nature of plans purchases and the resources required to maintain
+                these innovative automation solutions.
               </p>
               <p className="mt-4 font-medium text-gray-800">
-                We do not offer refunds under any circumstances.
+                All plans and service purchases are considered final, with
+                refunds available only in specific exceptional cases or where
+                mandated by law.
               </p>
             </div>
 
             <div>
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Key Policy Points
+                When Refunds Are Not Available
               </h4>
 
               <div className="mt-4">
                 <h5 className="text-lg font-medium text-gray-800 mb-2">
-                  Non-Refundable
+                  Standard Exclusions
                 </h5>
                 <ul className="list-disc list-inside space-y-2 ml-2">
-                  <li>All plans purchases are final and non-refundable</li>
-                  {/* <li>Tokens are provided on an as-is basis</li> */}
+                  <li>Changing your mind after purchase</li>
+                  <li>Closing your account voluntarily</li>
+                  <li>Account suspension due to violation of our terms</li>
+                  <li>Plans that remain unused in your account</li>
+                  <li>Updates or changes to our features and services</li>
+                  <li>User dissatisfaction with results or performance</li>
                   <li>
-                    Once plans are purchased, they cannot be refunded or
-                    exchanged for cash
+                    Problems stemming from your device, network, or external
+                    platforms
                   </li>
-                  {/* <li>1 token equals 1 DM automation credit</li> */}
                 </ul>
               </div>
 
@@ -51,7 +50,7 @@ export default function RefundPolicy() {
                   Service Understanding
                 </h5>
                 <p className="leading-relaxed mb-2">
-                  By purchasing plan, users acknowledge:
+                  By purchasing plans, users acknowledge:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-2">
                   <li>Automation technology has inherent limitations</li>
@@ -63,30 +62,75 @@ export default function RefundPolicy() {
                     Results may vary based on your specific use case and
                     platform policies
                   </li>
-                  <li>Plan are consumed upon use and cannot be reversed</li>
+                  <li>Plans are consumed upon use and cannot be reversed</li>
                 </ul>
               </div>
             </div>
 
             <div>
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Policy Overview
+                Exceptional Circumstances
+              </h4>
+              <p className="leading-relaxed mb-4">
+                In rare situations, we may consider providing full or partial
+                refunds at our discretion:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-2">
+                <li>
+                  <span className="font-medium">Extended Outages:</span> When
+                  our platform remains inaccessible for over 72 hours straight
+                  due to our internal systems
+                </li>
+                <li>
+                  <span className="font-medium">Payment Mistakes:</span> When we
+                  accidentally charge an incorrect amount
+                </li>
+                <li>
+                  <span className="font-medium">Double Billing:</span> When the
+                  same purchase is processed multiple times
+                </li>
+                <li>
+                  <span className="font-medium">
+                    Critical Functionality Issues:
+                  </span>{" "}
+                  When major features become unusable for a prolonged duration
+                </li>
+                <li>
+                  <span className="font-medium">Mandatory Compliance:</span>{" "}
+                  When consumer protection regulations require it
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-semibold text-gray-800 mb-3">
+                How to Request a Refund
               </h4>
               <ul className="list-disc list-inside space-y-2 ml-2">
-                <li>Plan purchases are final sale and cannot be refunded</li>
                 <li>
-                  Unused plan cannot be exchanged for cash or other services
+                  Submit your request within one week of encountering the issue
                 </li>
                 <li>
-                  Users are advised to carefully consider their needs before
-                  purchasing plan
+                  Email{" "}
+                  <a
+                    href="mailto:support@briggo.in"
+                    className="text-indigo-600 hover:text-indigo-400 font-medium"
+                  >
+                    support@briggo.in
+                  </a>{" "}
+                  with your purchase information and detailed explanation
                 </li>
                 <li>
-                  There are no subscription fees - you only pay for the plan you
-                  purchase
+                  Our team will review your case and reply within 10 business
+                  days
                 </li>
                 <li>
-                  Plan do not expire and remain in your account until used
+                  Approved refunds are returned to your original payment method
+                  within 15 business days
+                </li>
+                <li>
+                  All refund decisions are made at Briggo's discretion and are
+                  final
                 </li>
               </ul>
             </div>
@@ -96,17 +140,23 @@ export default function RefundPolicy() {
                 Plan Management
               </h4>
               <p className="leading-relaxed">
-                You can view your plan balance at any time through your account
-                dashboard. We recommend purchasing plan in amounts that align
+                You can view your plan details at any time through your account
+                dashboard. We recommend purchasing plans in amounts that align
                 with your immediate automation needs. Since there are no
                 subscriptions or recurring charges, you have complete control
-                over when and how many plan you purchase.
+                over when and how many plans you purchase. Plans do not expire
+                and remain available until you use them.
+              </p>
+              <p className="mt-4 leading-relaxed">
+                Please note that if your account is terminated for violating our
+                terms, any remaining plans or payments are forfeited without
+                refund.
               </p>
             </div>
 
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
               <h4 className="text-xl font-semibold text-gray-800 mb-3">
-                Contact
+                Questions?
               </h4>
               <p className="leading-relaxed">
                 For any questions about our refund policy or plan system, please
