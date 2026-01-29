@@ -64,7 +64,7 @@ export default function Home() {
               </svg>
             </span>
           </h2>
-          <div className="flex z-10 flex-col gap-1 items-center mt-20">
+          {/* <div className="flex z-10 flex-col gap-1 items-center mt-20">
             <p className="text-lg text-gray-600">Approved by</p>
             <img
               src="/images/meta.png"
@@ -73,7 +73,7 @@ export default function Home() {
               height={60}
               className="object-contain"
             />{" "}
-          </div>
+          </div> */}
         </div>
         <AnimatedGridPattern
           numSquares={120}
