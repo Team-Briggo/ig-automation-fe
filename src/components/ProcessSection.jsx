@@ -69,7 +69,6 @@ function StickyScrollCards() {
                 {card.description}
               </p>
             </div>
-
             {/* Image */}
             <div
               className="relative z-10 w-full xl:w-[42%] overflow-hidden 
