@@ -14,8 +14,7 @@ function StickyScrollCards() {
         "Revoke access anytime",
         "Full data encryption",
       ],
-      image:
-        "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=675&h=558&fit=crop",
+      image: "/images/1.jpeg",
       zIndex: "z-[1]",
     },
     {
@@ -28,8 +27,7 @@ function StickyScrollCards() {
         "Story reply automation",
         "New follower welcome messages",
       ],
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=675&h=558&fit=crop",
+      image: "/images/2.jpeg",
       zIndex: "z-[2]",
     },
     {
@@ -42,8 +40,7 @@ function StickyScrollCards() {
         "Rich media support",
         "Custom variables and placeholders",
       ],
-      image:
-        "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=675&h=558&fit=crop",
+      image: "/images/3.jpeg",
       zIndex: "z-[3]",
     },
     {
@@ -56,8 +53,7 @@ function StickyScrollCards() {
         "A/B testing capabilities",
         "Real-time performance metrics",
       ],
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=675&h=558&fit=crop",
+      image: "/images/4.jpeg",
       zIndex: "z-[4]",
     },
     {
@@ -70,8 +66,7 @@ function StickyScrollCards() {
         "Conversion tracking",
         "Performance insights",
       ],
-      image:
-        "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=675&h=558&fit=crop",
+      image: "/images/5.jpeg",
       zIndex: "z-[5]",
     },
     {
@@ -84,8 +79,7 @@ function StickyScrollCards() {
         "More time for content creation",
         "Scalable growth without extra staff",
       ],
-      image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=675&h=558&fit=crop",
+      image: "/images/6.jpeg",
       zIndex: "z-[6]",
     },
   ];
