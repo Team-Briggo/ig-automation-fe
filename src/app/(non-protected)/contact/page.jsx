@@ -13,12 +13,12 @@ export default function Contact() {
       },
     },
 
-    {
-      icon: <MapIcon />,
+    // {
+    //   icon: <MapIcon />,
 
-      title: "Address",
-      desc: "Near Canal Road, Magob, Surat, Gujarat, Pin: 395010",
-    },
+    //   title: "Address",
+    //   desc: "Near Canal Road, Magob, Surat, Gujarat, Pin: 395010",
+    // },
   ];
 
   return (

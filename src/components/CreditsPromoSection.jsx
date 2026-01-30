@@ -111,7 +111,7 @@ export default function CreditsPromoSection() {
             </div>
 
             <div className="text-center">
-              <Link
+              {/* <Link
                 href="https://apps.apple.com/in/app/briggo-creators/id6757666181"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -119,7 +119,7 @@ export default function CreditsPromoSection() {
                 <button className="px-8 py-4 text-lg font-semibold text-white rounded-xl shadow-lg transition-all duration-200 transform bg-pepper/90">
                   Claim Your 1,000 Free Tokens →
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
