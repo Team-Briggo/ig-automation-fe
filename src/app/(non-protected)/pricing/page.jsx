@@ -1,234 +1,324 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { twMerge } from "tailwind-merge";
+import {
+  Bolt,
+  Cart,
+  Gear,
+  Users,
+  Heart,
+  PaperPlane,
+  Msgs,
+  Sitemap,
+  MoneyBill,
+  Sparkle,
+  CircleChartLine,
+} from "nucleo-glass-icons/react";
 
-const TickRounded = ({ size = "16" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="10" fill="#10B981" />
-    <path
-      d="M8 12l2 2 4-4"
-      stroke="white"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+const ease = [0.23, 1, 0.32, 1];
 
-const Button = ({ children, className }) => (
-  <button className={className}>{children}</button>
-);
+const pricing = [
+  {
+    title: "Free",
+    charges: "₹0",
+    credits: "1,000 DMs",
+    perDmCost: "Free",
+    buttonTitle: "Start Free",
+    chargesGradient:
+      "bg-[linear-gradient(102.33deg,#313131_28.87%,#9B9B9B_97.15%)]",
+  },
+  {
+    title: "Starter",
+    charges: "₹49",
+    credits: "4,000 DMs",
+    perDmCost: "₹0.012/DM",
+    buttonTitle: "Get Started",
+    chargesGradient:
+      "bg-[linear-gradient(102.33deg,#1E4331_28.87%,#188DE7_97.15%)]",
+  },
+  {
+    title: "Growth",
+    charges: "₹99",
+    credits: "10,000 DMs",
+    perDmCost: "₹0.010/DM",
+    buttonTitle: "Get Started",
+    chargesGradient:
+      "bg-[linear-gradient(102.33deg,#7C3AED_28.87%,#EC4899_97.15%)]",
+    highlight: true,
+  },
+  {
+    title: "Pro",
+    charges: "₹199",
+    credits: "25,000 DMs",
+    perDmCost: "₹0.008/DM",
+    buttonTitle: "Get Started",
+    chargesGradient:
+      "bg-[linear-gradient(102.33deg,#EA580C_28.87%,#FBBF24_97.15%)]",
+  },
+  {
+    title: "Plus",
+    charges: "₹299",
+    credits: "40,000 DMs",
+    perDmCost: "₹0.007/DM",
+    buttonTitle: "Get Started",
+    chargesGradient:
+      "bg-[linear-gradient(102.33deg,#EA580C_28.87%,#FBBF24_97.15%)]",
+  },
+];
+
+const heroPlan = pricing.find((p) => p.highlight);
+const gridPlans = pricing.filter((p) => !p.highlight);
+
+const features = [
+  { label: "Trigger on any comment", Icon: Bolt },
+  { label: "Unlimited keywords", Icon: Cart },
+  { label: "Unlimited automations", Icon: Gear },
+  { label: "Unlimited contacts", Icon: Users },
+  { label: "Ask for follow before DM", Icon: Heart },
+  { label: "DM automation", Icon: PaperPlane },
+  { label: "Story reply automation", Icon: Msgs },
+  { label: "Comment automation", Icon: Sitemap },
+  { label: "No subscription", Icon: MoneyBill },
+  { label: "No branding", Icon: Sparkle },
+  { label: "Analytics", Icon: CircleChartLine },
+];
+
+const APP_STORE_URL =
+  "https://apps.apple.com/in/app/briggo-creators/id6757666181";
 
 const Pricing = () => {
-  const [selectedPlan, setSelectedPlan] = useState(2);
-
-  const commonFeatures = [
-    "Trigger on any comment",
-    "Unlimited keywords",
-    "Unlimited automations",
-    "Unlimited contacts",
-    "Ask for follow before DM",
-    "DM automation",
-    "Story reply automation",
-    "Comment automation",
-    "No subscription",
-    "No branding",
-    "Analytics",
-  ];
-
-  const pricing = [
-    {
-      title: "Free",
-      charges: "₹0",
-      description: "Perfect to start",
-      credits: "1,000 tokens",
-      buttonTitle: "Start Free",
-      chargesGradient:
-        "bg-[linear-gradient(102.33deg,#313131_28.87%,#9B9B9B_97.15%)]",
-      gradient:
-        "bg-[linear-gradient(102.05deg,rgba(253,251,255,0.25)_4.1%,rgba(191,191,191,0.25)_24.69%,rgba(255,255,255,0.25)_91.56%)]",
-    },
-    {
-      title: "Starter",
-      charges: "₹49",
-      description: "For growing creators",
-      credits: "4,000 tokens",
-      buttonTitle: "Get Started",
-      chargesGradient:
-        "bg-[linear-gradient(102.33deg,#1E4331_28.87%,#188DE7_97.15%)]",
-      gradient:
-        "bg-[linear-gradient(102.05deg,rgba(223,240,245,0.25)_4.1%,rgba(140,198,255,0.25)_24.69%,rgba(230,242,245,0.25)_91.56%)]",
-    },
-    {
-      title: "Growth",
-      charges: "₹99",
-      description: "For scaling accounts",
-      credits: "10,000 tokens",
-      buttonTitle: "Get Started",
-      chargesGradient:
-        "bg-[linear-gradient(102.33deg,#7C3AED_28.87%,#EC4899_97.15%)]",
-      highlight: true,
-      gradient:
-        "bg-[linear-gradient(102.05deg,rgba(243,232,255,0.25)_4.1%,rgba(251,207,232,0.25)_24.69%,rgba(245,234,255,0.25)_91.56%)]",
-    },
-    {
-      title: "Pro",
-      charges: "₹199",
-      description: "For power users",
-      credits: "25,000 tokens",
-      buttonTitle: "Get Started",
-      chargesGradient:
-        "bg-[linear-gradient(102.33deg,#EA580C_28.87%,#FBBF24_97.15%)]",
-      gradient:
-        "bg-[linear-gradient(102.05deg,rgba(237,255,241,0.25)_4.1%,rgba(199,255,214,0.25)_24.69%,rgba(240,255,247,0.25)_91.56%)]",
-    },
-    {
-      title: "Plus",
-      charges: "₹299",
-      description: "For power users",
-      credits: "40,000 tokens",
-      buttonTitle: "Get Started",
-      chargesGradient:
-        "bg-[linear-gradient(102.33deg,#EA580C_28.87%,#FBBF24_97.15%)]",
-      gradient:
-        "bg-[linear-gradient(102.05deg,rgba(237,245,255,0.25)_4.1%,rgba(199,214,255,0.25)_24.69%,rgba(240,247,255,0.25)_91.56%)]",
-    },
-  ];
-
-  const selectedPlanData = pricing[selectedPlan];
-
   return (
-    <div className="flex overflow-hidden relative flex-col justify-center items-center p-3 min-h-screen sm:p-4 lg:p-6">
+    <div className="flex overflow-hidden relative flex-col items-center px-3 pb-6 sm:px-4 lg:px-6">
+      {/* Background grid */}
       <div
-        className="w-full h-full z-0 absolute -bottom-28 max-w-[1400px] max-h-[800px] mix-blend-darken pointer-events-none opacity-40"
+        className="w-full h-full z-0 absolute -bottom-28 max-w-[1400px] max-h-[800px] mix-blend-darken pointer-events-none opacity-30"
         style={{
           background:
             "url('/images/bg_grid.png') center center / contain no-repeat",
         }}
       />
 
-      <div className="flex z-10 flex-col gap-6 w-full max-w-5xl sm:gap-8 lg:gap-10">
-        {/* Header */}
-        <div className="flex flex-col gap-2 px-2 text-center sm:gap-3">
-          <h1 className="text-2xl font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
-            Every plan includes all features
+      <div className="flex z-10 flex-col w-full max-w-5xl">
+        {/* Section 1: Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease }}
+          className="mb-3 text-center"
+        >
+          <h1 className="text-2xl font-bold text-gray-900">
+            Simple, honest pricing
           </h1>
-          <p className="text-sm text-gray-600 sm:text-base">
-            <strong>No feature restrictions.</strong> Choose a plan based on the
-            tokens you need—every tier includes all features.
+          <p className="mt-1 mb-3 text-sm text-gray-500">
+            Every plan. Every feature. Just pick your tokens.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Plan Selector Cards */}
-        <div className="grid grid-cols-2 gap-2 px-2 sm:grid-cols-4 sm:gap-3 lg:gap-4">
-          {pricing.map((plan, index) => (
-            <button
-              key={index}
-              onClick={() => setSelectedPlan(index)}
-              className={`relative p-3 sm:p-4 rounded-lg sm:rounded-xl transition-all duration-200 border-1 ${
-                plan.gradient
-              } ${
-                selectedPlan === index
-                  ? "border-blue-500 shadow-md border-2"
-                  : ""
-              }`}
-            >
-              {plan.highlight && selectedPlan === index && (
-                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[9px] font-bold bg-blue-500 text-white px-2 py-0.5 rounded-full whitespace-nowrap">
-                  Most Popular
-                </span>
-              )}
-              <p className="mb-1 font-bold text-gray-900 text-md">
-                {plan.title}
-              </p>
-              <div className="flex gap-1 justify-center items-baseline mb-1">
+        {/* Section 2: Plan Cards */}
+        <div className="relative mb-6 sm:mb-8">
+          {/* ── Mobile layout: Hero + 2-col grid ── */}
+          <div className="flex flex-col gap-2.5 sm:hidden">
+            {/* Hero card — Growth (highlighted plan) */}
+            {heroPlan && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease }}
+                className="flex relative justify-between items-center p-5 rounded-xl border ring-1 shadow-md backdrop-blur-sm border-gray-200/60 bg-white/70 ring-pepper/10"
+              >
+                <div className="flex flex-col">
+                  <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase">
+                    {heroPlan.title}
+                  </p>
+                  <p
+                    className={`text-4xl font-bold text-transparent ${heroPlan.chargesGradient} bg-clip-text mt-1`}
+                  >
+                    {heroPlan.charges}
+                  </p>
+                  <p className="text-base text-gray-600 mt-0.5 font-semibold">
+                    {heroPlan.credits}
+                  </p>
+                  <p className="text-[12px] font-medium text-gray-500 mt-0.5">
+                    {heroPlan.perDmCost}
+                  </p>
+                </div>
+
+                <Link
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-pepper text-salt hover:bg-pepper/90 text-sm font-semibold py-2.5 px-5 rounded-lg transition-colors"
+                >
+                  {heroPlan.buttonTitle}
+                </Link>
+
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20,
+                    delay: 0.5,
+                  }}
+                  className="absolute top-2.5 right-2.5 text-[11px] font-bold uppercase tracking-wide bg-pepper text-salt px-2 py-0.5 rounded-full"
+                >
+                  Popular
+                </motion.span>
+              </motion.div>
+            )}
+
+            {/* Compact grid — remaining 4 plans */}
+            <div className="grid grid-cols-2 gap-2.5">
+              {gridPlans.map((plan, i) => (
+                <motion.div
+                  key={plan.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.06 + i * 0.06,
+                    ease,
+                  }}
+                  className="flex flex-col items-center p-4 rounded-xl border shadow-sm backdrop-blur-sm border-gray-200/60 bg-white/70"
+                >
+                  <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase">
+                    {plan.title}
+                  </p>
+                  <p
+                    className={`text-3xl font-bold text-transparent ${plan.chargesGradient} bg-clip-text mt-1`}
+                  >
+                    {plan.charges}
+                  </p>
+                  <p className="text-sm text-gray-600 mt-0.5 font-semibold">
+                    {plan.credits}
+                  </p>
+                  <p className="text-[12px] font-medium text-gray-500 mt-0.5">
+                    {plan.perDmCost}
+                  </p>
+                  <Link
+                    href={APP_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 w-full text-center text-xs font-semibold py-1.5 rounded-lg transition-colors border border-pepper/20 text-pepper hover:bg-pepper hover:text-salt"
+                  >
+                    {plan.buttonTitle}
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Desktop layout: 5-col grid (sm+) ── */}
+          <div className="hidden sm:grid sm:grid-cols-5 sm:gap-3">
+            {pricing.map((plan, i) => (
+              <motion.div
+                key={plan.title}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: i * 0.06,
+                  ease,
+                }}
+                className={twMerge(
+                  "flex flex-col items-center rounded-xl border border-gray-200/60 bg-white/70 backdrop-blur-sm p-4 transition-shadow",
+                  plan.highlight
+                    ? "shadow-md ring-1 ring-pepper/10 relative overflow-visible"
+                    : "shadow-sm",
+                )}
+              >
+                {plan.highlight && (
+                  <>
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 20,
+                        delay: 0.5,
+                      }}
+                      className="mb-2 text-[12px] font-bold uppercase tracking-wide bg-pepper text-salt px-2 py-0.5 rounded-full"
+                    >
+                      Popular
+                    </motion.span>
+                  </>
+                )}
+
+                <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase">
+                  {plan.title}
+                </p>
+
                 <p
-                  className={`text-2xl font-bold text-transparent ${plan.chargesGradient} bg-clip-text`}
+                  className={`text-5xl font-bold text-transparent ${plan.chargesGradient} bg-clip-text mt-1`}
                 >
                   {plan.charges}
                 </p>
-              </div>
-              <p className="text-sm text-gray-600 line-clamp-1">
-                {plan.credits}
-              </p>
-            </button>
-          ))}
-        </div>
 
-        {/* Selected Plan Details */}
-        <div className="px-2">
-          <div className="p-4 rounded-lg border border-gray-200 backdrop-blur-sm sm:p-6 lg:p-8 sm:rounded-xl bg-white/50">
-            <div className="flex flex-col gap-4 sm:gap-6">
-              {/* Plan Header */}
-              <div className="flex flex-col gap-2">
-                <h2 className="text-lg font-bold text-gray-900 sm:text-xl lg:text-2xl">
-                  {selectedPlanData.title} Plan
-                </h2>
-                <p className="text-sm text-gray-600 sm:text-base">
-                  {selectedPlanData.description}
+                <p className="mt-2 text-lg font-semibold text-gray-700">
+                  {plan.credits}
                 </p>
-              </div>
-
-              {/* Plan Stats */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p
-                    className={`text-xl sm:text-2xl font-bold text-transparent ${selectedPlanData.chargesGradient} bg-clip-text mt-1`}
-                  >
-                    {selectedPlanData.charges}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wide font-semibold">
-                    Tokens Included
-                  </p>
-                  <p className="mt-1 text-xl font-bold text-gray-900 sm:text-2xl">
-                    {selectedPlanData.credits.split(" ")[0]}
-                  </p>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <Link
-                href="https://apps.apple.com/in/app/briggo-creators/id6757666181"
-                target="_blank"
-                rel="noopener noreferrer"
-                // className="z-10 self-center"
-              >
-                <Button className="px-6 py-3 w-full text-sm font-bold text-white bg-gradient-to-r rounded-lg shadow-lg transition-all duration-200 from-pepper/70 to-pepper sm:py-4 sm:rounded-xl sm:text-base hover:bg-pepper/80 hover:shadow-xl">
-                  {selectedPlanData.buttonTitle}
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Features Section */}
-        <div className="flex flex-col gap-3 p-4 mx-2 rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 sm:rounded-xl bg-white/50 sm:gap-4 lg:gap-6">
-          <div>
-            <h3 className="text-lg font-bold text-center text-gray-900 sm:text-xl lg:text-2xl">
-              Everything included
-            </h3>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-3 lg:gap-4">
-            {commonFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className="flex gap-2.5 items-start p-2 rounded-md hover:bg-gray-50/50 transition-colors"
-              >
-                <div className="flex-shrink-0 mt-0.5">
-                  <TickRounded size="14" />
-                </div>
-                <p className="text-xs leading-snug text-gray-700 sm:text-sm lg:text-base">
-                  {feature}
+                <p className="text-[13px] font-medium text-gray-500 mt-0.5">
+                  {plan.perDmCost}
                 </p>
-              </div>
+
+                <Link
+                  href={APP_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={twMerge(
+                    "mt-3 w-full text-center text-xs font-semibold py-1.5 rounded-lg transition-colors",
+                    plan.highlight
+                      ? "bg-pepper text-salt hover:bg-pepper/90"
+                      : "border border-pepper/20 text-pepper hover:bg-pepper hover:text-salt",
+                  )}
+                >
+                  {plan.buttonTitle}
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
+
+        {/* Section 3: Features Grid */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.3, ease }}
+          className="p-4 rounded-xl border border-gray-100 backdrop-blur-sm bg-white/50 sm:p-5"
+        >
+          <p className="mb-3 text-sm font-semibold tracking-widest text-center text-gray-400 uppercase">
+            Included in every plan
+          </p>
+
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-3 lg:grid-cols-4 mt-4">
+            {features.map((feat, i) => (
+              <motion.div
+                key={feat.label}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 0.35,
+                  delay: 0.3 + i * 0.03,
+                  ease,
+                }}
+                className="flex gap-2 items-center"
+              >
+                <feat.Icon
+                  size={18}
+                  stopColor1="#575757"
+                  stopColor2="#151515"
+                />
+                <span className="text-sm leading-tight text-gray-600">
+                  {feat.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </div>
   );
