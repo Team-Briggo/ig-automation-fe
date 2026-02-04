@@ -72,18 +72,110 @@ const heroPlan = pricing.find((p) => p.highlight);
 const gridPlans = pricing.filter((p) => !p.highlight);
 
 const features = [
-  { label: "Trigger on any comment", Icon: Bolt },
-  { label: "Unlimited keywords", Icon: Cart },
-  { label: "Unlimited automations", Icon: Gear },
-  { label: "Unlimited contacts", Icon: Users },
-  { label: "Ask for follow before DM", Icon: Heart },
-  { label: "DM automation", Icon: PaperPlane },
-  { label: "Story reply automation", Icon: Msgs },
-  { label: "Comment automation", Icon: Sitemap },
-  { label: "No subscription", Icon: MoneyBill },
-  { label: "No branding", Icon: Sparkle },
-  { label: "Analytics", Icon: CircleChartLine },
+  {
+    label: "Trigger on any comment",
+    Icon: Bolt,
+    colors: ["#F59E0B", "#D97706"],
+    bg: "rgba(245, 158, 11, 0.08)",
+    ring: "rgba(245, 158, 11, 0.15)",
+  },
+  {
+    label: "Unlimited keywords",
+    Icon: Cart,
+    colors: ["#3B82F6", "#1D4ED8"],
+    bg: "rgba(59, 130, 246, 0.08)",
+    ring: "rgba(59, 130, 246, 0.15)",
+  },
+  {
+    label: "Unlimited automations",
+    Icon: Gear,
+    colors: ["#8B5CF6", "#6D28D9"],
+    bg: "rgba(139, 92, 246, 0.08)",
+    ring: "rgba(139, 92, 246, 0.15)",
+  },
+  {
+    label: "Unlimited contacts",
+    Icon: Users,
+    colors: ["#10B981", "#047857"],
+    bg: "rgba(16, 185, 129, 0.08)",
+    ring: "rgba(16, 185, 129, 0.15)",
+  },
+  {
+    label: "Ask for follow before DM",
+    Icon: Heart,
+    colors: ["#F43F5E", "#BE123C"],
+    bg: "rgba(244, 63, 94, 0.08)",
+    ring: "rgba(244, 63, 94, 0.15)",
+  },
+  {
+    label: "DM automation",
+    Icon: PaperPlane,
+    colors: ["#0EA5E9", "#0369A1"],
+    bg: "rgba(14, 165, 233, 0.08)",
+    ring: "rgba(14, 165, 233, 0.15)",
+  },
+  {
+    label: "Story reply automation",
+    Icon: Msgs,
+    colors: ["#6366F1", "#4338CA"],
+    bg: "rgba(99, 102, 241, 0.08)",
+    ring: "rgba(99, 102, 241, 0.15)",
+  },
+  {
+    label: "Comment automation",
+    Icon: Sitemap,
+    colors: ["#F97316", "#C2410C"],
+    bg: "rgba(249, 115, 22, 0.08)",
+    ring: "rgba(249, 115, 22, 0.15)",
+  },
+  {
+    label: "No subscription",
+    Icon: MoneyBill,
+    colors: ["#22C55E", "#15803D"],
+    bg: "rgba(34, 197, 94, 0.08)",
+    ring: "rgba(34, 197, 94, 0.15)",
+  },
+  {
+    label: "No branding",
+    Icon: Sparkle,
+    colors: ["#EAB308", "#A16207"],
+    bg: "rgba(234, 179, 8, 0.08)",
+    ring: "rgba(234, 179, 8, 0.15)",
+  },
+  {
+    label: "Analytics",
+    Icon: CircleChartLine,
+    colors: ["#14B8A6", "#0F766E"],
+    bg: "rgba(20, 184, 166, 0.08)",
+    ring: "rgba(20, 184, 166, 0.15)",
+  },
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const featureVariants = {
+  hidden: {
+    opacity: 0,
+    y: 8,
+    filter: "blur(4px)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.4,
+      ease: [0.23, 1, 0.32, 1],
+    },
+  },
+};
 
 const APP_STORE_URL =
   "https://apps.apple.com/in/app/briggo-creators/id6757666181";
@@ -283,36 +375,38 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* Section 3: Features Grid */}
+        {/* Section 3: Included Features */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.3, ease }}
-          className="p-4 rounded-xl border border-gray-100 backdrop-blur-sm bg-white/50 sm:p-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          variants={containerVariants}
+          className="rounded-2xl border border-gray-200/60 bg-white/50 backdrop-blur-sm px-6 py-8 sm:px-10 sm:py-10"
         >
-          <p className="mb-3 text-sm font-semibold tracking-widest text-center text-gray-400 uppercase">
+          <p className="mb-8 text-sm font-semibold tracking-widest text-center text-gray-400 uppercase">
             Included in every plan
           </p>
 
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-3 lg:grid-cols-4 mt-4">
-            {features.map((feat, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 max-w-2xl mx-auto">
+            {features.map((feat) => (
               <motion.div
                 key={feat.label}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  duration: 0.35,
-                  delay: 0.3 + i * 0.03,
-                  ease,
-                }}
-                className="flex gap-2 items-center"
+                variants={featureVariants}
+                whileHover={{ x: 3 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="flex items-center gap-3 py-2 px-3 -mx-3 rounded-lg cursor-default transition-colors hover:bg-gray-50/80"
               >
-                <feat.Icon
-                  size={18}
-                  stopColor1="#575757"
-                  stopColor2="#151515"
-                />
-                <span className="text-sm leading-tight text-gray-600">
+                <div
+                  className="flex shrink-0 items-center justify-center w-8 h-8 rounded-lg"
+                  style={{ backgroundColor: feat.bg }}
+                >
+                  <feat.Icon
+                    size={18}
+                    stopColor1={feat.colors[0]}
+                    stopColor2={feat.colors[1]}
+                  />
+                </div>
+                <span className="text-base font-medium text-gray-700">
                   {feat.label}
                 </span>
               </motion.div>
