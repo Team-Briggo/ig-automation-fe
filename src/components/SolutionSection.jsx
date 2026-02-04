@@ -1,6 +1,6 @@
 "use client";
 
-import { Bot, Clock, Target, Zap } from "lucide-react";
+import { Bolt, Crosshairs, MoneyBill, Msgs } from "nucleo-glass-icons/react";
 import { useId } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -22,7 +22,7 @@ function DotPattern({
       aria-hidden="true"
       className={twMerge(
         "absolute inset-0 w-full h-full pointer-events-none fill-neutral-400/80",
-        className
+        className,
       )}
       {...props}
     >
@@ -46,25 +46,25 @@ function DotPattern({
 
 const cardContents = [
   {
-    icon: Bot,
+    icon: Msgs,
     title: "AI Handles Repetitive Replies",
     description:
       "Smart automation responds to common questions instantly, freeing your time.",
   },
   {
-    icon: Target,
+    icon: Crosshairs,
     title: "Never Miss Important Messages",
     description:
       "Priority inbox highlights what matters, surfaces opportunities automatically.",
   },
   {
-    icon: Zap,
+    icon: MoneyBill,
     title: "Pay Only for What You Use",
     description:
       "Simple pricing that scales with you, no wasted subscriptions.",
   },
   {
-    icon: Clock,
+    icon: Bolt,
     title: "Instant Response Times",
     description:
       "Automated replies keep conversations moving while you focus on creating.",
@@ -77,7 +77,7 @@ const PlusCard = ({ className = "", icon: Icon, title, description }) => {
       className={twMerge(
         "relative p-6 bg-white rounded-lg border border-dashed border-zinc-400 min-h-[200px]",
         "flex flex-col justify-between",
-        className
+        className,
       )}
     >
       {/* Content */}
@@ -151,7 +151,7 @@ export default function SolutionSection() {
       <DotPattern
         className={twMerge(
           "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
-          "opacity-40 dark:opacity-20"
+          "opacity-40 dark:opacity-20",
         )}
       />
       <FeatureCards />

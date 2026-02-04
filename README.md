@@ -496,19 +496,11 @@ Solution Section
 
 Process Section
 
-- Add Meta Verified Badge to First step
-- Add screenshot on every step
-
 Add CTA like zorcha
 
 Footer
 
 - Rethink Content
-
-Pricing Section
-
-- Rethink title "plan"
-- add breakdown of each dm price as per plan [per dm cost]
 
 - Privacy page
 - Contact us form - link with api
@@ -521,31 +513,6 @@ Parallax Effect
 - Add qr code to redirect to play/app store
 
 - https://creator-app.briggo.in/
-
-Want to create a pricing page based on token purchase with 4 plans
-
-rs299 - 40K tokens
-rs199 - 25K tokens
-rs99 - 10K tokens
-rs49 - 4K tokens
-
-note: 1dm=1token, description so also include per dm cost in each plan
-
-features list: all plans include all features
-
-- Trigger on any comment
-- Unlimited custom keywords
-- Unlimited automations
-- Unlimited contacts
-- Ask for follow before dm
-- Dm automation
-- Story reply automation
-- Post and reel comment automation
-- No subscription required
-- No branding
-- analytics
-
-rephrase this tagline: no need to give up on features cause of money
 
 - Create About us page
   content which shows that the website is owned by briggo media tech
