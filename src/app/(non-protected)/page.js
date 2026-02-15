@@ -32,8 +32,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* <Link
-            href="https://apps.apple.com/in/app/briggo-creators/id6757666181"
+          <Link
+            href="https://creator-app.briggo.in/"
             target="_blank"
             rel="noopener noreferrer"
             className="z-10 self-center"
@@ -41,7 +41,7 @@ export default function Home() {
             <Button className="z-10 self-center px-8 py-3 w-max text-xl md:text-3xl">
               Get Started
             </Button>
-          </Link> */}
+          </Link>
 
           <h2 className="mx-auto mt-3 max-w-4xl text-3xl font-bold leading-tight">
             <span className="inline-block relative">

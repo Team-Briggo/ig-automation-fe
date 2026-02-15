@@ -42,15 +42,15 @@ export default function Header() {
           <nav>
             <ul className="flex gap-4 items-center">
               <li>
-                {/* <Link
-                  href="https://apps.apple.com/in/app/briggo-creators/id6757666181"
+                <Link
+                  href="https://creator-app.briggo.in"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button className="w-max text-sm leading-tight md:text-[1rem]">
                     Start Free
                   </Button>
-                </Link> */}
+                </Link>
               </li>
             </ul>
           </nav>

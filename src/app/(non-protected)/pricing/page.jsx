@@ -177,8 +177,7 @@ const featureVariants = {
   },
 };
 
-const APP_STORE_URL =
-  "https://apps.apple.com/in/app/briggo-creators/id6757666181";
+const APP_STORE_URL = "https://creator-app.briggo.in/";
 
 const Pricing = () => {
   return (
@@ -381,23 +380,23 @@ const Pricing = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
           variants={containerVariants}
-          className="rounded-2xl border border-gray-200/60 bg-white/50 backdrop-blur-sm px-6 py-8 sm:px-10 sm:py-10"
+          className="px-6 py-8 rounded-2xl border backdrop-blur-sm border-gray-200/60 bg-white/50 sm:px-10 sm:py-10"
         >
           <p className="mb-8 text-sm font-semibold tracking-widest text-center text-gray-400 uppercase">
             Included in every plan
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 max-w-2xl mx-auto">
+          <div className="grid grid-cols-1 gap-y-1 gap-x-8 mx-auto max-w-2xl sm:grid-cols-2">
             {features.map((feat) => (
               <motion.div
                 key={feat.label}
                 variants={featureVariants}
                 whileHover={{ x: 3 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="flex items-center gap-3 py-2 px-3 -mx-3 rounded-lg cursor-default transition-colors hover:bg-gray-50/80"
+                className="flex gap-3 items-center px-3 py-2 -mx-3 rounded-lg transition-colors cursor-default hover:bg-gray-50/80"
               >
                 <div
-                  className="flex shrink-0 items-center justify-center w-8 h-8 rounded-lg"
+                  className="flex justify-center items-center w-8 h-8 rounded-lg shrink-0"
                   style={{ backgroundColor: feat.bg }}
                 >
                   <feat.Icon
