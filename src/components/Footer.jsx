@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { BiLogoGmail } from "react-icons/bi";
-import { FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaLinkedin,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -44,16 +49,23 @@ const Footer = () => {
           <Link href="/contact">Contact</Link>
         </div>
         <div className="flex gap-6 items-center">
-          <Link href="https://www.instagram.com/briggo.in/">
+          {/* <Link href="https://www.instagram.com/briggo.in/">
             <FaInstagram size={24} className="cursor-pointer text-salt" />
+          </Link> */}
+          <Link
+            href="https://www.linkedin.com/company/briggo-in/"
+            target="_blank"
+          >
+            <FaLinkedinIn size={24} className="cursor-pointer text-salt" />
           </Link>
           <span className="text-sm text-salt/50">|</span>
           {/* <Link href="https://www.youtube.com/@BriggoSocial">
             <FaYoutube size={24} className="cursor-pointer text-salt" />
           </Link> */}
           <Link
-            href="mailto:briggo.social@gmail.com"
+            href="mailto:support@briggo.in"
             className="cursor-pointer text-salt"
+            target="_blank"
           >
             <BiLogoGmail size={24} />
           </Link>
