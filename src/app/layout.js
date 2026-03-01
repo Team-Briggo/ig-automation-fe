@@ -29,7 +29,7 @@ export const metadata = {
     siteName: "Briggo",
     images: [
       {
-        url: "https://briggo.in/lightLogo.png",
+        url: "https://briggo.in/logo.png",
         width: 1200,
         height: 630,
         alt: "Briggo Instagram Automation Tool",
@@ -44,7 +44,7 @@ export const metadata = {
     title: "Briggo | Instagram Automation Tool – Pay As You Go DM Automation",
     description:
       "Pay-as-you-go Instagram automation for DMs, comments & story replies. No subscriptions. Start with 1000 free tokens.",
-    images: ["https://briggo.in/lightLogo.png"],
+    images: ["https://briggo.in/logo.png"],
   },
 
   robots: {
@@ -104,7 +104,7 @@ export default function RootLayout({ children }) {
               "@type": "Organization",
               name: "Briggo",
               url: "https://briggo.in",
-              logo: "https://briggo.in/lightLogo.png",
+              logo: "https://briggo.in/logo.png",
               description:
                 "Briggo is a pay-as-you-go Instagram automation platform offering DM automation, comment automation, story replies, keyword triggers, and analytics.",
               sameAs: [
