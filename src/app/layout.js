@@ -8,9 +8,9 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Briggo | Instagram Automation Tool – Pay As You Go DM Automation",
+  title: "Briggo – Instagram DM & Comment Automation | Pay-As-You-Grow Tool",
   description:
-    "Briggo is a pay-as-you-go Instagram automation tool for DM automation, comment automation, story replies & keyword triggers. No subscriptions. 1 token = 1 DM. Get 1000 free tokens and earn 500 tokens per referral.",
+    "Automate Instagram DMs, comments & story replies with Briggo — pay only for engagement you get. Free 1000 tokens!",
 
   keywords: [
     "Instagram automation tool",
@@ -22,9 +22,9 @@ export const metadata = {
   ],
 
   openGraph: {
-    title: "Briggo | Instagram Automation Tool – Pay As You Go DM Automation",
+    title: "Briggo – Instagram DM & Comment Automation | Pay-As-You-Grow Tool",
     description:
-      "Automate Instagram DMs, comments & story replies with Briggo. Pay only when you use—no subscriptions. 1 token = 1 DM. Get 1000 free tokens to start.",
+      "Automate Instagram DMs, comments & story replies with Briggo — pay only for engagement you get. Free 1000 tokens!",
     url: "https://briggo.in",
     siteName: "Briggo",
     images: [
@@ -41,9 +41,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Briggo | Instagram Automation Tool – Pay As You Go DM Automation",
+    title: "Briggo – Instagram DM & Comment Automation | Pay-As-You-Grow Tool",
     description:
-      "Pay-as-you-go Instagram automation for DMs, comments & story replies. No subscriptions. Start with 1000 free tokens.",
+      "Automate Instagram DMs, comments & story replies with Briggo — pay only for engagement you get. Free 1000 tokens!",
     images: ["https://briggo.in/logo.png"],
   },
 
